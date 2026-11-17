@@ -74,3 +74,6 @@ Then run `uv run pytest`. Every generator is checked with 50 seeds at every leve
 `uv run pytest`. Set `LC_SKIP_GPU_LABS=1` to skip the GPU lab checks, or `LC_SEEDS=10` for a faster generator sweep.
 
 The solutions in `labs/solutions/` are reference answers. Don't open them until you've tried the lab.
+
+## License
+MIT, see `LICENSE`. This covers the code and the original content in this repo. Third-party material keeps its own terms: KaTeX (MIT), htmx (BSD-2), TinyShakespeare (public domain), and the PDFs that `scripts/fetch_library.py` downloads (see `library/RESOURCES.md`).
