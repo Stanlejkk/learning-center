@@ -1,0 +1,493 @@
+# Verified readings for every skill in content/tracks/*.yaml.
+# Every URL below was fetched and checked (HTTP 200 + on-topic title/content) on 2026-11-17.
+# Fields: title, url, inst, kind (lecture|notes|book|video|paper|repo|interactive), minutes,
+#         optional local (path of an offline copy under library/pdfs/, relative to repo root).
+# Chapter numbers for books refer to the edition hosted at the URL (see library/RESOURCES.md).
+
+# ---------------------------------------------------------------- 0 · Foundations
+found.fractions:
+  - {title: "OpenStax Prealgebra 2e §4.1: Visualize Fractions", url: "https://openstax.org/books/prealgebra-2e/pages/4-1-visualize-fractions", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "OpenStax Prealgebra 2e §4.5: Add and Subtract Fractions with Different Denominators", url: "https://openstax.org/books/prealgebra-2e/pages/4-5-add-and-subtract-fractions-with-different-denominators", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+found.exponents:
+  - {title: "OpenStax College Algebra 2e §1.2: Exponents and Scientific Notation", url: "https://openstax.org/books/college-algebra-2e/pages/1-2-exponents-and-scientific-notation", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "OpenStax College Algebra 2e §6.1: Exponential Functions", url: "https://openstax.org/books/college-algebra-2e/pages/6-1-exponential-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+found.linear_eq:
+  - {title: "OpenStax College Algebra 2e §2.2: Linear Equations in One Variable", url: "https://openstax.org/books/college-algebra-2e/pages/2-2-linear-equations-in-one-variable", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "OpenStax College Algebra 2e §7.1: Systems of Linear Equations: Two Variables", url: "https://openstax.org/books/college-algebra-2e/pages/7-1-systems-of-linear-equations-two-variables", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+found.polynomials:
+  - {title: "OpenStax College Algebra 2e §1.4: Polynomials", url: "https://openstax.org/books/college-algebra-2e/pages/1-4-polynomials", inst: "Rice University (OpenStax)", kind: "book", minutes: 25}
+  - {title: "OpenStax College Algebra 2e §1.5: Factoring Polynomials", url: "https://openstax.org/books/college-algebra-2e/pages/1-5-factoring-polynomials", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "OpenStax College Algebra 2e §5.3: Graphs of Polynomial Functions", url: "https://openstax.org/books/college-algebra-2e/pages/5-3-graphs-of-polynomial-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+found.quadratics:
+  - {title: "OpenStax College Algebra 2e §2.5: Quadratic Equations", url: "https://openstax.org/books/college-algebra-2e/pages/2-5-quadratic-equations", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "OpenStax College Algebra 2e §5.1: Quadratic Functions", url: "https://openstax.org/books/college-algebra-2e/pages/5-1-quadratic-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+found.functions:
+  - {title: "OpenStax College Algebra 2e §3.1: Functions and Function Notation", url: "https://openstax.org/books/college-algebra-2e/pages/3-1-functions-and-function-notation", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "OpenStax College Algebra 2e §3.5: Transformation of Functions", url: "https://openstax.org/books/college-algebra-2e/pages/3-5-transformation-of-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "OpenStax College Algebra 2e §3.7: Inverse Functions", url: "https://openstax.org/books/college-algebra-2e/pages/3-7-inverse-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 25}
+found.logs:
+  - {title: "OpenStax College Algebra 2e §6.3: Logarithmic Functions", url: "https://openstax.org/books/college-algebra-2e/pages/6-3-logarithmic-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "OpenStax College Algebra 2e §6.5: Logarithmic Properties", url: "https://openstax.org/books/college-algebra-2e/pages/6-5-logarithmic-properties", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "MIT 18.01SC Session 17: The Exponential Function, its Derivative, and its Inverse", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-b-implicit-differentiation-and-inverse-functions/session-17-the-exponential-function-its-derivative-and-its-inverse/", inst: "MIT", kind: "lecture", minutes: 40}
+found.trig:
+  - {title: "OpenStax Precalculus 2e §5.2: Unit Circle — Sine and Cosine Functions", url: "https://openstax.org/books/precalculus-2e/pages/5-2-unit-circle-sine-and-cosine-functions", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "OpenStax Precalculus 2e §5.4: Right Triangle Trigonometry", url: "https://openstax.org/books/precalculus-2e/pages/5-4-right-triangle-trigonometry", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "OpenStax Precalculus 2e §7.1: Simplifying and Verifying Trigonometric Identities", url: "https://openstax.org/books/precalculus-2e/pages/7-1-solving-trigonometric-equations-with-identities", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+found.sums:
+  - {title: "OpenStax College Algebra 2e §9.4: Series and Their Notations", url: "https://openstax.org/books/college-algebra-2e/pages/9-4-series-and-their-notations", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "MIT 6.042J Lecture 12: Sums (Leighton)", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/resources/lecture-12-sums/", inst: "MIT", kind: "video", minutes: 80}
+  - {title: "Mathematics for Computer Science (Lehman, Leighton, Meyer) Ch. 13: Sums and Asymptotics", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/resources/mit6_042js15_textbook_pdf/", inst: "MIT", kind: "book", minutes: 90, local: "library/pdfs/mit_6042_mcs.pdf"}
+found.induction:
+  - {title: "MIT 6.042J Lecture 2: Induction", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/resources/lecture-2-induction/", inst: "MIT", kind: "video", minutes: 80}
+  - {title: "MIT 6.042J Lecture 3: Strong Induction", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/resources/lecture-3-strong-induction/", inst: "MIT", kind: "video", minutes: 80}
+  - {title: "Mathematics for Computer Science Ch. 5: Induction", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/resources/mit6_042js15_textbook_pdf/", inst: "MIT", kind: "book", minutes: 90, local: "library/pdfs/mit_6042_mcs.pdf"}
+found.complex:
+  - {title: "OpenStax College Algebra 2e §2.4: Complex Numbers", url: "https://openstax.org/books/college-algebra-2e/pages/2-4-complex-numbers", inst: "Rice University (OpenStax)", kind: "book", minutes: 30}
+  - {title: "OpenStax Precalculus 2e §8.5: Polar Form of Complex Numbers", url: "https://openstax.org/books/precalculus-2e/pages/8-5-polar-form-of-complex-numbers", inst: "Rice University (OpenStax)", kind: "book", minutes: 35}
+  - {title: "MIT 18.03SC: Complex Arithmetic and Exponentials (e^{iθ})", url: "https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/pages/unit-i-first-order-differential-equations/complex-arithmetic-and-exponentials/", inst: "MIT", kind: "lecture", minutes: 50}
+
+# ---------------------------------------------------------------- 1 · Calculus
+calc.limits:
+  - {title: "MIT 18.01SC Session 4: Limits and Continuity", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-4-limits-and-continuity/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.01SC Session 5: Discontinuity", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-5-discontinuity/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "3Blue1Brown — Limits and the definition of derivatives", url: "https://www.3blue1brown.com/lessons/limits", inst: "3Blue1Brown", kind: "video", minutes: 20}
+calc.derivative_rules:
+  - {title: "MIT 18.01SC Session 1: Introduction to Derivatives", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-1-introduction-to-derivatives/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.01SC Session 9: Product Rule", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-9-product-rule/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "MIT 18.01SC Session 10: Quotient Rule", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-10-quotient-rule/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "3Blue1Brown — The paradox of the derivative", url: "https://www.3blue1brown.com/lessons/derivatives", inst: "3Blue1Brown", kind: "video", minutes: 17}
+calc.chain_rule:
+  - {title: "MIT 18.01SC Session 11: Chain Rule", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-11-chain-rule/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "3Blue1Brown — Visualizing the chain rule and product rule", url: "https://www.3blue1brown.com/lessons/chain-rule-and-product-rule", inst: "3Blue1Brown", kind: "video", minutes: 16}
+calc.transcendental_deriv:
+  - {title: "MIT 18.01SC Session 7: Derivatives of Sine and Cosine", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-a-definition-and-basic-rules/session-7-derivatives-of-sine-and-cosine/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.01SC Session 16: The Derivative of a^x", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-b-implicit-differentiation-and-inverse-functions/session-16-the-derivative-of-a-x/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "MIT 18.01SC Session 17: The Exponential Function, its Derivative, and its Inverse", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/1.-differentiation/part-b-implicit-differentiation-and-inverse-functions/session-17-the-exponential-function-its-derivative-and-its-inverse/", inst: "MIT", kind: "lecture", minutes: 40}
+calc.applications:
+  - {title: "MIT 18.01SC Session 23: Linear Approximation", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-23-linear-approximation/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.01SC Session 29: Optimization Problems", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-29-optimization-problems/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.01SC Session 30: Optimization Problems II", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-30-optimization-problems-ii/", inst: "MIT", kind: "lecture", minutes: 35}
+calc.integrals_basic:
+  - {title: "MIT 18.01SC Session 37: Antiderivatives", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-c-mean-value-theorem-antiderivatives-and-differential-equations/session-37-antiderivatives/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "MIT 18.01SC Session 43: Definite Integrals", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-43-definite-integrals/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.01SC Session 48: The Fundamental Theorem of Calculus", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-48-the-fundamental-theorem-of-calculus/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "3Blue1Brown — Integration and the fundamental theorem of calculus", url: "https://www.3blue1brown.com/lessons/integration", inst: "3Blue1Brown", kind: "video", minutes: 20}
+calc.integration_techniques:
+  - {title: "MIT 18.01SC Session 38: Integration by Substitution", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-c-mean-value-theorem-antiderivatives-and-differential-equations/session-38-integration-by-substitution/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.01SC Session 76: Integration by Parts", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-76-integration-by-parts/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.01SC Session 74: Integration by Partial Fractions", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-74-integration-by-partial-fractions/", inst: "MIT", kind: "lecture", minutes: 35}
+calc.series_taylor:
+  - {title: "MIT 18.01SC Session 94: Infinite Series", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-b-taylor-series/session-94-infinite-series/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.01SC Session 98: Taylor's Series", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-b-taylor-series/session-98-taylors-series/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "3Blue1Brown — Taylor series", url: "https://www.3blue1brown.com/lessons/taylor-series", inst: "3Blue1Brown", kind: "video", minutes: 22}
+calc.partial_derivatives:
+  - {title: "MIT 18.02SC Session 26: Partial Derivatives", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-a-functions-of-two-variables-tangent-approximation-and-optimization/session-26-partial-derivatives/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.02SC Session 27: Approximation Formula (tangent plane)", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-a-functions-of-two-variables-tangent-approximation-and-optimization/session-27-approximation-formula/", inst: "MIT", kind: "lecture", minutes: 30}
+calc.gradient:
+  - {title: "MIT 18.02SC Session 35: Gradient — Definition, Perpendicular to Level Curves", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-b-chain-rule-gradient-and-directional-derivatives/session-35-gradient-definition-perpendicular-to-level-curves/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.02SC Session 38: Directional Derivatives", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-b-chain-rule-gradient-and-directional-derivatives/session-38-directional-derivatives/", inst: "MIT", kind: "lecture", minutes: 35}
+calc.multivar_chain:
+  - {title: "MIT 18.02SC Session 32: Total Differentials and the Chain Rule", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-b-chain-rule-gradient-and-directional-derivatives/session-32-total-differentials-and-the-chain-rule/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.02SC Session 34: The Chain Rule with More Variables", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-b-chain-rule-gradient-and-directional-derivatives/session-34-the-chain-rule-with-more-variables/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "Bright, Edelman & Johnson — Matrix Calculus (for Machine Learning and Beyond), MIT 18.S096 notes, Ch. 2 (derivatives as linear operators, chain rule)", url: "https://arxiv.org/abs/2501.14787", inst: "MIT", kind: "notes", minutes: 90}
+calc.hessian:
+  - {title: "MIT 18.01SC Session 25: Introduction to Quadratic Approximation", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-a-approximation-and-curve-sketching/session-25-introduction-to-quadratic-appoximation/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "MIT 18.02SC Session 30: Second Derivative Test", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-a-functions-of-two-variables-tangent-approximation-and-optimization/session-30-second-derivative-test/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.06SC Lecture 28: Positive Definite Matrices and Minima", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/positive-definite-matrices-and-minima/", inst: "MIT", kind: "lecture", minutes: 50}
+calc.multiple_integrals:
+  - {title: "MIT 18.02SC Session 47: Definition of Double Integration", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/3.-double-integrals-and-line-integrals-in-the-plane/part-a-double-integrals/session-47-definition-of-double-integration/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.02SC Session 49: Exchanging the Order of Integration", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/3.-double-integrals-and-line-integrals-in-the-plane/part-a-double-integrals/session-49-exchanging-the-order-of-integration/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "MIT 18.02SC Session 50: Double Integrals in Polar Coordinates", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/3.-double-integrals-and-line-integrals-in-the-plane/part-a-double-integrals/session-50-double-integrals-in-polar-coordinates/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "MIT 18.02SC Session 53: Change of Variables (Jacobian determinant)", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/3.-double-integrals-and-line-integrals-in-the-plane/part-a-double-integrals/session-53-change-of-variables/", inst: "MIT", kind: "lecture", minutes: 40}
+
+# ---------------------------------------------------------------- 2 · Linear algebra
+la.vectors:
+  - {title: "MIT 18.02SC Session 1: Vectors", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/1.-vectors-and-matrices/part-a-vectors-determinants-and-planes/session-1-vectors/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.02SC Session 2: Dot Products", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/1.-vectors-and-matrices/part-a-vectors-determinants-and-planes/session-2-dot-products/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "3Blue1Brown — Vectors, what even are they?", url: "https://www.3blue1brown.com/lessons/vectors", inst: "3Blue1Brown", kind: "video", minutes: 10}
+  - {title: "3Blue1Brown — Dot products and duality", url: "https://www.3blue1brown.com/lessons/dot-products", inst: "3Blue1Brown", kind: "video", minutes: 14}
+la.matmul:
+  - {title: "MIT 18.06SC Lecture 3: Multiplication and Inverse Matrices", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/multiplication-and-inverse-matrices/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.065 Lecture 1: The Column Space of A Contains All Vectors Ax", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-1-the-column-space-of-a-contains-all-vectors-ax/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "3Blue1Brown — Linear transformations and matrices", url: "https://www.3blue1brown.com/lessons/linear-transformations", inst: "3Blue1Brown", kind: "video", minutes: 11}
+  - {title: "3Blue1Brown — Matrix multiplication as composition", url: "https://www.3blue1brown.com/lessons/matrix-multiplication", inst: "3Blue1Brown", kind: "video", minutes: 10}
+la.linear_systems:
+  - {title: "MIT 18.06SC Lecture 1: The Geometry of Linear Equations", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/the-geometry-of-linear-equations/", inst: "MIT", kind: "lecture", minutes: 40}
+  - {title: "MIT 18.06SC Lecture 2: Elimination with Matrices", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/elimination-with-matrices/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 4: Factorization into A = LU", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/factorization-into-a-lu/", inst: "MIT", kind: "lecture", minutes: 50}
+la.inverse_det:
+  - {title: "MIT 18.06SC Lecture 18: Properties of Determinants", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/properties-of-determinants/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 20: Cramer's Rule, Inverse Matrix, and Volume", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/cramers-rule-inverse-matrix-and-volume/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "3Blue1Brown — The determinant", url: "https://www.3blue1brown.com/lessons/determinant", inst: "3Blue1Brown", kind: "video", minutes: 10}
+  - {title: "3Blue1Brown — Inverse matrices, column space, and null space", url: "https://www.3blue1brown.com/lessons/inverse-matrices", inst: "3Blue1Brown", kind: "video", minutes: 12}
+la.subspaces:
+  - {title: "MIT 18.06SC Lecture 6: Column Space and Nullspace", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/column-space-and-nullspace/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 9: Independence, Basis, and Dimension", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/independence-basis-and-dimension/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 10: The Four Fundamental Subspaces", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/the-four-fundamental-subspaces/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "3Blue1Brown — Linear combinations, span, and basis vectors", url: "https://www.3blue1brown.com/lessons/span", inst: "3Blue1Brown", kind: "video", minutes: 10}
+la.orthogonality:
+  - {title: "MIT 18.06SC Lecture 14: Orthogonal Vectors and Subspaces", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/orthogonal-vectors-and-subspaces/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 15: Projections onto Subspaces", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/projections-onto-subspaces/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 17: Orthogonal Matrices and Gram-Schmidt", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/orthogonal-matrices-and-gram-schmidt/", inst: "MIT", kind: "lecture", minutes: 50}
+la.eigen:
+  - {title: "MIT 18.06SC Lecture 21: Eigenvalues and Eigenvectors", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/eigenvalues-and-eigenvectors/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "3Blue1Brown — Eigenvectors and eigenvalues", url: "https://www.3blue1brown.com/lessons/eigenvalues", inst: "3Blue1Brown", kind: "video", minutes: 17}
+  - {title: "MIT 18.065 Lecture 4: Eigenvalues and Eigenvectors", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-4-eigenvalues-and-eigenvectors/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "Daniel Hsu — Notes on eigenvectors (Columbia)", url: "https://www.cs.columbia.edu/~djhsu/CLA/notes/eigenvectors.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+la.diagonalization:
+  - {title: "MIT 18.06SC Lecture 22: Diagonalization and Powers of A", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/diagonalization-and-powers-of-a/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 25: Symmetric Matrices and Positive Definiteness", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/symmetric-matrices-and-positive-definiteness/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "3Blue1Brown — Change of basis", url: "https://www.3blue1brown.com/lessons/change-of-basis", inst: "3Blue1Brown", kind: "video", minutes: 13}
+la.svd:
+  - {title: "MIT 18.06SC Lecture 29: Singular Value Decomposition", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/singular-value-decomposition/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.065 Lecture 6: Singular Value Decomposition (SVD)", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-6-singular-value-decomposition-svd/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "Daniel Hsu — Notes on the SVD (Columbia)", url: "https://www.cs.columbia.edu/~djhsu/CLA/notes/svd.pdf", inst: "Columbia", kind: "notes", minutes: 45}
+la.pca:
+  - {title: "MIT 18.065 Lecture 7: Eckart-Young — The Closest Rank k Matrix to A", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-7-eckart-young-the-closest-rank-k-matrix-to-a/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "Stanford CS229 main notes — Principal components analysis chapter", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Daniel Hsu — COMS 4771 handout: Correlation analysis (PCA via SVD)", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/svd-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+la.matrix_calculus:
+  - {title: "Bright, Edelman & Johnson — Matrix Calculus (for Machine Learning and Beyond), MIT 18.S096 notes", url: "https://arxiv.org/abs/2501.14787", inst: "MIT", kind: "notes", minutes: 120}
+  - {title: "MIT 18.S096 (IAP 2023): Matrix Calculus for Machine Learning and Beyond — lectures", url: "https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-january-iap-2023/", inst: "MIT", kind: "lecture", minutes: 120}
+  - {title: "Stanford CS231n handout: Vector, Matrix, and Tensor Derivatives (Erik Learned-Miller)", url: "http://cs231n.stanford.edu/handouts/derivatives.pdf", inst: "Stanford", kind: "notes", minutes: 30}
+la.complex_inner:
+  - {title: "MIT 18.06SC Lecture 26: Complex Matrices; Fast Fourier Transform (Hermitian & unitary)", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/complex-matrices-fast-fourier-transform-fft/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "IBM Quantum Learning (Watrous) — Inner products and projections", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/quantum-circuits/inner-products-and-projections", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "Ronald de Wolf — Quantum Computing: Lecture Notes, Appendix A (linear algebra & Dirac notation)", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 40, local: "library/pdfs/dewolf_qc_notes.pdf"}
+
+# ---------------------------------------------------------------- 3 · Probability & statistics
+prob.counting:
+  - {title: "Harvard Stat 110 Lecture 1: Probability and Counting (Blitzstein)", url: "https://www.youtube.com/watch?v=KbB0FjPg0mw", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 18.05 Class 1b Reading: Counting and Sets", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class01-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 6.042J Lecture 16: Counting Rules I", url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/resources/lecture-16-counting-rules-i/", inst: "MIT", kind: "video", minutes: 80}
+  - {title: "Blitzstein & Hwang, Introduction to Probability (2e) Ch. 1: Probability and counting — free online edition", url: "https://probabilitybook.net", inst: "Harvard", kind: "book", minutes: 120}
+prob.axioms:
+  - {title: "Harvard Stat 110 Lecture 2: Story Proofs, Axioms of Probability", url: "https://www.youtube.com/watch?v=FJd_1H3rZGg", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 6.041SC Lecture 1: Probability Models and Axioms", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-i/lecture-1/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.05 Class 2 Reading: Probability — Terminology and Examples", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class02-prep_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "Seeing Theory — Basic Probability (interactive)", url: "https://seeing-theory.brown.edu/basic-probability/index.html", inst: "Brown", kind: "interactive", minutes: 20}
+prob.conditional_bayes:
+  - {title: "Harvard Stat 110 Lecture 4: Conditional Probability", url: "https://www.youtube.com/watch?v=P7NE4WF8j-Q", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 6.041SC Lecture 2: Conditioning and Bayes' Rule", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-i/lecture-2/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.05 Class 3 Reading: Conditional Probability, Independence, Bayes' Theorem", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class03-prep_pdf/", inst: "MIT", kind: "notes", minutes: 45}
+  - {title: "3Blue1Brown — Bayes' theorem", url: "https://www.3blue1brown.com/lessons/bayes-theorem", inst: "3Blue1Brown", kind: "video", minutes: 15}
+prob.discrete_rv:
+  - {title: "Harvard Stat 110 Lecture 8: Random Variables and Their Distributions", url: "https://www.youtube.com/watch?v=k2BB0p8byGA", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "Harvard Stat 110 Lecture 11: The Poisson Distribution", url: "https://www.youtube.com/watch?v=TD1N4hxqMzY", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 18.05 Class 4a Reading: Discrete Random Variables", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class04-prep-a_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 6.041SC Lecture 5: Discrete Random Variables; PMFs; Expectations", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-i/lecture-5/", inst: "MIT", kind: "lecture", minutes: 50}
+prob.expectation_variance:
+  - {title: "Harvard Stat 110 Lecture 9: Expectation, Indicator Random Variables, Linearity", url: "https://www.youtube.com/watch?v=LX2q356N2rU", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 18.05 Class 4b Reading: Expected Value of Discrete Random Variables", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class04-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 35}
+  - {title: "MIT 18.05 Class 5a Reading: Variance of Discrete Random Variables", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class05-prep-a_pdf/", inst: "MIT", kind: "notes", minutes: 35}
+prob.continuous_rv:
+  - {title: "Harvard Stat 110 Lecture 13: Normal Distribution", url: "https://www.youtube.com/watch?v=72QjzHnYvL0", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "Harvard Stat 110 Lecture 16: Exponential Distribution", url: "https://www.youtube.com/watch?v=bM6nFDjvEns", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 18.05 Class 5b Reading: Continuous Random Variables", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class05-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 18.05 Class 5c Reading: Gallery of Continuous Random Variables", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class05-prep-c_pdf/", inst: "MIT", kind: "notes", minutes: 30}
+prob.joint_covariance:
+  - {title: "Harvard Stat 110 Lecture 21: Covariance and Correlation", url: "https://www.youtube.com/watch?v=IujCYxtpszU", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 18.05 Class 7a Reading: Joint Distributions, Independence", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class07-prep-a_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 18.05 Class 7b Reading: Covariance and Correlation", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class07-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 35}
+  - {title: "MIT 6.041SC Lecture 11: Derived Distributions; Convolution; Covariance and Correlation", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-ii/lecture-11/", inst: "MIT", kind: "lecture", minutes: 50}
+prob.lln_clt:
+  - {title: "Harvard Stat 110 Lecture 29: Law of Large Numbers and Central Limit Theorem", url: "https://www.youtube.com/watch?v=OprNqnHsVIA", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 6.041SC Lecture 20: Central Limit Theorem", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-iv/lecture-20/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.05 Class 6b Reading: Central Limit Theorem", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class06-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "3Blue1Brown — But what is the Central Limit Theorem?", url: "https://www.3blue1brown.com/lessons/clt", inst: "3Blue1Brown", kind: "video", minutes: 31}
+prob.mle:
+  - {title: "MIT 18.05 Class 10b Reading: Maximum Likelihood Estimates", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class10-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "Cornell CS4780 Lecture 4: Estimating Probabilities from Data (MLE & MAP) — Weinberger", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote04.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "MIT 6.041SC Lecture 23: Classical Statistical Inference I", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-iv/lecture-23/", inst: "MIT", kind: "lecture", minutes: 50}
+prob.bayesian_inference:
+  - {title: "MIT 18.05 Class 11 Reading: Bayesian Updating with Discrete Priors", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class11-prep_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 18.05 Class 15 Reading: Conjugate Priors — Beta and Normal", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class15-prep_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 6.041SC Lecture 21: Bayesian Statistical Inference I", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-iv/lecture-21/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "Seeing Theory — Bayesian Inference (interactive)", url: "https://seeing-theory.brown.edu/bayesian-inference/index.html", inst: "Brown", kind: "interactive", minutes: 20}
+prob.hypothesis_ci:
+  - {title: "MIT 18.05 Class 17b Reading: Null Hypothesis Significance Testing I", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class17-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 18.05 Class 22 Reading: Confidence Intervals Based on Normal Data", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class22-prep_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+  - {title: "MIT 18.05 Class 24 Reading: Bootstrap Confidence Intervals", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class24-prep_pdf/", inst: "MIT", kind: "notes", minutes: 35}
+  - {title: "Seeing Theory — Frequentist Inference (interactive)", url: "https://seeing-theory.brown.edu/frequentist-inference/index.html", inst: "Brown", kind: "interactive", minutes: 20}
+prob.multivariate_gaussian:
+  - {title: "Harvard Stat 110 Lecture 30: Chi-Square, Student-t, Multivariate Normal", url: "https://www.youtube.com/watch?v=MF-XSJOsGqw", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "Daniel Hsu — Notes on the bivariate normal distribution (Columbia)", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/bivariate.pdf", inst: "Columbia", kind: "notes", minutes: 30}
+  - {title: "Stanford CS229 main notes — Generative learning algorithms (multivariate normal, GDA)", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+prob.markov_chains:
+  - {title: "Harvard Stat 110 Lecture 31: Markov Chains", url: "https://www.youtube.com/watch?v=8AJPs3gvNlY", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "Harvard Stat 110 Lecture 32: Markov Chains Continued (stationary distributions)", url: "https://www.youtube.com/watch?v=aBGOyZv2pZE", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 6.041SC Lecture 16: Markov Chains I", url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/pages/unit-iii/lecture-16/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.06SC Lecture 24: Markov Matrices; Fourier Series", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/markov-matrices-fourier-series/", inst: "MIT", kind: "lecture", minutes: 50}
+
+# ---------------------------------------------------------------- 4 · Optimization
+opt.convexity:
+  - {title: "Boyd & Vandenberghe, Convex Optimization Ch. 2: Convex sets", url: "https://web.stanford.edu/~boyd/cvxbook/", inst: "Stanford", kind: "book", minutes: 120, local: "library/pdfs/boyd_convex_optimization.pdf"}
+  - {title: "Boyd & Vandenberghe, Convex Optimization Ch. 3: Convex functions (§3.1 first/second-order conditions)", url: "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf", inst: "Stanford", kind: "book", minutes: 120, local: "library/pdfs/boyd_convex_optimization.pdf"}
+  - {title: "MIT 18.065 Lecture 5: Positive Definite and Semidefinite Matrices (convexity via the Hessian)", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-5-positive-definite-and-semidefinite-matrices/", inst: "MIT", kind: "video", minutes: 50}
+opt.gradient_descent:
+  - {title: "MIT 18.065 Lecture 22: Gradient Descent — Downhill to a Minimum", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-22-gradient-descent-downhill-to-a-minimum/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "Cornell CS4780 Lecture 7: Gradient Descent (and Newton's method) — Weinberger", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote07.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Daniel Hsu — Notes on gradient descent (Columbia COMS 4771)", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/gd.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+  - {title: "3Blue1Brown — Gradient descent, how neural networks learn", url: "https://www.3blue1brown.com/lessons/gradient-descent", inst: "3Blue1Brown", kind: "video", minutes: 20}
+opt.conditioning:
+  - {title: "Boyd & Vandenberghe Ch. 9 §9.3: Gradient descent method & condition number analysis", url: "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf", inst: "Stanford", kind: "book", minutes: 60, local: "library/pdfs/boyd_convex_optimization.pdf"}
+  - {title: "Gabriel Goh — Why Momentum Really Works (Distill)", url: "https://distill.pub/2017/momentum/", inst: "Distill", kind: "interactive", minutes: 45}
+  - {title: "Daniel Hsu — Notes on gradient descent: smoothness, conditioning, convergence (Columbia)", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/gd.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+opt.least_squares:
+  - {title: "MIT 18.06SC Lecture 16: Projection Matrices and Least Squares", url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/projection-matrices-and-least-squares/", inst: "MIT", kind: "lecture", minutes: 50}
+  - {title: "MIT 18.065 Lecture 9: Four Ways to Solve Least Squares Problems", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-9-four-ways-to-solve-least-squares-problems/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "MIT 18.02SC Session 29: Least Squares", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-a-functions-of-two-variables-tangent-approximation-and-optimization/session-29-least-squares/", inst: "MIT", kind: "lecture", minutes: 30}
+opt.lagrange:
+  - {title: "MIT 18.02SC Session 39: Statement of Lagrange Multipliers and Example", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-c-lagrange-multipliers-and-constrained-differentials/session-39-statement-of-lagrange-multipliers-and-example/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.02SC Session 40: Proof of Lagrange Multipliers", url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/pages/2.-partial-derivatives/part-c-lagrange-multipliers-and-constrained-differentials/session-40-proof-of-lagrange-multipliers/", inst: "MIT", kind: "lecture", minutes: 30}
+  - {title: "Boyd & Vandenberghe Ch. 5: Duality (Lagrangian, KKT conditions)", url: "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf", inst: "Stanford", kind: "book", minutes: 120, local: "library/pdfs/boyd_convex_optimization.pdf"}
+opt.newton:
+  - {title: "MIT 18.01SC Session 33: Newton's Method", url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-2-applications-of-differentiation/part-b-optimization-related-rates-and-newtons-method/session-33-newtons-method/", inst: "MIT", kind: "lecture", minutes: 35}
+  - {title: "MIT 18.065 Lecture 21: Minimizing a Function Step by Step (Newton vs. gradient)", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-21-minimizing-a-function-step-by-step/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "Boyd & Vandenberghe Ch. 9 §9.5: Newton's method", url: "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf", inst: "Stanford", kind: "book", minutes: 60, local: "library/pdfs/boyd_convex_optimization.pdf"}
+opt.sgd_momentum:
+  - {title: "MIT 18.065 Lecture 25: Stochastic Gradient Descent", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-25-stochastic-gradient-descent/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "MIT 18.065 Lecture 23: Accelerating Gradient Descent (Use Momentum)", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-23-accelerating-gradient-descent-use-momentum/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "Gabriel Goh — Why Momentum Really Works (Distill)", url: "https://distill.pub/2017/momentum/", inst: "Distill", kind: "interactive", minutes: 45}
+opt.adam:
+  - {title: "Kingma & Ba (2014) — Adam: A Method for Stochastic Optimization", url: "https://arxiv.org/abs/1412.6980", inst: "Univ. of Amsterdam / Univ. of Toronto", kind: "paper", minutes: 60, local: "library/pdfs/adam.pdf"}
+  - {title: "Loshchilov & Hutter (2017) — Decoupled Weight Decay Regularization (AdamW)", url: "https://arxiv.org/abs/1711.05101", inst: "Univ. of Freiburg", kind: "paper", minutes: 45}
+  - {title: "Stanford CS231n notes — Neural Networks Part 3: parameter updates (momentum, RMSProp, Adam)", url: "https://cs231n.github.io/neural-networks-3/", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Sebastian Ruder — An overview of gradient descent optimization algorithms", url: "https://arxiv.org/abs/1609.04747", inst: "Insight Centre / Aylien", kind: "paper", minutes: 40}
+opt.regularization:
+  - {title: "Cornell CS4780 Lecture 10: Empirical Risk Minimization (losses & l1/l2 regularizers)", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote10.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Daniel Hsu — COMS 4771 handout: Regularization (ridge, lasso)", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/reg-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+  - {title: "Stanford CS229 main notes — Regularization and model selection chapter", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+
+# ---------------------------------------------------------------- 5 · Information theory & data
+info.entropy:
+  - {title: "MacKay, Information Theory, Inference, and Learning Algorithms Ch. 2: Probability, Entropy, and Inference", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 90, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "Shannon (1948) — A Mathematical Theory of Communication, Part I §6: Choice, Uncertainty and Entropy", url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf", inst: "Bell Labs (hosted by Harvard Math)", kind: "paper", minutes: 45}
+  - {title: "MIT 6.050J Information and Entropy — course textbook (Penfield), chapters on bits & entropy", url: "https://ocw.mit.edu/courses/6-050j-information-and-entropy-spring-2008/resources/mit6_050j_s08-_coursetextbook_pdf/", inst: "MIT", kind: "book", minutes: 60, local: "library/pdfs/mit_6050j_info_entropy.pdf"}
+  - {title: "3Blue1Brown — Solving Wordle using information theory", url: "https://www.3blue1brown.com/lessons/wordle", inst: "3Blue1Brown", kind: "video", minutes: 30}
+info.joint_conditional:
+  - {title: "MacKay ITILA Ch. 8: Dependent Random Variables (joint & conditional entropy)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "Shannon (1948) — §6 properties of H(x,y), H_x(y) (conditional entropy)", url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf", inst: "Bell Labs (hosted by Harvard Math)", kind: "paper", minutes: 30}
+info.kl_divergence:
+  - {title: "MacKay ITILA Ch. 2 §2.6–2.7: Gibbs' inequality and relative entropy", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 40, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "Stanford CS229 main notes — 'Gaussian and KL facts' chapter", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 25}
+  - {title: "Preskill Ph219 Ch. 10: Quantum Shannon Theory — relative entropy sections", url: "http://www.preskill.caltech.edu/ph219/chap10_6A_2025.pdf", inst: "Caltech", kind: "notes", minutes: 45, local: "library/pdfs/preskill_ch10.pdf"}
+info.cross_entropy:
+  - {title: "Jurafsky & Martin SLP3 Ch. 4: Logistic Regression and Text Classification (cross-entropy loss)", url: "https://web.stanford.edu/~jurafsky/slp3/4.pdf", inst: "Stanford", kind: "book", minutes: 60}
+  - {title: "Daniel Hsu — COMS 4771 handout: Linear classification / logistic loss", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/log-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+  - {title: "MacKay ITILA Ch. 5: Symbol Codes (expected length under the wrong model = cross-entropy)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+info.mutual_information:
+  - {title: "MacKay ITILA Ch. 8: Dependent Random Variables (mutual information)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "MacKay ITILA Ch. 9: Communication over a Noisy Channel (I(X;Y) for channels)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "MacKay — Information Theory, Pattern Recognition & Neural Networks lecture videos", url: "https://www.inference.org.uk/itprnn_lectures/", inst: "University of Cambridge", kind: "video", minutes: 60}
+info.source_coding:
+  - {title: "MacKay ITILA Ch. 4: The Source Coding Theorem", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 90, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "MacKay ITILA Ch. 5: Symbol Codes (Kraft inequality, Huffman)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "MIT 6.050J Information and Entropy — course textbook, compression chapters", url: "https://ocw.mit.edu/courses/6-050j-information-and-entropy-spring-2008/resources/mit6_050j_s08-_coursetextbook_pdf/", inst: "MIT", kind: "book", minutes: 45, local: "library/pdfs/mit_6050j_info_entropy.pdf"}
+info.channel_capacity:
+  - {title: "MacKay ITILA Ch. 9: Communication over a Noisy Channel", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "MacKay ITILA Ch. 10: The Noisy-Channel Coding Theorem", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 60, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "Shannon (1948) — Part II: The Discrete Channel with Noise (capacity theorem)", url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf", inst: "Bell Labs (hosted by Harvard Math)", kind: "paper", minutes: 60}
+info.perplexity:
+  - {title: "Jurafsky & Martin SLP3 Ch. 3: N-gram Language Models (perplexity, entropy rate)", url: "https://web.stanford.edu/~jurafsky/slp3/3.pdf", inst: "Stanford", kind: "book", minutes: 60}
+  - {title: "Daniel Hsu — COMS 4771 handout: Language models", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/lm-handout.pdf", inst: "Columbia", kind: "notes", minutes: 35}
+  - {title: "Karpathy — The spelled-out intro to language modeling: building makemore (NLL loss)", url: "https://www.youtube.com/watch?v=PaCmpygFfXo", inst: "Karpathy", kind: "video", minutes: 118}
+info.data_eda:
+  - {title: "Harvard CS109A Lecture 2: Data and Data Exploration", url: "https://harvard-iacs.github.io/2019-CS109A/lectures/lecture2/", inst: "Harvard", kind: "lecture", minutes: 75}
+  - {title: "MIT 18.05 Class 10a Reading: Introduction to Statistics (descriptive statistics, plots)", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class10-prep-a_pdf/", inst: "MIT", kind: "notes", minutes: 35}
+  - {title: "Seeing Theory — Regression Analysis (interactive)", url: "https://seeing-theory.brown.edu/regression-analysis/index.html", inst: "Brown", kind: "interactive", minutes: 20}
+info.ab_testing:
+  - {title: "Harvard CS109A Lecture 23: Experimental Design & Testing I", url: "https://harvard-iacs.github.io/2019-CS109A/lectures/lecture23/", inst: "Harvard", kind: "lecture", minutes: 75}
+  - {title: "Harvard Stat 110 Lecture 6: Monty Hall, Simpson's Paradox", url: "https://www.youtube.com/watch?v=fDcjhAKuhqQ", inst: "Harvard", kind: "video", minutes: 50}
+  - {title: "MIT 18.05 Class 17b Reading: Null Hypothesis Significance Testing I", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class17-prep-b_pdf/", inst: "MIT", kind: "notes", minutes: 40}
+
+# ---------------------------------------------------------------- 6 · Classical ML
+ml.linear_regression:
+  - {title: "Stanford CS229 main notes — Linear regression chapter (LMS, normal equations, probabilistic view)", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 60}
+  - {title: "Cornell CS4780 Lecture 8: Linear Regression (MLE ⇒ squared loss, MAP ⇒ ridge)", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote08.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Daniel Hsu — COMS 4771 handout: Linear regression", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/lin-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+  - {title: "MIT 18.05 Class 26 Reading: Linear Regression", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/resources/mit18_05_s22_class26-prep_pdf/", inst: "MIT", kind: "notes", minutes: 35}
+ml.logistic_regression:
+  - {title: "Cornell CS4780 Lecture 6: Logistic Regression / MLE / MAP", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote06.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Stanford CS229 main notes — Classification and logistic regression chapter", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Jurafsky & Martin SLP3 Ch. 4: Logistic Regression and Text Classification", url: "https://web.stanford.edu/~jurafsky/slp3/4.pdf", inst: "Stanford", kind: "book", minutes: 60}
+ml.softmax:
+  - {title: "Stanford CS229 main notes — Generalized linear models chapter (softmax regression)", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Daniel Hsu — COMS 4771 handout: Multiclass classification", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/mc-handout.pdf", inst: "Columbia", kind: "notes", minutes: 35}
+  - {title: "Stanford CS231n notes — Linear classification (softmax classifier & cross-entropy)", url: "https://cs231n.github.io/linear-classify/", inst: "Stanford", kind: "notes", minutes: 45}
+ml.bias_variance:
+  - {title: "Cornell CS4780 Lecture 12: Bias-Variance Tradeoff — Weinberger", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote12.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Stanford CS229 main notes — Generalization chapter (bias-variance, double descent)", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 45}
+  - {title: "Daniel Hsu — COMS 4771 handout: Prediction theory", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/pred-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+ml.regularization_cv:
+  - {title: "Cornell CS4780 Lecture 11: Model Selection (cross-validation, early stopping)", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote11.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Harvard CS109A Lecture 7: Model Selection and Regularization", url: "https://harvard-iacs.github.io/2019-CS109A/lectures/lecture7/", inst: "Harvard", kind: "lecture", minutes: 75}
+  - {title: "Stanford CS229 main notes — Regularization and model selection chapter", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+ml.metrics:
+  - {title: "Google ML Crash Course — Classification: ROC and AUC", url: "https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc", inst: "Google", kind: "interactive", minutes: 20}
+  - {title: "Daniel Hsu — COMS 4771 handout: Calibration and bias", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/bias-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+  - {title: "Daniel Hsu — Notes on balanced error rate", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/ber.pdf", inst: "Columbia", kind: "notes", minutes: 15}
+ml.naive_bayes:
+  - {title: "Cornell CS4780 Lecture 5: Bayes Classifier and Naive Bayes", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote05.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Daniel Hsu — COMS 4771 handout: Generative classifiers", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/gen-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+  - {title: "Jurafsky & Martin SLP3 Appendix B: Naive Bayes Classification", url: "https://web.stanford.edu/~jurafsky/slp3/B.pdf", inst: "Stanford", kind: "book", minutes: 45}
+ml.knn_trees:
+  - {title: "Cornell CS4780 Lecture 2: k-Nearest Neighbors / Curse of Dimensionality", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote02_kNN.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Cornell CS4780 Lecture 17: Decision Trees (ID3, information gain)", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote17.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Daniel Hsu — COMS 4771 handout: Decision trees", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/dt-handout.pdf", inst: "Columbia", kind: "notes", minutes: 35}
+  - {title: "Harvard CS109A Lecture 15: Decision Trees", url: "https://harvard-iacs.github.io/2019-CS109A/lectures/lecture15/", inst: "Harvard", kind: "lecture", minutes: 75}
+ml.svm_kernels:
+  - {title: "Cornell CS4780 Lecture 9: Support Vector Machine", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote09.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Cornell CS4780 Lecture 13: Kernels", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote13.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Stanford CS229 main notes — Kernel methods and Support vector machines chapters", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 60}
+  - {title: "Daniel Hsu — COMS 4771 handout: Features and kernels", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/kern-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+ml.clustering:
+  - {title: "Stanford CS229 main notes — Clustering and the k-means algorithm; EM algorithms chapters", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 60}
+  - {title: "MacKay ITILA Ch. 20: An Example Inference Task — Clustering (k-means)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 40, local: "library/pdfs/mackay_itila.pdf"}
+  - {title: "MacKay ITILA Ch. 22: Maximum Likelihood and Clustering (soft k-means / mixtures)", url: "https://www.inference.org.uk/itprnn/book.pdf", inst: "University of Cambridge", kind: "book", minutes: 40, local: "library/pdfs/mackay_itila.pdf"}
+ml.pca_applied:
+  - {title: "Harvard CS109A Lecture 14: PCA", url: "https://harvard-iacs.github.io/2019-CS109A/lectures/lecture14/", inst: "Harvard", kind: "lecture", minutes: 75}
+  - {title: "Stanford CS229 main notes — Principal components analysis chapter", url: "https://cs229.stanford.edu/main_notes.pdf", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Daniel Hsu — COMS 4771 handout: Correlation analysis (PCA via SVD)", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/svd-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+
+# ---------------------------------------------------------------- 7 · Deep learning & LLMs
+dl.mlp:
+  - {title: "3Blue1Brown — But what is a neural network?", url: "https://www.3blue1brown.com/lessons/neural-networks", inst: "3Blue1Brown", kind: "video", minutes: 19}
+  - {title: "Cornell CS4780 Lecture 19/20: Neural Networks", url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecturenote20.html", inst: "Cornell", kind: "notes", minutes: 30}
+  - {title: "Stanford CS231n notes — Neural Networks Part 1: Setting up the Architecture", url: "https://cs231n.github.io/neural-networks-1/", inst: "Stanford", kind: "notes", minutes: 45}
+  - {title: "Daniel Hsu — COMS 4771 handout: Neural nets", url: "https://www.cs.columbia.edu/~djhsu/ML/lectures/nn2-handout.pdf", inst: "Columbia", kind: "notes", minutes: 40}
+dl.backprop:
+  - {title: "Karpathy — The spelled-out intro to neural networks and backpropagation: building micrograd", url: "https://www.youtube.com/watch?v=VMj-3S1tku0", inst: "Karpathy", kind: "video", minutes: 145}
+  - {title: "3Blue1Brown — Backpropagation calculus", url: "https://www.3blue1brown.com/lessons/backpropagation-calculus", inst: "3Blue1Brown", kind: "video", minutes: 10}
+  - {title: "Stanford CS231n notes — Backpropagation, Intuitions", url: "https://cs231n.github.io/optimization-2/", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "MIT 18.065 Lecture 27: Backpropagation — Find Partial Derivatives", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-27-backpropagation-find-partial-derivatives/", inst: "MIT", kind: "video", minutes: 50}
+dl.init_activations:
+  - {title: "Karpathy — Building makemore Part 3: Activations & Gradients, BatchNorm", url: "https://www.youtube.com/watch?v=P6sfmUTpUmc", inst: "Karpathy", kind: "video", minutes: 115}
+  - {title: "Stanford CS231n notes — Neural Networks Part 2: data preprocessing, weight init, batch norm", url: "https://cs231n.github.io/neural-networks-2/", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Ba, Kiros & Hinton (2016) — Layer Normalization", url: "https://arxiv.org/abs/1607.06450", inst: "University of Toronto", kind: "paper", minutes: 45, local: "library/pdfs/layernorm.pdf"}
+  - {title: "Ioffe & Szegedy (2015) — Batch Normalization", url: "https://arxiv.org/abs/1502.03167", inst: "Google", kind: "paper", minutes: 45}
+dl.training:
+  - {title: "Karpathy — A Recipe for Training Neural Networks", url: "https://karpathy.github.io/2019/04/25/recipe/", inst: "Karpathy", kind: "notes", minutes: 25}
+  - {title: "Stanford CS231n notes — Neural Networks Part 3: learning & evaluation, LR annealing", url: "https://cs231n.github.io/neural-networks-3/", inst: "Stanford", kind: "notes", minutes: 40}
+  - {title: "Karpathy — Let's reproduce GPT-2 (124M): training loop, AdamW, LR schedule, grad accumulation", url: "https://www.youtube.com/watch?v=l8pRSuU81PU", inst: "Karpathy", kind: "video", minutes: 240}
+  - {title: "karpathy/nanoGPT (train.py)", url: "https://github.com/karpathy/nanoGPT", inst: "Karpathy", kind: "repo", minutes: 60}
+dl.cnn:
+  - {title: "Stanford CS231n notes — Convolutional Neural Networks", url: "https://cs231n.github.io/convolutional-networks/", inst: "Stanford", kind: "notes", minutes: 60}
+  - {title: "3Blue1Brown — But what is a convolution?", url: "https://www.3blue1brown.com/lessons/convolutions", inst: "3Blue1Brown", kind: "video", minutes: 23}
+  - {title: "MIT 18.065 Lecture 32: ImageNet is a CNN; The Convolution Rule", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-32-imagenet-is-a-cnn-the-convolution-rule/", inst: "MIT", kind: "video", minutes: 50}
+  - {title: "He et al. (2015) — Deep Residual Learning for Image Recognition", url: "https://arxiv.org/abs/1512.03385", inst: "Microsoft Research", kind: "paper", minutes: 45}
+dl.embeddings:
+  - {title: "Jurafsky & Martin SLP3 Ch. 5: Embeddings", url: "https://web.stanford.edu/~jurafsky/slp3/5.pdf", inst: "Stanford", kind: "book", minutes: 75}
+  - {title: "Mikolov et al. (2013) — Efficient Estimation of Word Representations in Vector Space (word2vec)", url: "https://arxiv.org/abs/1301.3781", inst: "Google", kind: "paper", minutes: 40}
+  - {title: "Karpathy — Building makemore Part 2: MLP (learned character embeddings)", url: "https://www.youtube.com/watch?v=TCH_1BHY58I", inst: "Karpathy", kind: "video", minutes: 75}
+dl.ngram_lm:
+  - {title: "Jurafsky & Martin SLP3 Ch. 3: N-gram Language Models", url: "https://web.stanford.edu/~jurafsky/slp3/3.pdf", inst: "Stanford", kind: "book", minutes: 60}
+  - {title: "Karpathy — The spelled-out intro to language modeling: building makemore", url: "https://www.youtube.com/watch?v=PaCmpygFfXo", inst: "Karpathy", kind: "video", minutes: 118}
+  - {title: "Bengio et al. (2003) — A Neural Probabilistic Language Model (JMLR)", url: "https://www.jmlr.org/papers/v3/bengio03a.html", inst: "Université de Montréal", kind: "paper", minutes: 60, local: "library/pdfs/bengio2003.pdf"}
+dl.attention:
+  - {title: "Vaswani et al. (2017) — Attention Is All You Need, §3.2 Attention", url: "https://arxiv.org/abs/1706.03762", inst: "Google Brain", kind: "paper", minutes: 60, local: "library/pdfs/transformer.pdf"}
+  - {title: "3Blue1Brown — Attention in transformers, step-by-step", url: "https://www.3blue1brown.com/lessons/attention", inst: "3Blue1Brown", kind: "video", minutes: 26}
+  - {title: "Harvard NLP — The Annotated Transformer", url: "https://nlp.seas.harvard.edu/annotated-transformer/", inst: "Harvard", kind: "notes", minutes: 90}
+  - {title: "Karpathy — Let's build GPT: from scratch, in code, spelled out", url: "https://www.youtube.com/watch?v=kCc8FmEb1nY", inst: "Karpathy", kind: "video", minutes: 116}
+dl.transformer:
+  - {title: "Harvard NLP — The Annotated Transformer", url: "https://nlp.seas.harvard.edu/annotated-transformer/", inst: "Harvard", kind: "notes", minutes: 90}
+  - {title: "Jurafsky & Martin SLP3 Ch. 7: Transformers and Pretraining", url: "https://web.stanford.edu/~jurafsky/slp3/7.pdf", inst: "Stanford", kind: "book", minutes: 75}
+  - {title: "3Blue1Brown — Transformers, the tech behind LLMs", url: "https://www.3blue1brown.com/lessons/gpt", inst: "3Blue1Brown", kind: "video", minutes: 27}
+  - {title: "Stanford CS224N notes — Self-Attention & Transformers (Hewitt)", url: "https://web.stanford.edu/class/cs224n/readings/cs224n-self-attention-transformers-2023_draft.pdf", inst: "Stanford", kind: "notes", minutes: 60}
+dl.tokenization:
+  - {title: "Karpathy — Let's build the GPT Tokenizer", url: "https://www.youtube.com/watch?v=zduSFxRajkE", inst: "Karpathy", kind: "video", minutes: 133}
+  - {title: "karpathy/minbpe — minimal BPE implementation", url: "https://github.com/karpathy/minbpe", inst: "Karpathy", kind: "repo", minutes: 60}
+  - {title: "Sennrich, Haddow & Birch (2015) — Neural Machine Translation of Rare Words with Subword Units (BPE)", url: "https://arxiv.org/abs/1508.07909", inst: "University of Edinburgh", kind: "paper", minutes: 40}
+  - {title: "Jurafsky & Martin SLP3 Ch. 2: Words and Tokens", url: "https://web.stanford.edu/~jurafsky/slp3/2.pdf", inst: "Stanford", kind: "book", minutes: 60}
+dl.gpt:
+  - {title: "Radford et al. (2019) — Language Models are Unsupervised Multitask Learners (GPT-2)", url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf", inst: "OpenAI", kind: "paper", minutes: 50}
+  - {title: "Brown et al. (2020) — Language Models are Few-Shot Learners (GPT-3), §2 & Table 2.1", url: "https://arxiv.org/abs/2005.14165", inst: "OpenAI", kind: "paper", minutes: 60, local: "library/pdfs/gpt3.pdf"}
+  - {title: "Karpathy — Let's reproduce GPT-2 (124M)", url: "https://www.youtube.com/watch?v=l8pRSuU81PU", inst: "Karpathy", kind: "video", minutes: 240}
+  - {title: "karpathy/build-nanogpt — commit-by-commit GPT-2 reproduction", url: "https://github.com/karpathy/build-nanogpt", inst: "Karpathy", kind: "repo", minutes: 60}
+dl.decoding:
+  - {title: "Hugging Face blog — How to generate text: greedy, beam, top-k, top-p sampling", url: "https://huggingface.co/blog/how-to-generate", inst: "Hugging Face", kind: "notes", minutes: 25}
+  - {title: "Holtzman et al. (2019) — The Curious Case of Neural Text Degeneration (nucleus sampling)", url: "https://arxiv.org/abs/1904.09751", inst: "University of Washington / AI2", kind: "paper", minutes: 45}
+  - {title: "Jurafsky & Martin SLP3 Ch. 7: Transformers and Pretraining — sampling/decoding sections", url: "https://web.stanford.edu/~jurafsky/slp3/7.pdf", inst: "Stanford", kind: "book", minutes: 30}
+dl.efficient_inference:
+  - {title: "Dao et al. (2022) — FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness", url: "https://arxiv.org/abs/2205.14135", inst: "Stanford", kind: "paper", minutes: 60, local: "library/pdfs/flashattention.pdf"}
+  - {title: "kipply — Transformer Inference Arithmetic (KV cache, FLOPs vs. memory bandwidth)", url: "https://kipp.ly/transformer-inference-arithmetic/", inst: "kipply's blog", kind: "notes", minutes: 40}
+  - {title: "Kwon et al. (2023) — Efficient Memory Management for LLM Serving with PagedAttention (vLLM)", url: "https://arxiv.org/abs/2309.06180", inst: "UC Berkeley", kind: "paper", minutes: 45}
+  - {title: "Dao-AILab/flash-attention", url: "https://github.com/Dao-AILab/flash-attention", inst: "Princeton / Together AI", kind: "repo", minutes: 30}
+dl.scaling_laws:
+  - {title: "Kaplan et al. (2020) — Scaling Laws for Neural Language Models", url: "https://arxiv.org/abs/2001.08361", inst: "OpenAI / Johns Hopkins", kind: "paper", minutes: 60, local: "library/pdfs/kaplan_scaling.pdf"}
+  - {title: "Hoffmann et al. (2022) — Training Compute-Optimal Large Language Models (Chinchilla)", url: "https://arxiv.org/abs/2203.15556", inst: "DeepMind", kind: "paper", minutes: 60, local: "library/pdfs/chinchilla.pdf"}
+  - {title: "Stanford CS336 (Spring 2025): Language Modeling from Scratch — scaling-laws lectures", url: "https://stanford-cs336.github.io/spring2025/", inst: "Stanford", kind: "lecture", minutes: 80}
+  - {title: "stanford-cs336/assignment3-scaling", url: "https://github.com/stanford-cs336/assignment3-scaling", inst: "Stanford", kind: "repo", minutes: 60}
+dl.finetuning_lora:
+  - {title: "Hu et al. (2021) — LoRA: Low-Rank Adaptation of Large Language Models", url: "https://arxiv.org/abs/2106.09685", inst: "Microsoft", kind: "paper", minutes: 50, local: "library/pdfs/lora.pdf"}
+  - {title: "microsoft/LoRA — loralib reference implementation", url: "https://github.com/microsoft/LoRA", inst: "Microsoft", kind: "repo", minutes: 30}
+  - {title: "MIT 18.065 Lecture 7: Eckart-Young — The Closest Rank k Matrix to A (why low rank works)", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/resources/lecture-7-eckart-young-the-closest-rank-k-matrix-to-a/", inst: "MIT", kind: "video", minutes: 50}
+dl.alignment:
+  - {title: "Ouyang et al. (2022) — Training language models to follow instructions with human feedback (InstructGPT)", url: "https://arxiv.org/abs/2203.02155", inst: "OpenAI", kind: "paper", minutes: 60, local: "library/pdfs/instructgpt.pdf"}
+  - {title: "Rafailov et al. (2023) — Direct Preference Optimization", url: "https://arxiv.org/abs/2305.18290", inst: "Stanford", kind: "paper", minutes: 60, local: "library/pdfs/dpo.pdf"}
+  - {title: "Jurafsky & Martin SLP3 Ch. 8: Post-training (instruction tuning, preference alignment)", url: "https://web.stanford.edu/~jurafsky/slp3/8.pdf", inst: "Stanford", kind: "book", minutes: 60}
+  - {title: "stanford-cs336/assignment5-alignment", url: "https://github.com/stanford-cs336/assignment5-alignment", inst: "Stanford", kind: "repo", minutes: 60}
+
+# ---------------------------------------------------------------- 8 · Quantum computing
+qc.qubits:
+  - {title: "IBM Quantum Learning (Watrous) — Basics: Single systems, Quantum information", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/single-systems/quantum-information", inst: "IBM Quantum", kind: "interactive", minutes: 60}
+  - {title: "Preskill Ph219 Ch. 2: Foundations I — States and Ensembles", url: "http://www.preskill.caltech.edu/ph219/chap2_15.pdf", inst: "Caltech", kind: "notes", minutes: 90, local: "library/pdfs/preskill_ch2.pdf"}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, Ch. 1 (qubits, Dirac notation)", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 45, local: "library/pdfs/dewolf_qc_notes.pdf"}
+qc.single_gates:
+  - {title: "IBM Quantum Learning — Single systems: Qiskit implementation (gates on one qubit)", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/single-systems/qiskit-implementation", inst: "IBM Quantum", kind: "interactive", minutes: 30}
+  - {title: "IBM Quantum Learning — Density matrices: The Bloch sphere", url: "https://quantum.cloud.ibm.com/learning/courses/general-formulation-of-quantum-information/density-matrices/bloch-sphere", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, §1.4 Elementary gates", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 30, local: "library/pdfs/dewolf_qc_notes.pdf"}
+qc.measurement:
+  - {title: "IBM Quantum Learning — Single systems: Quantum information (measurement, Born rule)", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/single-systems/quantum-information", inst: "IBM Quantum", kind: "interactive", minutes: 60}
+  - {title: "IBM Quantum Learning — Inner products and projections (projective measurements)", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/quantum-circuits/inner-products-and-projections", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "Preskill Ph219 Ch. 3: Foundations II — Measurement and Evolution", url: "http://www.preskill.caltech.edu/ph219/chap3_15.pdf", inst: "Caltech", kind: "notes", minutes: 90, local: "library/pdfs/preskill_ch3.pdf"}
+qc.tensor:
+  - {title: "IBM Quantum Learning — Multiple systems: Classical information (tensor products)", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/multiple-systems/classical-information", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "IBM Quantum Learning — Multiple systems: Quantum information", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/multiple-systems/quantum-information", inst: "IBM Quantum", kind: "interactive", minutes: 60}
+qc.multi_gates:
+  - {title: "IBM Quantum Learning — Quantum circuits: Circuits", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/quantum-circuits/circuits", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "IBM Quantum Learning — Multiple systems: Qiskit implementation", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/multiple-systems/qiskit-implementation", inst: "IBM Quantum", kind: "interactive", minutes: 30}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, Ch. 2: The circuit model", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 45, local: "library/pdfs/dewolf_qc_notes.pdf"}
+qc.entanglement:
+  - {title: "IBM Quantum Learning — Entanglement in action: The CHSH game", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/entanglement-in-action/chsh-game", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "IBM Quantum Learning — Limitations on quantum information (no-cloning)", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/quantum-circuits/limitations-on-quantum-information", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "Preskill Ph219 Ch. 4: Quantum Entanglement", url: "http://www.preskill.caltech.edu/ph229/notes/chap4_01.pdf", inst: "Caltech", kind: "notes", minutes: 90, local: "library/pdfs/preskill_ch4.pdf"}
+qc.teleportation:
+  - {title: "IBM Quantum Learning — Quantum teleportation", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/entanglement-in-action/quantum-teleportation", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "IBM Quantum Learning — Superdense coding", url: "https://quantum.cloud.ibm.com/learning/courses/basics-of-quantum-information/entanglement-in-action/superdense-coding", inst: "IBM Quantum", kind: "interactive", minutes: 30}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, §1.5 Example: quantum teleportation", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 20, local: "library/pdfs/dewolf_qc_notes.pdf"}
+qc.oracles:
+  - {title: "IBM Quantum Learning — The query model of computation", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/quantum-query-algorithms/query-model-of-computation", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "IBM Quantum Learning — Deutsch-Jozsa algorithm (incl. Bernstein-Vazirani)", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/quantum-query-algorithms/deutsch-jozsa-algorithm", inst: "IBM Quantum", kind: "interactive", minutes: 50}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, Ch. 2 §2.4 The early algorithms", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 40, local: "library/pdfs/dewolf_qc_notes.pdf"}
+qc.grover:
+  - {title: "IBM Quantum Learning — Grover's algorithm: description", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/grover-algorithm/grover-algorithm-description", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "IBM Quantum Learning — Grover's algorithm: analysis", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/grover-algorithm/analysis", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "Grover (1996) — A fast quantum mechanical algorithm for database search", url: "https://arxiv.org/abs/quant-ph/9605043", inst: "Bell Labs", kind: "paper", minutes: 30, local: "library/pdfs/grover.pdf"}
+  - {title: "3Blue1Brown — But what is quantum computing? (Grover's algorithm)", url: "https://www.3blue1brown.com/lessons/grover", inst: "3Blue1Brown", kind: "video", minutes: 36}
+qc.qft:
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, Ch. 4: The Fourier Transform (QFT + efficient circuit)", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 60, local: "library/pdfs/dewolf_qc_notes.pdf"}
+  - {title: "IBM Quantum Learning — Phase estimation procedure (QFT construction)", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/phase-estimation-procedure", inst: "IBM Quantum", kind: "interactive", minutes: 60}
+  - {title: "Preskill Ph219 Ch. 6: Quantum Algorithms", url: "http://www.preskill.caltech.edu/ph219/chap6_20_6A_2022.pdf", inst: "Caltech", kind: "notes", minutes: 90, local: "library/pdfs/preskill_ch6.pdf"}
+qc.phase_estimation:
+  - {title: "IBM Quantum Learning — The phase estimation problem", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/phase-estimation-problem", inst: "IBM Quantum", kind: "interactive", minutes: 30}
+  - {title: "IBM Quantum Learning — Phase estimation procedure", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/phase-estimation-procedure", inst: "IBM Quantum", kind: "interactive", minutes: 60}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, §4.6 Application: phase estimation", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 30, local: "library/pdfs/dewolf_qc_notes.pdf"}
+qc.shor:
+  - {title: "IBM Quantum Learning — Shor's algorithm", url: "https://quantum.cloud.ibm.com/learning/courses/fundamentals-of-quantum-algorithms/phase-estimation-and-factoring/shor-algorithm", inst: "IBM Quantum", kind: "interactive", minutes: 60}
+  - {title: "de Wolf — Quantum Computing: Lecture Notes, Ch. 5: Shor's Factoring Algorithm", url: "https://arxiv.org/abs/1907.09415", inst: "QuSoft / University of Amsterdam", kind: "notes", minutes: 60, local: "library/pdfs/dewolf_qc_notes.pdf"}
+  - {title: "Shor (1995) — Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer", url: "https://arxiv.org/abs/quant-ph/9508027", inst: "AT&T Bell Labs", kind: "paper", minutes: 90, local: "library/pdfs/shor.pdf"}
+qc.density_noise:
+  - {title: "IBM Quantum Learning — Density matrix basics", url: "https://quantum.cloud.ibm.com/learning/courses/general-formulation-of-quantum-information/density-matrices/density-matrix-basics", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "IBM Quantum Learning — Quantum channel basics", url: "https://quantum.cloud.ibm.com/learning/courses/general-formulation-of-quantum-information/quantum-channels/quantum-channel-basics", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "Preskill Ph219 Ch. 3: Foundations II — Measurement and Evolution (superoperators, Kraus)", url: "http://www.preskill.caltech.edu/ph219/chap3_15.pdf", inst: "Caltech", kind: "notes", minutes: 90, local: "library/pdfs/preskill_ch3.pdf"}
+qc.error_correction:
+  - {title: "IBM Quantum Learning — Repetition codes", url: "https://quantum.cloud.ibm.com/learning/courses/foundations-of-quantum-error-correction/correcting-quantum-errors/repetition-codes", inst: "IBM Quantum", kind: "interactive", minutes: 40}
+  - {title: "IBM Quantum Learning — The 9-qubit Shor code", url: "https://quantum.cloud.ibm.com/learning/courses/foundations-of-quantum-error-correction/correcting-quantum-errors/shor-code", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "IBM Quantum Learning — Stabilizer codes", url: "https://quantum.cloud.ibm.com/learning/courses/foundations-of-quantum-error-correction/stabilizer-formalism/stabilizer-codes", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "Preskill Ph219 Ch. 7: Quantum Error Correction", url: "http://www.preskill.caltech.edu/ph219/chap7_26_6A.pdf", inst: "Caltech", kind: "notes", minutes: 120, local: "library/pdfs/preskill_ch7.pdf"}
+qc.variational:
+  - {title: "IBM Quantum Learning — Variational algorithm design: Variational algorithms", url: "https://quantum.cloud.ibm.com/learning/courses/variational-algorithm-design/variational-algorithms", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "IBM Quantum Learning — Variational algorithm design: Optimization loops", url: "https://quantum.cloud.ibm.com/learning/courses/variational-algorithm-design/optimization-loops", inst: "IBM Quantum", kind: "interactive", minutes: 45}
+  - {title: "Peruzzo et al. (2013) — A variational eigenvalue solver on a quantum processor (VQE)", url: "https://arxiv.org/abs/1304.3061", inst: "University of Bristol / Harvard", kind: "paper", minutes: 40}
+  - {title: "Farhi, Goldstone & Gutmann (2014) — A Quantum Approximate Optimization Algorithm (QAOA)", url: "https://arxiv.org/abs/1411.4028", inst: "MIT", kind: "paper", minutes: 45}

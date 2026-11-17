@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}History{% endblock %}
+{% block content %}
+<h1>History</h1>
+<p class="sub">{{ act.attempts }} graded attempts · {{ act.streak }}-day streak</p>
+
+{% if mis %}
+<h2>Recurring mistakes</h2>
+<div class="card"><table><tr><th>Misconception</th><th>Skill</th><th>Times</th></tr>
+  {% for m in mis %}<tr><td>⚑ {{ m.misconception.replace('-', ' ') }}</td><td><a href="/skill/{{ m.skill_id }}">{{ skills()[m.skill_id].name if skills().get(m.skill_id) else m.skill_id }}</a></td><td>{{ m.n }}</td></tr>{% endfor %}
+</table></div>
+{% endif %}
+
+<h2>All sessions</h2>
+<div class="card">
+  <table><tr><th>#</th><th>Session</th><th>Type</th><th>Status</th><th>Score</th><th>Created</th></tr>
+  {% for s in sessions %}
+    <tr><td class="muted">{{ s.id }}</td>
+      <td><a href="{{ '/placement/result/' ~ s.id if s.kind == 'placement' else '/session/' ~ s.id }}">{{ s.title }}</a></td>
+      <td>{{ kind_titles.get(s.kind, s.kind) }}</td><td>{{ s.status }}</td>
+      <td>{% if s.data.summary %}{{ (s.data.summary.score*100)|round|int }}%{% endif %}</td>
+      <td class="muted">{{ s.created_at[:16].replace('T',' ') }}</td></tr>
+  {% else %}<tr><td colspan="6" class="muted">No sessions yet.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

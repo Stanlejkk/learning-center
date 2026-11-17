@@ -1,0 +1,37 @@
+{# Study block for a list produced by app.main.study_plan. Expects `study_items` and `open_new` (bool). #}
+{% for s in study_items %}
+<details class="study" {% if open_new and (s.new or not s.assessed) %}open{% endif %}>
+  <summary class="spread">
+    <span><strong>{{ s.skill.name }}</strong>
+      {% if not s.assessed %}<span class="pill warn">new to you</span>
+      {% elif s.new %}<span class="pill bad">weak · {{ s.p|pct }}%</span>
+      {% else %}<span class="pill good">refresh · {{ s.p|pct }}%</span>{% endif %}</span>
+    <span class="muted small">{% if s.minutes %}~{{ s.minutes }} min reading{% endif %}</span>
+  </summary>
+  <div class="study-body">
+    {% if s.skill.summary %}<p>{{ s.skill.summary|md|safe }}</p>{% endif %}
+    {% if s.readings %}
+    <div class="small muted">Read first (in this order):</div>
+    <ol class="readings">
+      {% for r in s.readings %}
+      <li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }}</a>
+        <span class="muted small">· {{ r.inst }}{% if r.kind %} · {{ r.kind }}{% endif %}{% if r.minutes %} · ~{{ r.minutes }} min{% endif %}</span>
+        {% if r.local_url %} <a class="pill acc" href="{{ r.local_url }}" target="_blank">offline PDF</a>{% endif %}</li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    {% if s.example %}
+    <div class="small muted" style="margin-top:10px">Worked example (not one of your homework problems):</div>
+    <div class="example">
+      <div>{{ s.example.prompt|md|safe }}</div>
+      <details style="margin-top:6px"><summary class="small">Show the worked solution</summary>
+        <div class="solution">{{ s.example.solution|md|safe }}</div>
+        {% if s.example.rubric %}<div class="small muted">The steps your work should show:</div>
+        <ol class="small">{% for step in s.example.rubric %}<li>{{ step|md|safe }}</li>{% endfor %}</ol>{% endif %}
+      </details>
+    </div>
+    {% endif %}
+    <div class="small" style="margin-top:8px"><a href="/skill/{{ s.skill.id }}" target="_blank">Skill page →</a></div>
+  </div>
+</details>
+{% endfor %}

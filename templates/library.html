@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Library{% endblock %}
+{% block content %}
+<h1>Library</h1>
+<p class="sub">Landmark papers with pen-and-paper reading guides, the course readings for every skill, and PDFs saved on this PC.</p>
+
+<h2>Landmark papers</h2>
+{% for p in papers %}
+<div class="card" id="{{ p.id }}" style="margin-bottom:12px">
+  <div class="spread"><h3>{{ p.title }} <span class="muted small">· {{ p.authors }} · {{ p.year }}</span></h3>
+    <div class="row">
+      {% if (p.id ~ '.pdf') in pdfs %}<a class="btn" href="/library/pdf/{{ p.id }}.pdf" target="_blank">Local PDF</a>{% endif %}
+      <a class="btn" href="{{ p.url }}" target="_blank" rel="noopener">Online</a></div></div>
+  <p class="small">{{ p.why|md|safe }}</p>
+  <details><summary class="small"><strong>Reading guide</strong>: answer these on paper while you read</summary>
+    <ol>{% for q in p.reading_guide %}<li>{{ q|md|safe }}</li>{% endfor %}</ol>
+    {% if p.key_equations %}<p class="small muted">Key equations</p>
+    {% for e in p.key_equations %}<div>$${{ e }}$$</div>{% endfor %}{% endif %}
+  </details>
+  <p class="small muted" style="margin-top:6px">Skills: {% for s in p.skills or [] %}{% if skills().get(s) %}<a href="/skill/{{ s }}">{{ skills()[s].name }}</a>{{ ", " if not loop.last }}{% endif %}{% endfor %}</p>
+</div>
+{% else %}<div class="card muted">No papers catalogued yet.</div>{% endfor %}
+
+{% if pdfs %}
+<h2>Saved PDFs ({{ pdfs|length }})</h2>
+<div class="card"><div class="row">{% for f in pdfs %}<a class="pill" href="/library/pdf/{{ f }}" target="_blank">{{ f }}</a>{% endfor %}</div></div>
+{% endif %}
+
+<h2>Readings by track</h2>
+{% for t in tracks %}
+<details class="card" style="margin-bottom:10px"><summary><strong>{{ t.name }}</strong></summary>
+  {% for s in t.skills %}{% set rs = readings.get(s.id, []) %}
+  {% if rs %}<div style="margin-top:10px"><a href="/skill/{{ s.id }}"><strong class="small">{{ s.name }}</strong></a>
+    <ul class="small" style="margin:4px 0">{% for r in rs %}<li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }}</a> <span class="muted">· {{ r.inst }}</span></li>{% endfor %}</ul></div>{% endif %}
+  {% endfor %}
+  {% if t.sources %}<p class="small muted" style="margin-top:10px">Course sources: {% for src in t.sources %}<a href="{{ src.url }}" target="_blank" rel="noopener">{{ src.title }}</a>{{ " · " if not loop.last }}{% endfor %}</p>{% endif %}
+</details>
+{% endfor %}
+{% endblock %}

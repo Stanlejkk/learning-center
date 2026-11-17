@@ -1,0 +1,25 @@
+labs:
+  - id: prob_01_monte_carlo
+    title: "Monte Carlo: LLN, CLT, birthdays and MLE"
+    track: prob
+    skills: [prob.lln_clt, prob.mle]
+    unlock: [prob.expectation_variance]
+    gpu: false
+    minutes: 75
+    summary: "Estimate probabilities by simulation, watch the LLN and CLT happen, Monte-Carlo the birthday problem, and code Bernoulli/Poisson MLEs and a Beta-Binomial posterior."
+    sources:
+      - {title: "Harvard Stat 110 (Blitzstein)", url: "https://stat110.hsites.harvard.edu/"}
+      - {title: "Blitzstein & Hwang, Introduction to Probability (free online)", url: "https://probabilitybook.net/"}
+      - {title: "MIT 18.05 Introduction to Probability and Statistics", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"}
+  - id: opt_01_optimizers
+    title: "Optimizers from scratch: GD, momentum, Adam, Newton"
+    track: opt
+    skills: [opt.gradient_descent, opt.sgd_momentum, opt.adam]
+    unlock: [opt.gradient_descent]
+    gpu: false
+    minutes: 90
+    summary: "Implement GD, heavy-ball momentum, Adam and Newton on quadratics and the Rosenbrock function; compare iterations to converge and watch GD diverge once lr > 2/lambda_max."
+    sources:
+      - {title: "Kingma & Ba, Adam (arXiv:1412.6980)", url: "https://arxiv.org/abs/1412.6980"}
+      - {title: "Boyd & Vandenberghe, Convex Optimization (free book)", url: "https://web.stanford.edu/~boyd/cvxbook/"}
+      - {title: "MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and ML", url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/"}

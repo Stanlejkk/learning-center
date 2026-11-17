@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block title %}{{ sess.title }}{% endblock %}
+{% block content %}
+{% set roles = {'frontier': 'new', 'review': 'review', 'stretch': 'stretch', 'remediation': 'gap fix', 'practice': 'practice', 'checkpoint': 'checkpoint'} %}
+<div class="spread">
+  <div>
+    <h1>{{ sess.title }}</h1>
+    <p class="sub">{{ items|length }} problems · created {{ sess.created_at[:16].replace('T',' ') }}</p>
+  </div>
+</div>
+
+{# ------------------------------------------------------------ created: problems hidden until you start #}
+{% if sess.status == 'created' %}
+<h2 style="margin-top:8px">1 · Study first</h2>
+<p class="muted small">This set covers {{ study|length }} topic{{ 's' if study|length != 1 }}. Topics that are new or weak for you are expanded.
+  Read the material, work through the example on paper, and press start when you're ready. Problems stay hidden until then.</p>
+<div class="card" style="margin-bottom:20px">
+  {% with study_items=study, open_new=True %}{% include "_study.html" %}{% endwith %}
+</div>
+<h2>2 · Do the homework</h2>
+<div class="card">
+  <h3>Ready when you are</h3>
+  <p>Problems stay hidden until you press start. Then you work on paper with no notes, the way you would in a real problem set.</p>
+  <ul>
+    {% for r, n in items|groupby('role') %}<li>{{ n|length }} × {{ roles.get(r, r) }}</li>{% endfor %}
+  </ul>
+  <p class="small muted">A formula sheet for this set is allowed. It shows above the problems, and it's printed as the last page of the problem sheet.</p>
+  <div class="row">
+    <a class="btn primary" href="/session/{{ sess.id }}/print" target="_blank"
+       onclick="setTimeout(()=>location.reload(), 600)">Print problem sheet &amp; start</a>
+    <form method="post" action="/session/{{ sess.id }}/start" class="inline"><button>Start on screen</button></form>
+    <span style="flex:1"></span>
+    <form method="post" action="/session/{{ sess.id }}/delete" class="inline"><button class="danger">Discard</button></form>
+  </div>
+</div>
+
+{# ------------------------------------------------------------ started: answer entry #}
+{% elif sess.status == 'started' %}
+<div class="paper-note" style="margin-bottom:16px">✎ Solve everything on paper first. Type only final answers here. You'll mark your working against the rubric afterwards.</div>
+{% if sheet %}
+<details class="card" style="margin-bottom:12px"><summary class="small"><strong>📐 Formula sheet</strong> (allowed: the topics in this set and their prerequisites)
+  · <a href="/session/{{ sess.id }}/print" target="_blank">print</a> · <a href="/formulas" target="_blank">full sheet</a></summary>
+  <div style="margin-top:10px">{% with groups=sheet %}{% include "_formulas.html" %}{% endwith %}</div>
+</details>
+{% endif %}
+<details class="card" style="margin-bottom:16px"><summary class="small"><strong>Study notes for this set</strong> (readings and worked examples, if you need to look something up)</summary>
+  <div style="margin-top:10px">{% with study_items=study, open_new=False %}{% include "_study.html" %}{% endwith %}</div>
+</details>
+<form method="post" action="/session/{{ sess.id }}/submit" class="card" style="padding:0">
+  {% for it in items %}{% set p = it.problem %}
+  <div class="problem">
+    <div class="meta"><span class="num">{{ loop.index }}.</span>
+      <a class="pill" href="/skill/{{ it.skill_id }}" target="_blank">{{ it.skill_name }}</a>
+      <span class="pill">L{{ it.level }}</span>
+      {% if it.role in ('remediation','stretch','review') %}<span class="pill warn">{{ roles[it.role] }}</span>{% endif %}
+    </div>
+    <div class="prompt">{{ p.prompt|md|safe }}</div>
+    <input class="answer" type="text" name="a_{{ it.id }}" autocomplete="off" placeholder="final answer (or ? if stuck)">
+    <div class="hint">Format: {{ p.answer_hint }}</div>
+  </div>
+  {% endfor %}
+  <div class="problem row"><button class="primary">Submit final answers</button>
+    <a class="btn" href="/session/{{ sess.id }}/print" target="_blank">Print view</a></div>
+</form>
+
+{# ------------------------------------------------------------ submitted / graded: review #}
+{% else %}
+<a id="review"></a>
+{% if sess.status == 'graded' %}{% set sm = sess.data.summary %}
+<a id="summary"></a>
+<div class="card" style="margin-bottom:16px">
+  <div class="spread">
+    <h3>Result: {{ (sm.score*100)|round|int }}%
+      {% if sess.kind == 'checkpoint' %}<span class="pill {{ 'good' if sm.checkpoint_passed else 'bad' }}">{{ 'checkpoint passed' if sm.checkpoint_passed else 'not passed (need 80%)' }}</span>{% endif %}
+    </h3>
+    <form method="post" action="/homework/new" class="inline"><button class="primary">Next homework set</button></form>
+  </div>
+  <table style="margin-top:8px"><tr><th>Skill</th><th>Problems</th><th>Score</th><th>Mastery now</th></tr>
+  {% for sid, v in sm.skills.items() %}
+    <tr><td><a href="/skill/{{ sid }}">{{ skills()[sid].name }}</a></td><td>{{ v.n }}</td><td>{{ (v.avg*100)|round|int }}%</td>
+      <td><div class="bar" style="width:140px;display:inline-block;vertical-align:middle"><span style="width:{{ v.p|pct }}%"></span></div> {{ v.p|pct }}%</td></tr>
+  {% endfor %}
+  </table>
+  {% if sm.weakened %}
+  <div class="banner bad" style="margin-top:14px">
+    <strong>Gaps found:</strong> your mistakes point to weak prerequisites:
+    {% for w in sm.weakened %}<a href="/skill/{{ w }}">{{ skills()[w].name }}</a>{{ ", " if not loop.last }}{% endfor %}.
+    <form method="post" action="/remediation/new" class="inline">
+      {% for w in sm.weakened[:3] %}<input type="hidden" name="skills" value="{{ w }}">{% endfor %}
+      <button class="primary" style="margin-left:8px">Start a short remediation set</button></form>
+  </div>
+  {% elif sm.open_gaps %}
+  <div class="banner info" style="margin-top:14px">
+    <strong>Next up:</strong> no new gaps from this set. Still open from earlier (your placement test or past sets):
+    {% for w in sm.open_gaps %}<a href="/skill/{{ w }}">{{ skills()[w].name }}</a> ({{ st[w].p|pct }}%){{ ", " if not loop.last }}{% endfor %}.
+    <form method="post" action="/remediation/new" class="inline">
+      {% for w in sm.open_gaps %}<input type="hidden" name="skills" value="{{ w }}">{% endfor %}
+      <button style="margin-left:8px">Work on these</button></form>
+  </div>
+  {% endif %}
+</div>
+{% else %}
+<div class="banner">Optional: go through your handwritten work and tick the rubric steps you <strong>actually</strong> did. A correct answer always counts as strong evidence; ticks fine-tune it, and on a wrong answer they earn partial credit for good working. Skip the ticking and only your answers count.</div>
+{% endif %}
+
+{% if reread %}
+<details class="card" style="margin-bottom:16px" {% if sess.status == 'graded' %}open{% endif %}>
+  <summary><strong>Re-read before trying again</strong> <span class="muted small">for the {{ reread|length }} topic{{ 's' if reread|length != 1 }} you missed</span></summary>
+  <div style="margin-top:10px">{% with study_items=reread, open_new=False %}{% include "_study.html" %}{% endwith %}</div>
+</details>
+{% endif %}
+<form method="post" action="/session/{{ sess.id }}/grade" class="card" style="padding:0">
+  {% for it in items %}{% set p = it.problem %}
+  <div class="problem">
+    <div class="meta"><span class="num">{{ loop.index }}.</span><a class="pill" href="/skill/{{ it.skill_id }}">{{ it.skill_name }}</a>
+      <span class="pill">L{{ it.level }}</span>
+      <span class="verdict {{ 'good' if it.correct else 'bad' }}">{{ '✓ correct' if it.correct else '✗ incorrect' }}</span>
+      {% if it.misconception and it.misconception != 'unknown' %}<span class="pill bad" title="Likely misconception">⚑ {{ it.misconception.replace('-', ' ') }}</span>{% endif %}
+    </div>
+    <div class="prompt">{{ p.prompt|md|safe }}</div>
+    <div class="small">Your answer: <code>{{ it.user_answer or '—' }}</code>
+      {% if not it.correct %} · expected: <code>{{ p.answer if p.answer is string else p.answer|join(', ') }}</code>{% endif %}</div>
+    <div class="solution">{{ p.solution|md|safe }}</div>
+    <div class="rubric">
+      <div class="small muted">Rubric: tick what your paper shows</div>
+      {% for step in p.rubric %}
+      <label><input type="checkbox" name="r_{{ it.id }}_{{ loop.index0 }}"
+        {% if sess.status == 'graded' %}disabled {% if loop.index0 in it.rubric_checked %}checked{% endif %}{% endif %}>
+        <span>{{ step|md|safe }}</span></label>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+  {% if sess.status == 'submitted' %}
+  <div class="problem"><button class="primary">Record results &amp; update mastery</button></div>
+  {% endif %}
+</form>
+{% endif %}
+
+{% if sess.status != 'created' %}
+<a id="scans"></a>
+<h2>Paper scans</h2>
+<div class="card">
+  <p class="muted small">Optional: photograph your pages to keep an archive. Files go to <code>data/scans/</code> and never leave this PC.</p>
+  <form method="post" action="/session/{{ sess.id }}/scan" enctype="multipart/form-data" class="row">
+    <input type="file" name="files" accept="image/*,.pdf" multiple><button>Upload</button>
+  </form>
+  {% if scans %}<div class="row" style="margin-top:12px">
+    {% for s in scans %}<a href="/scan/{{ s.id }}" target="_blank" class="pill">page {{ loop.index }}</a>{% endfor %}</div>{% endif %}
+</div>
+{% endif %}
+{% endblock %}
+

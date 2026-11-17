@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="spread">
+  <div>
+    <h1>Your path to quantum computing</h1>
+    <p class="sub">Paper first, then code. Everything stays on this PC.</p>
+  </div>
+  <form method="post" action="/homework/new" class="row">
+    <select name="n" title="Number of problems">
+      <option value="5">5 problems</option><option value="8" selected>8 problems</option><option value="12">12 problems</option>
+    </select>
+    <button class="primary">New homework set</button>
+  </form>
+</div>
+
+{% if placement_active %}
+<div class="banner">You have a placement test in progress. <a href="/placement">Continue it →</a></div>
+{% endif %}
+
+<div class="grid g4">
+  <div class="card stat"><div class="v">{{ (path_pct*100)|round|int }}%</div><div class="l">of the path to quantum</div>
+    <div class="bar" style="margin-top:8px"><span style="width:{{ (path_pct*100)|round|int }}%"></span></div></div>
+  <div class="card stat"><div class="v">{{ mastered }}<span class="muted" style="font-size:16px"> / {{ total }}</span></div><div class="l">skills mastered (≥95%)</div></div>
+  <div class="card stat"><div class="v">{{ act.streak }}</div><div class="l">day streak · {{ act.total_hours }} h logged</div></div>
+  <div class="card stat"><div class="v">{{ due|length }}</div><div class="l">skills due for review</div>
+    {% if due %}<form method="post" action="/review/new" style="margin-top:8px"><button>Review now</button></form>{% endif %}</div>
+</div>
+
+<h2>What to do next</h2>
+<div class="card">
+  <ul class="clean">
+  {% for a in acts %}
+    <li class="spread">
+      <span>{{ a.text }}</span>
+      {% if a.kind == 'placement' %}<a class="btn primary" href="/placement">Start placement</a>
+      {% elif a.kind == 'remediation' %}
+        <form method="post" action="/remediation/new" class="inline">
+          {% for s in a.skills %}<input type="hidden" name="skills" value="{{ s }}">{% endfor %}
+          <button class="primary">Fix gaps</button></form>
+      {% elif a.kind == 'review' %}<form method="post" action="/review/new" class="inline"><button>Review</button></form>
+      {% elif a.kind == 'homework' %}<form method="post" action="/homework/new" class="inline"><button>Start homework</button></form>
+      {% elif a.kind == 'checkpoint' %}<form method="post" action="/checkpoint/{{ a.track }}" class="inline"><button>Take checkpoint</button></form>
+      {% endif %}
+    </li>
+  {% else %}
+    <li>All caught up. Start a new homework set.</li>
+  {% endfor %}
+  </ul>
+</div>
+
+{% if open_sessions %}
+<h2>Unfinished sessions</h2>
+<div class="card"><ul class="clean">
+  {% for s in open_sessions %}
+  <li class="spread"><a href="/session/{{ s.id }}">{{ s.title }}</a>
+    <span class="pill {{ 'warn' if s.status == 'submitted' else '' }}">{{ 'answers in — grade your working' if s.status == 'submitted' else s.status }}</span></li>
+  {% endfor %}
+</ul></div>
+{% endif %}
+
+<h2>Mastery map</h2>
+<div class="card">
+  <div class="legend" style="margin-bottom:12px">
+    <span><i class="h1"></i>&lt;30%</span><span><i class="h2"></i>30–60%</span><span><i class="h3"></i>60–80%</span>
+    <span><i class="h4"></i>80–95%</span><span><i class="h5"></i>mastered</span><span><i class="h0"></i>not assessed</span>
+  </div>
+  <div class="grid" style="gap:14px">
+  {% for row in tracks %}
+    <div>
+      <div class="spread small"><a href="/skills#{{ row.t.id }}"><strong>{{ row.t.name }}</strong></a>
+        <span class="muted">{{ row.mastered }}/{{ row.n }} mastered{% if row.certified %} · {{ row.certified }} certified{% endif %}</span></div>
+      <div class="heatmap" style="margin-top:6px">
+        {% for s in row.t.skills %}{% set ss = st[s.id] %}
+          <a href="/skill/{{ s.id }}" class="{{ ss.p|heat if ss.assessed else 'h0' }}" title="{{ s.name }} — {{ ss.p|pct }}%"></a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+<h2>Recent sessions</h2>
+<div class="card">
+  {% if recent %}
+  <table><tr><th>Session</th><th>Status</th><th>Score</th><th>Created</th></tr>
+  {% for s in recent %}
+    <tr><td><a href="{{ '/placement/result/' ~ s.id if s.kind == 'placement' else '/session/' ~ s.id }}">{{ s.title }}</a></td>
+      <td>{{ s.status }}</td>
+      <td>{% if s.data.summary %}{{ (s.data.summary.score*100)|round|int }}%{% endif %}</td>
+      <td class="muted">{{ s.created_at[:16].replace('T',' ') }}</td></tr>
+  {% endfor %}
+  </table>
+  {% else %}<p class="muted">Nothing yet. Start with the <a href="/placement">placement test</a>.</p>{% endif %}
+</div>
+{% endblock %}

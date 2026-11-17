@@ -1,0 +1,31 @@
+labs:
+  - id: calc_01_gradcheck
+    title: "Numerical derivatives & gradient checking"
+    track: calc
+    skills: [calc.gradient, calc.multivar_chain]
+    unlock: [calc.gradient]
+    gpu: false
+    minutes: 75
+    summary: "Implement central differences and a gradient checker, then use it to verify hand-derived gradients of a quadratic, logistic regression and a tiny tanh MLP (backprop)."
+    sources:
+      - title: "CS231n notes: Neural Networks Part 3 — Gradient checks"
+        url: "https://cs231n.github.io/neural-networks-3/"
+      - title: "MIT 18.S096 Matrix Calculus for Machine Learning and Beyond"
+        url: "https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-january-iap-2023/"
+      - title: "MIT 18.02SC Multivariable Calculus"
+        url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/"
+  - id: la_01_svd_pca
+    title: "Power iteration, SVD low-rank approximation & PCA"
+    track: la
+    skills: [la.svd, la.pca]
+    unlock: [la.svd]
+    gpu: false
+    minutes: 90
+    summary: "Find the top eigenvector by power iteration, compress a synthetic image with a truncated SVD (Eckart–Young), and implement PCA from scratch on a synthetic 3-D dataset."
+    sources:
+      - title: "MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning"
+        url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/"
+      - title: "MIT 18.06SC Linear Algebra"
+        url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/"
+      - title: "NumPy documentation: numpy.linalg.svd"
+        url: "https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html"

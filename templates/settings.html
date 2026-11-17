@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+{% block content %}
+<h1>Settings</h1>
+<p class="sub">Everything is stored locally.</p>
+<div class="grid g2">
+  <div class="card">
+    <h3>Your data</h3>
+    <ul class="clean small">
+      <li>Progress database: <code>{{ db_path }}</code></li>
+      <li>Paper scans: <code>{{ data_dir }}\scans</code></li>
+      <li>Lab notebooks (your code): <code>labs\</code></li>
+    </ul>
+    <p class="small muted">To back up, copy the <code>data</code> folder. The app makes no network calls. The only links that go out are the reading links you click yourself.</p>
+  </div>
+  <div class="card">
+    <h3>Recalculate mastery</h3>
+    <p class="small">Replays every answer you've given, from the placement test on, using the current scoring rules. Nothing is deleted.</p>
+    <form method="post" action="/settings/rebuild"><button>Recalculate</button></form>
+  </div>
+  <div class="card">
+    <h3>Reset progress</h3>
+    <p class="small">This deletes all mastery estimates, sessions and lab results. A backup copy of the database is saved in <code>data\</code> first.</p>
+    {% if request.query_params.get('err') %}<div class="banner bad small">Type RESET to confirm.</div>{% endif %}
+    <form method="post" action="/settings/reset" class="row">
+      <input type="text" name="confirm" placeholder="type RESET"><button class="danger">Reset everything</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

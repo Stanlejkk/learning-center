@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Learning Center{% endblock %}</title>
+<link rel="stylesheet" href="/static/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="/static/style.css">
+<script defer src="/static/vendor/katex/katex.min.js"></script>
+<script defer src="/static/vendor/katex/contrib/auto-render.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.renderMathInElement) renderMathInElement(document.body, {
+    delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false},
+                 {left: "\\[", right: "\\]", display: true}, {left: "\\(", right: "\\)", display: false}],
+    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code", "input"],
+    throwOnError: false
+  });
+});
+</script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/">∂ Learning Center</a>
+  <nav>
+    {% set nav_path = request.url.path %}
+    <a href="/" class="{{ 'on' if nav_path == '/' }}">Dashboard</a>
+    <a href="/placement" class="{{ 'on' if nav_path.startswith('/placement') }}">Placement</a>
+    <a href="/skills" class="{{ 'on' if nav_path.startswith('/skill') }}">Skill map</a>
+    <a href="/labs" class="{{ 'on' if nav_path.startswith('/labs') }}">Coding labs</a>
+    <a href="/formulas" class="{{ 'on' if nav_path.startswith('/formulas') }}">Formulas</a>
+    <a href="/library" class="{{ 'on' if nav_path.startswith('/library') }}">Library</a>
+    <a href="/history" class="{{ 'on' if nav_path.startswith('/history') }}">History</a>
+    <a href="/settings" class="{{ 'on' if nav_path.startswith('/settings') }}">Settings</a>
+  </nav>
+</header>
+<main>
+{% block content %}{% endblock %}
+</main>
+{% block scripts %}{% endblock %}
+</body>
+</html>

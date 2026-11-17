@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Placement results{% endblock %}
+{% block content %}
+<h1>Placement results</h1>
+<p class="sub">These are starting estimates. Every homework set refines them.</p>
+
+<div class="grid g2">
+  <div class="card">
+    <h3>You'll start here</h3>
+    <ul class="clean">
+      {% for f in front %}<li class="spread"><a href="/skill/{{ f }}">{{ skills()[f].name }}</a>
+        <span class="pill">{{ st[f].p|pct }}%</span></li>{% endfor %}
+    </ul>
+    <form method="post" action="/homework/new" style="margin-top:14px"><button class="primary">Start first homework set</button></form>
+  </div>
+  <div class="card">
+    <h3>Questions asked ({{ items|length }})</h3>
+    <ul class="clean small">
+      {% for it in items %}<li class="spread"><span>{{ it.skill_name }} <span class="muted">L{{ it.level }}</span></span>
+        <span class="verdict {{ 'good' if it.correct else 'bad' }}">{{ '✓' if it.correct else '✗' }}</span></li>{% endfor %}
+    </ul>
+  </div>
+</div>
+
+<h2>Estimated mastery by track</h2>
+{% for t in tracks %}
+<div class="card" style="margin-bottom:12px">
+  <h3>{{ t.name }}</h3>
+  <div class="skilllist">
+    {% for s in t.skills %}{% set ss = st[s.id] %}
+      <a class="skillchip {{ ss.p|heat if ss.assessed else 'h0' }}" href="/skill/{{ s.id }}"><span>{{ s.name }}</span><span>{{ ss.p|pct }}%</span></a>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

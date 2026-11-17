@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Skill map{% endblock %}
+{% block content %}
+<h1>Skill map</h1>
+<p class="sub">{{ tracks|length }} tracks and {{ tracks|sum(attribute='skills', start=[])|length }} skills. Each skill builds on its prerequisites. Your current frontier is outlined in blue.</p>
+<div class="legend" style="margin-bottom:16px">
+  <span><i class="h1"></i>&lt;30%</span><span><i class="h2"></i>30–60%</span><span><i class="h3"></i>60–80%</span>
+  <span><i class="h4"></i>80–95%</span><span><i class="h5"></i>mastered</span><span><i class="h0"></i>not assessed</span>
+</div>
+{% for t in tracks %}
+<div class="card" id="{{ t.id }}" style="margin-bottom:14px">
+  <div class="spread">
+    <h3>{{ t.name }}</h3>
+    <div class="row">
+      <form method="post" action="/homework/new" class="inline"><input type="hidden" name="track" value="{{ t.id }}">
+        <input type="hidden" name="n" value="6"><button>Homework in this track</button></form>
+      <form method="post" action="/checkpoint/{{ t.id }}" class="inline"><button>Checkpoint test</button></form>
+    </div>
+  </div>
+  <p class="muted small">{{ t.description }}</p>
+  <div class="skilllist">
+    {% for s in t.skills %}{% set ss = st[s.id] %}
+    <a class="skillchip {{ ss.p|heat if ss.assessed else 'h0' }} {{ 'front' if s.id in front }}" href="/skill/{{ s.id }}">
+      <span>{{ s.name }}{% if ss.certified %} ★{% endif %}{% if not has_gen(s.id) %} <span class="muted">(no problems yet)</span>{% endif %}</span>
+      <span>{{ ss.p|pct }}%</span></a>
+    {% endfor %}
+  </div>
+  {% if t.sources %}
+  <details style="margin-top:10px"><summary class="small muted">Course sources ({{ t.sources|length }})</summary>
+    <ul class="small">{% for src in t.sources %}<li><a href="{{ src.url }}" target="_blank" rel="noopener">{{ src.title }}</a> <span class="muted">· {{ src.inst }}</span></li>{% endfor %}</ul>
+  </details>
+  {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

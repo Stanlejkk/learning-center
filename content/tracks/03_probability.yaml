@@ -1,0 +1,70 @@
+id: prob
+name: "3 · Probability & statistics"
+order: 3
+description: "Harvard Stat 110 style probability (story proofs, Bayes, distributions) through MLE, Bayesian inference, Gaussians and Markov chains."
+sources:
+  - title: "Harvard Statistics 110: Probability (Blitzstein) — lectures, strategic practice & homework"
+    url: "https://stat110.hsites.harvard.edu/"
+    inst: Harvard
+  - title: "Blitzstein & Hwang, Introduction to Probability, 2nd ed. (free online)"
+    url: "https://probabilitybook.net/"
+    inst: Harvard / Chapman & Hall
+  - title: "MIT 18.05 Introduction to Probability and Statistics (Spring 2022)"
+    url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/"
+    inst: MIT
+  - title: "MIT 6.041SC Probabilistic Systems Analysis and Applied Probability"
+    url: "https://ocw.mit.edu/courses/6-041sc-probabilistic-systems-analysis-and-applied-probability-fall-2013/"
+    inst: MIT
+skills:
+  - id: prob.counting
+    name: "Counting: permutations & combinations"
+    summary: "Multiplication rule, permutations, binomial coefficients, and the naive definition of probability."
+    prereqs: [found.fractions]
+  - id: prob.axioms
+    name: "Probability rules & inclusion-exclusion"
+    summary: "Complements, unions via inclusion-exclusion, and birthday/matching-type problems."
+    prereqs: [prob.counting]
+  - id: prob.conditional_bayes
+    name: "Conditional probability & Bayes' rule"
+    summary: "P(A|B), the law of total probability and Bayes' rule, e.g. medical tests and base rates."
+    prereqs: [prob.axioms]
+  - id: prob.discrete_rv
+    name: "Discrete random variables (Bern, Bin, Geom, Pois)"
+    summary: "PMFs and stories of the Bernoulli, Binomial, Geometric and Poisson distributions."
+    prereqs: [prob.conditional_bayes, found.sums]
+  - id: prob.expectation_variance
+    name: "Expectation, variance, linearity"
+    summary: "E[X], Var(X), linearity of expectation and the indicator-variable trick."
+    prereqs: [prob.discrete_rv]
+  - id: prob.continuous_rv
+    name: "Continuous RVs (Unif, Expo, Normal)"
+    summary: "PDFs and CDFs, the Uniform, Exponential (memoryless) and Normal distributions, standardization."
+    prereqs: [prob.expectation_variance, calc.integrals_basic]
+  - id: prob.joint_covariance
+    name: "Joint distributions, covariance, correlation"
+    summary: "Joint and marginal PMFs, independence, Cov, Corr and the variance of sums."
+    prereqs: [prob.continuous_rv]
+  - id: prob.lln_clt
+    name: "Law of large numbers & CLT"
+    summary: "Sample means concentrate (LLN) and are approximately Normal with sd sigma/sqrt(n) (CLT)."
+    prereqs: [prob.joint_covariance]
+  - id: prob.mle
+    name: "Maximum likelihood estimation"
+    summary: "Write the log-likelihood, differentiate, and solve for the parameter that maximizes it."
+    prereqs: [prob.discrete_rv, calc.transcendental_deriv]
+  - id: prob.bayesian_inference
+    name: "Bayesian inference: priors, posteriors, MAP"
+    summary: "Conjugate priors (Beta-Binomial, Gamma-Poisson), posterior means and MAP estimates."
+    prereqs: [prob.mle]
+  - id: prob.hypothesis_ci
+    name: "Confidence intervals & hypothesis tests"
+    summary: "z-intervals, z-tests, p-values and the sample size needed for a given margin of error."
+    prereqs: [prob.lln_clt]
+  - id: prob.multivariate_gaussian
+    name: "Multivariate Gaussians"
+    summary: "Mean vectors, covariance matrices, linear transforms, marginals and conditionals of Gaussians."
+    prereqs: [prob.joint_covariance, la.eigen]
+  - id: prob.markov_chains
+    name: "Markov chains & stationary distributions"
+    summary: "Transition matrices, multi-step probabilities and solving pi P = pi for the stationary distribution."
+    prereqs: [prob.conditional_bayes, la.eigen]

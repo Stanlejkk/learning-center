@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Placement · {{ prog.current_track }}{% endblock %}
+{% block content %}
+<div class="spread">
+  <div>
+    <h1>{{ prog.current_track }}</h1>
+    <p class="sub">Question {{ prog.asked + 1 }} · track {{ prog.tracks_done + 1 }} of {{ prog.tracks_total }}</p>
+  </div>
+</div>
+<div class="bar" style="margin-bottom:20px"><span style="width:{{ (100*prog.tracks_done/prog.tracks_total)|round|int }}%"></span></div>
+
+<div class="card">
+  <div class="problem">
+    <div class="meta"><span class="pill">{{ skills()[item.skill].name }}</span><span class="pill">level {{ p.level }}</span></div>
+    <div class="prompt">{{ p.prompt|md|safe }}</div>
+    <div class="paper-note">✎ Work it out on paper, then type only the final answer.</div>
+    <form method="post" action="/placement/answer" style="margin-top:14px">
+      <input class="answer" type="text" name="answer" autocomplete="off" autofocus placeholder="final answer">
+      <div class="hint">Format: {{ p.answer_hint }}</div>
+      <div class="row" style="margin-top:14px">
+        <button class="primary" name="action" value="submit">Submit answer</button>
+        <button name="action" value="dontknow">I don't know</button>
+        <button name="action" value="skiptrack" title="Mark this whole track as not learned yet">Skip this track</button>
+        <span style="flex:1"></span>
+        <button name="action" value="finish" class="danger">Finish test now</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

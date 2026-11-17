@@ -1,0 +1,94 @@
+# Track 7 — Deep learning & LLMs: a Karpathy-style progression from scalar autograd to fine-tuning a GPT.
+# Notebooks are original; they are inspired by (and credit) Andrej Karpathy's micrograd / nn-zero-to-hero /
+# nanoGPT / build-nanogpt / minbpe repositories.
+labs:
+  - id: dl_01_micrograd
+    title: "Build micrograd: scalar autograd + a tiny MLP"
+    track: dl
+    skills: [dl.backprop]
+    unlock: [dl.backprop]
+    gpu: false
+    minutes: 120
+    summary: "Implement a Value class that records its computational graph, write reverse-mode backprop with topological sort, then build Neuron/Layer/MLP on top and train it on XOR — checked against PyTorch autograd."
+    sources:
+      - {title: "micrograd (Karpathy)", url: "https://github.com/karpathy/micrograd"}
+      - {title: "Neural Networks: Zero to Hero — lecture 1", url: "https://github.com/karpathy/nn-zero-to-hero"}
+  - id: dl_02_bigram
+    title: "Bigram language model: counting vs. learning"
+    track: dl
+    skills: [dl.ngram_lm]
+    unlock: [dl.ngram_lm]
+    gpu: false
+    minutes: 90
+    summary: "Build a character bigram model of Shakespeare's vocabulary by counting, evaluate it with NLL and perplexity, sample words, and recover the same model as a one-layer neural net trained by gradient descent."
+    sources:
+      - {title: "Neural Networks: Zero to Hero — makemore part 1", url: "https://github.com/karpathy/nn-zero-to-hero"}
+      - {title: "Bengio et al. 2003 — A Neural Probabilistic Language Model", url: "https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf"}
+  - id: dl_03_mlp_lm
+    title: "MLP language model with embeddings (Bengio 2003)"
+    track: dl
+    skills: [dl.embeddings, dl.training]
+    unlock: [dl.embeddings]
+    gpu: false
+    minutes: 120
+    summary: "Turn character contexts into learned embeddings, train a Bengio-style MLP language model with mini-batches, a train/val/test split and a learning-rate range test, and visualise the embedding space."
+    sources:
+      - {title: "Bengio et al. 2003 — A Neural Probabilistic Language Model", url: "https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf"}
+      - {title: "Neural Networks: Zero to Hero — makemore part 2", url: "https://github.com/karpathy/nn-zero-to-hero"}
+  - id: dl_04_attention
+    title: "Attention from scratch"
+    track: dl
+    skills: [dl.attention]
+    unlock: [dl.attention]
+    gpu: false
+    minutes: 90
+    summary: "Implement scaled dot-product attention, the causal mask and multi-head self-attention, and verify them against torch.nn.functional.scaled_dot_product_attention."
+    sources:
+      - {title: "Vaswani et al. 2017 — Attention Is All You Need", url: "https://arxiv.org/abs/1706.03762"}
+      - {title: "nanoGPT (Karpathy)", url: "https://github.com/karpathy/nanoGPT"}
+  - id: dl_05_gpt
+    title: "Train a small GPT on TinyShakespeare (GPU)"
+    track: dl
+    skills: [dl.transformer, dl.gpt]
+    unlock: [dl.transformer]
+    gpu: true
+    minutes: 180
+    summary: "Assemble a GPT-2-style decoder (pre-LN blocks, GELU MLP, learned positions, tied embeddings), verify its parameter count against the 12d²+13d formula, train it on TinyShakespeare on the GPU and generate text."
+    sources:
+      - {title: "nanoGPT (Karpathy)", url: "https://github.com/karpathy/nanoGPT"}
+      - {title: "build-nanogpt (Karpathy)", url: "https://github.com/karpathy/build-nanogpt"}
+      - {title: "Radford et al. 2019 — GPT-2", url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"}
+      - {title: "TinyShakespeare (char-rnn data)", url: "https://github.com/karpathy/char-rnn"}
+  - id: dl_06_bpe
+    title: "Byte-level BPE tokenizer"
+    track: dl
+    skills: [dl.tokenization]
+    unlock: [dl.tokenization]
+    gpu: false
+    minutes: 90
+    summary: "Implement byte-level BPE training, encoding and decoding, check the round trip on arbitrary Unicode, and compare your tokenizer's compression with tiktoken's GPT-2 encoding."
+    sources:
+      - {title: "minbpe (Karpathy)", url: "https://github.com/karpathy/minbpe"}
+      - {title: "Radford et al. 2019 — GPT-2 (byte-level BPE, §2.2)", url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"}
+  - id: dl_07_sampling
+    title: "Decoding: temperature, top-k, top-p and the KV cache"
+    track: dl
+    skills: [dl.decoding, dl.efficient_inference]
+    unlock: [dl.decoding]
+    gpu: false
+    minutes: 90
+    summary: "Implement temperature, top-k and nucleus sampling, then a KV-cached causal attention layer and prove that incremental decoding reproduces the full forward pass exactly."
+    sources:
+      - {title: "nanoGPT (Karpathy) — generate()", url: "https://github.com/karpathy/nanoGPT"}
+      - {title: "Dao et al. 2022 — FlashAttention", url: "https://arxiv.org/abs/2205.14135"}
+  - id: dl_08_lora
+    title: "LoRA fine-tuning of your GPT (GPU)"
+    track: dl
+    skills: [dl.finetuning_lora]
+    unlock: [dl.finetuning_lora]
+    gpu: true
+    minutes: 120
+    summary: "Write a LoRA wrapper for nn.Linear, freeze a pretrained character GPT, inject adapters into its attention projections, fine-tune on a new small text and compare trainable parameter counts."
+    sources:
+      - {title: "Hu et al. 2021 — LoRA", url: "https://arxiv.org/abs/2106.09685"}
+      - {title: "nanoGPT (Karpathy)", url: "https://github.com/karpathy/nanoGPT"}

@@ -1,0 +1,65 @@
+id: ml
+name: "6 · Machine learning"
+order: 6
+description: "Classical supervised & unsupervised learning from first principles (MIT 6.390, Cornell CS4780, Columbia COMS 4771)."
+sources:
+  - title: "MIT 6.390 Intro to Machine Learning — course notes"
+    url: "https://introml.mit.edu/notes/"
+    inst: MIT
+  - title: "MIT 6.036 Introduction to Machine Learning (Open Learning Library, self-paced)"
+    url: "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about"
+    inst: MIT
+  - title: "Cornell CS4780 Machine Learning for Intelligent Systems — Kilian Weinberger's lecture notes (Fall 2018)"
+    url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/index.html"
+    inst: Cornell
+  - title: "Columbia COMS 4771 Machine Learning (Daniel Hsu)"
+    url: "https://www.cs.columbia.edu/~djhsu/ML/"
+    inst: Columbia
+  - title: "Stanford CS229 Machine Learning — main lecture notes (PDF)"
+    url: "https://cs229.stanford.edu/main_notes.pdf"
+    inst: Stanford
+skills:
+  - id: ml.linear_regression
+    name: "Linear regression"
+    summary: "Fit linear models by least squares via the normal equations, and see why that is maximum likelihood under Gaussian noise."
+    prereqs: [opt.least_squares, prob.mle]
+  - id: ml.logistic_regression
+    name: "Logistic regression"
+    summary: "Model P(y=1|x) = σ(wᵀx + b), train it by minimising cross-entropy with gradient (σ(z) - y)x, and read coefficients as log-odds."
+    prereqs: [ml.linear_regression, info.cross_entropy, opt.gradient_descent]
+  - id: ml.softmax
+    name: "Softmax & multiclass classification"
+    summary: "Softmax turns logits into class probabilities; its cross-entropy gradient is simply p - onehot(y)."
+    prereqs: [ml.logistic_regression]
+  - id: ml.bias_variance
+    name: "Bias-variance & generalization"
+    summary: "Expected test error = bias² + variance + irreducible noise, and why a little bias can buy a lot less variance."
+    prereqs: [ml.linear_regression, prob.expectation_variance]
+  - id: ml.regularization_cv
+    name: "Regularization & cross-validation"
+    summary: "Ridge penalties shrink weights to control variance; cross-validation estimates test error to choose such hyperparameters."
+    prereqs: [ml.bias_variance, opt.regularization]
+  - id: ml.metrics
+    name: "Evaluation: precision, recall, ROC, calibration"
+    summary: "Judge classifiers with precision/recall/F1, ROC curves and AUC, base-rate-aware PPV and calibration error."
+    prereqs: [prob.conditional_bayes]
+  - id: ml.naive_bayes
+    name: "Naive Bayes & generative classifiers"
+    summary: "Model p(x|y)p(y) with conditionally independent features (with Laplace smoothing) and classify by Bayes' rule."
+    prereqs: [prob.mle, prob.conditional_bayes]
+  - id: ml.knn_trees
+    name: "k-NN & decision trees (information gain)"
+    summary: "Nonparametric prediction by nearest neighbours, and decision trees grown greedily by maximising information gain."
+    prereqs: [info.entropy]
+  - id: ml.svm_kernels
+    name: "SVMs & kernels"
+    summary: "Maximum-margin classifiers (margin 2/‖w‖) and the kernel trick for nonlinear decision boundaries."
+    prereqs: [ml.logistic_regression, opt.lagrange]
+  - id: ml.clustering
+    name: "k-means & Gaussian mixtures (EM)"
+    summary: "Cluster with k-means (alternating assignment and mean updates) and its soft probabilistic version, EM for Gaussian mixtures."
+    prereqs: [prob.multivariate_gaussian, opt.gradient_descent]
+  - id: ml.pca_applied
+    name: "Dimensionality reduction in practice"
+    summary: "Centre the data, form the covariance, and keep enough principal components to explain most of the variance."
+    prereqs: [la.pca]

@@ -1,0 +1,78 @@
+id: la
+name: "2 · Linear algebra"
+order: 2
+description: "Strang-style linear algebra: elimination, the four subspaces, eigenvalues, SVD, PCA and matrix calculus; complex inner products for quantum."
+sources:
+  - title: "MIT 18.06SC Linear Algebra (Fall 2011, Strang)"
+    url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/"
+    inst: MIT
+  - title: "MIT 18.06 Linear Algebra (Spring 2010, Strang lectures)"
+    url: "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"
+    inst: MIT
+  - title: "mitmath/1806 — current 18.06 course repo"
+    url: "https://github.com/mitmath/1806"
+    inst: MIT (GitHub)
+  - title: "Gilbert Strang — Introduction to Linear Algebra (textbook site)"
+    url: "https://math.mit.edu/~gs/linearalgebra/"
+    inst: MIT
+  - title: "MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning (Spring 2018)"
+    url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/"
+    inst: MIT
+  - title: "MIT 18.S096 Matrix Calculus for Machine Learning and Beyond (IAP 2023)"
+    url: "https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-january-iap-2023/"
+    inst: MIT
+  - title: "mitmath/matrixcalc — course repo for Matrix Calculus for ML and Beyond"
+    url: "https://github.com/mitmath/matrixcalc"
+    inst: MIT (GitHub)
+  - title: "3Blue1Brown — Essence of Linear Algebra (chapter 1: Vectors)"
+    url: "https://www.3blue1brown.com/lessons/vectors"
+    inst: 3Blue1Brown
+skills:
+  - id: la.vectors
+    name: "Vectors, dot product, norms, angles"
+    summary: "Dot products, lengths, angles via cos θ, and the distance from a point to a line."
+    prereqs: [found.trig]
+  - id: la.matmul
+    name: "Matrix multiplication & linear maps"
+    summary: "Multiply matrices by rows and columns, find the matrix of a linear map, and run a neural-network layer by hand."
+    prereqs: [la.vectors]
+  - id: la.linear_systems
+    name: "Gaussian elimination & LU"
+    summary: "Solve Ax = b by elimination and back substitution, and record the multipliers as A = LU."
+    prereqs: [la.matmul, found.linear_eq]
+  - id: la.inverse_det
+    name: "Inverses & determinants"
+    summary: "Invert 2×2 matrices, compute 3×3 determinants, and use determinant rules to reason about singularity."
+    prereqs: [la.linear_systems]
+  - id: la.subspaces
+    name: "Span, independence, rank, null space"
+    summary: "Rank, special solutions of Ax = 0, and the column/left-null-space test for solvability."
+    prereqs: [la.linear_systems]
+  - id: la.orthogonality
+    name: "Projections, Gram-Schmidt, QR"
+    summary: "Project onto lines, fit least-squares lines via the normal equations, and build QR by Gram–Schmidt."
+    prereqs: [la.subspaces]
+  - id: la.eigen
+    name: "Eigenvalues & eigenvectors"
+    summary: "Find eigenvalues and eigenvectors, use trace and determinant, and compute powers and Markov steady states."
+    prereqs: [la.inverse_det, found.quadratics]
+  - id: la.diagonalization
+    name: "Diagonalization & the spectral theorem"
+    summary: "Write A = PDP⁻¹, and for symmetric A use orthogonal eigenvectors and projectors to compute matrix powers."
+    prereqs: [la.eigen, la.orthogonality]
+  - id: la.svd
+    name: "Singular value decomposition"
+    summary: "Singular values from AᵀA, best low-rank approximation (Eckart–Young), and the pseudoinverse."
+    prereqs: [la.diagonalization]
+  - id: la.pca
+    name: "PCA & low-rank approximation"
+    summary: "Covariance matrices, principal components, explained variance, and rank-1 reconstruction of data."
+    prereqs: [la.svd]
+  - id: la.matrix_calculus
+    name: "Matrix calculus (gradients of x^T A x, ||Ax-b||^2)"
+    summary: "Gradients and Hessians of quadratic forms and least-squares losses, ridge regression, and the softmax Jacobian."
+    prereqs: [la.matmul, calc.partial_derivatives]
+  - id: la.complex_inner
+    name: "Complex vectors, Hermitian & unitary matrices"
+    summary: "Complex inner products with conjugation, Hermitian eigenvalues, and quantum expectation values."
+    prereqs: [la.diagonalization, found.complex]

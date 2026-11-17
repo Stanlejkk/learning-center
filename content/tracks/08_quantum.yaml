@@ -1,0 +1,114 @@
+id: qc
+name: "8 · Quantum computing"
+order: 8
+description: "Qubits to Shor: Dirac notation, gates, entanglement, the canonical algorithms, noise, error correction and variational methods (MIT 8.370/18.435, Nielsen & Chuang, Qiskit)."
+sources:
+  - title: "MIT 8.370x Quantum Information Science I (OCW, Spring 2018)"
+    url: "https://ocw.mit.edu/courses/8-370x-quantum-information-science-i-spring-2018/"
+    inst: MIT
+  - title: "MIT 8.371x Quantum Information Science II (OCW, Spring 2018)"
+    url: "https://ocw.mit.edu/courses/8-371x-quantum-information-science-ii-spring-2018/"
+    inst: MIT
+  - title: "MITx 8.370.2x Quantum Information Science I, Part 2 (Open Learning Library: teleportation, Deutsch-Jozsa, Grover, Shor)"
+    url: "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+8.370.2x+1T2018/about"
+    inst: MIT
+  - title: "MIT 18.435J Quantum Computation (OCW, Fall 2003, Peter Shor)"
+    url: "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/"
+    inst: MIT
+  - title: "Peter Shor — 8.370/18.435 Quantum Computation lecture notes (Fall 2022)"
+    url: "https://math.mit.edu/~shor/435-LN/"
+    inst: MIT
+  - title: "John Preskill — Ph219/CS219 Quantum Computation lecture notes"
+    url: "https://www.preskill.caltech.edu/ph219/"
+    inst: Caltech
+  - title: "Ronald de Wolf — Quantum Computing: Lecture Notes (arXiv:1907.09415)"
+    url: "https://arxiv.org/abs/1907.09415"
+    inst: QuSoft / CWI / University of Amsterdam
+  - title: "N. David Mermin — Phys481-681/CS483 Quantum Computation lecture notes"
+    url: "https://mermin.lassp.cornell.edu/qcomp/CS483.html"
+    inst: Cornell
+  - title: "IBM Quantum Learning — Basics of Quantum Information (John Watrous)"
+    url: "https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information"
+    inst: IBM
+  - title: "IBM Quantum Learning — Fundamentals of Quantum Algorithms"
+    url: "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms"
+    inst: IBM
+  - title: "IBM Quantum Learning — General Formulation of Quantum Information"
+    url: "https://quantum.cloud.ibm.com/learning/en/courses/general-formulation-of-quantum-information"
+    inst: IBM
+  - title: "IBM Quantum Learning — Foundations of Quantum Error Correction"
+    url: "https://quantum.cloud.ibm.com/learning/en/courses/foundations-of-quantum-error-correction"
+    inst: IBM
+  - title: "IBM Quantum Learning — Variational Algorithm Design"
+    url: "https://quantum.cloud.ibm.com/learning/en/courses/variational-algorithm-design"
+    inst: IBM
+  - title: "Qiskit SDK source (GitHub: Qiskit/qiskit)"
+    url: "https://github.com/Qiskit/qiskit"
+    inst: IBM
+  - title: "P. W. Shor — Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer (quant-ph/9508027)"
+    url: "https://arxiv.org/abs/quant-ph/9508027"
+    inst: AT&T Research
+  - title: "L. K. Grover — A fast quantum mechanical algorithm for database search (quant-ph/9605043)"
+    url: "https://arxiv.org/abs/quant-ph/9605043"
+    inst: Bell Labs
+skills:
+  - id: qc.qubits
+    name: "Qubits & Dirac notation"
+    summary: "A qubit is a unit vector α|0⟩ + β|1⟩ in C²; kets, bras, inner products and normalisation."
+    prereqs: [la.complex_inner, prob.axioms]
+  - id: qc.single_gates
+    name: "Single-qubit gates & the Bloch sphere"
+    summary: "Unitaries X, Y, Z, H, S, T, R_z(φ) as 2×2 matrices and as rotations of the Bloch vector (θ, φ)."
+    prereqs: [qc.qubits]
+  - id: qc.measurement
+    name: "Measurement & the Born rule"
+    summary: "Outcome probabilities |⟨b|ψ⟩|², measuring in other bases, and post-measurement state collapse."
+    prereqs: [qc.qubits]
+  - id: qc.tensor
+    name: "Tensor products & multi-qubit states"
+    summary: "Composite systems live in the tensor product; Kronecker products of states and gates, and qubit ordering conventions."
+    prereqs: [qc.qubits]
+  - id: qc.multi_gates
+    name: "CNOT & multi-qubit circuits"
+    summary: "CNOT, CZ and controlled-U acting on product and superposed states; composing circuits as matrix products."
+    prereqs: [qc.tensor, qc.single_gates]
+  - id: qc.entanglement
+    name: "Entanglement, Bell states, no-cloning"
+    summary: "Bell states, deciding whether a two-qubit pure state is a product (a00·a11 = a01·a10), correlations, and why unknown states cannot be copied."
+    prereqs: [qc.multi_gates, qc.measurement]
+  - id: qc.teleportation
+    name: "Teleportation & superdense coding"
+    summary: "Use a shared Bell pair plus two classical bits to move a qubit (teleportation) or one qubit to send two bits (superdense coding)."
+    prereqs: [qc.entanglement]
+  - id: qc.oracles
+    name: "Oracles: Deutsch-Jozsa, Bernstein-Vazirani"
+    summary: "Phase kickback turns a query oracle into a phase oracle, letting one query decide constant-vs-balanced or reveal a hidden string."
+    prereqs: [qc.multi_gates]
+  - id: qc.grover
+    name: "Grover's search"
+    summary: "Oracle plus diffuser rotate the state by 2θ per iteration (sin θ = √(M/N)), giving success after about (π/4)√(N/M) queries."
+    prereqs: [qc.oracles, qc.measurement]
+  - id: qc.qft
+    name: "Quantum Fourier transform"
+    summary: "The QFT maps |j⟩ to (1/√N) Σ_k e^{2πi jk/N} |k⟩, built from Hadamards, controlled phases and a final swap."
+    prereqs: [qc.multi_gates, found.complex]
+  - id: qc.phase_estimation
+    name: "Phase estimation"
+    summary: "Controlled-U^{2^k} kicks the eigenphase into a register, and the inverse QFT reads out φ to n bits."
+    prereqs: [qc.qft, la.eigen]
+  - id: qc.shor
+    name: "Shor's algorithm & order finding"
+    summary: "Factoring reduces to finding the order r of a mod N; phase estimation gives s/r, continued fractions recover r, and gcd(a^{r/2} ± 1, N) gives factors."
+    prereqs: [qc.phase_estimation]
+  - id: qc.density_noise
+    name: "Density matrices & noise channels"
+    summary: "Mixed states ρ, purity Tr ρ², partial trace, and Kraus-operator channels such as bit-flip and depolarizing noise."
+    prereqs: [qc.entanglement]
+  - id: qc.error_correction
+    name: "Quantum error correction"
+    summary: "Encode logical qubits redundantly, measure stabilizer syndromes without learning the data, and correct errors (bit-flip, phase-flip, Shor codes)."
+    prereqs: [qc.density_noise]
+  - id: qc.variational
+    name: "Variational algorithms (VQE, QAOA)"
+    summary: "Minimise ⟨ψ(θ)|H|ψ(θ)⟩ over a parameterised circuit, with exact gradients from the parameter-shift rule."
+    prereqs: [qc.multi_gates, opt.gradient_descent]

@@ -1,0 +1,44 @@
+labs:
+  - id: info_01_entropy_compression
+    title: "Entropy of English & Huffman compression"
+    track: info
+    skills: [info.entropy, info.source_coding]
+    unlock: [info.entropy]
+    gpu: false
+    minutes: 75
+    summary: "Measure unigram and bigram (conditional) entropy of real English text, implement Huffman coding, and compare its code length with the entropy bound and with zlib."
+    sources:
+      - title: "C. E. Shannon (1948) — A Mathematical Theory of Communication"
+        url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+      - title: "MacKay — Information Theory, Inference, and Learning Algorithms (ch. 2–5)"
+        url: "https://www.inference.org.uk/itila/book.html"
+      - title: "MIT 6.050J Information and Entropy"
+        url: "https://ocw.mit.edu/courses/6-050j-information-and-entropy-spring-2008/"
+  - id: ml_01_regression_from_scratch
+    title: "Linear & logistic regression from scratch"
+    track: ml
+    skills: [ml.linear_regression, ml.logistic_regression]
+    unlock: [ml.linear_regression]
+    gpu: false
+    minutes: 90
+    summary: "Fit linear regression with the normal equations and gradient descent, then logistic regression with a hand-derived BCE gradient that you verify numerically; plot the decision boundary."
+    sources:
+      - title: "Stanford CS229 main notes (ch. 1–2: linear and logistic regression)"
+        url: "https://cs229.stanford.edu/main_notes.pdf"
+      - title: "MIT 6.390 notes — Regression, Gradient Descent, Classification"
+        url: "https://introml.mit.edu/notes/"
+  - id: ml_02_unsupervised
+    title: "k-means, PCA and EM from scratch"
+    track: ml
+    skills: [ml.clustering, ml.pca_applied]
+    unlock: [ml.clustering]
+    gpu: false
+    minutes: 90
+    summary: "Implement Lloyd's k-means, PCA via the SVD, and EM for a 1-D Gaussian mixture on synthetic data; watch the objectives decrease and the likelihood climb."
+    sources:
+      - title: "Cornell CS4780 lecture notes (Kilian Weinberger)"
+        url: "https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/index.html"
+      - title: "Stanford CS229 main notes (k-means, EM, PCA)"
+        url: "https://cs229.stanford.edu/main_notes.pdf"
+      - title: "Columbia COMS 4771 (Daniel Hsu) — includes SVD notes"
+        url: "https://www.cs.columbia.edu/~djhsu/ML/"

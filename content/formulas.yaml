@@ -1,0 +1,420 @@
+# Formula sheet: key formulas per skill (KaTeX). Shown as an allowed reference on homework and on /formulas.
+# Format: skill_id: [ [name, latex], ... ]   (latex in single quotes, no surrounding $)
+
+# ---------------------------------------------------------------- 0 · Foundations
+found.fractions:
+  - ['Add', '\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}']
+  - ['Multiply / divide', '\frac{a}{b}\cdot\frac{c}{d}=\frac{ac}{bd},\qquad \frac{a}{b}\div\frac{c}{d}=\frac{a}{b}\cdot\frac{d}{c}']
+  - ['Order of operations', '(\,)\ \to\ x^n\ \to\ \times\div\ \to\ +-']
+found.exponents:
+  - ['Product / quotient', 'a^m a^n=a^{m+n},\qquad \frac{a^m}{a^n}=a^{m-n}']
+  - ['Power', '(a^m)^n=a^{mn},\qquad (ab)^n=a^nb^n']
+  - ['Negative / zero', 'a^{-n}=\frac{1}{a^n},\qquad a^0=1']
+  - ['Fractional', 'a^{p/q}=\sqrt[q]{a^p}=\left(\sqrt[q]{a}\right)^p']
+found.linear_eq:
+  - ['Solve ax+b=c', 'x=\frac{c-b}{a}']
+  - ['2×2 system (Cramer)', 'ax+by=e,\ cx+dy=f\ \Rightarrow\ x=\frac{ed-bf}{ad-bc},\ y=\frac{af-ec}{ad-bc}']
+  - ['Line', 'y=mx+b,\qquad m=\frac{y_2-y_1}{x_2-x_1}']
+found.polynomials:
+  - ['Square of a sum', '(a\pm b)^2=a^2\pm 2ab+b^2']
+  - ['Difference of squares', 'a^2-b^2=(a-b)(a+b)']
+  - ['Cubes', 'a^3\pm b^3=(a\pm b)(a^2\mp ab+b^2)']
+  - ['Remainder theorem', 'p(x)=(x-r)q(x)+p(r)']
+found.quadratics:
+  - ['Quadratic formula', 'ax^2+bx+c=0\ \Rightarrow\ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}']
+  - ['Discriminant', '\Delta=b^2-4ac:\ \ >0\text{ two real},\ =0\text{ one},\ <0\text{ complex}']
+  - ['Vertex form', 'a x^2+bx+c=a\left(x+\tfrac{b}{2a}\right)^2+c-\tfrac{b^2}{4a}']
+  - ['Vieta', 'x_1+x_2=-\tfrac{b}{a},\qquad x_1x_2=\tfrac{c}{a}']
+found.functions:
+  - ['Composition', '(f\circ g)(x)=f(g(x))']
+  - ['Inverse', 'y=f(x)\iff x=f^{-1}(y),\qquad f(f^{-1}(x))=x']
+found.logs:
+  - ['Definition', 'b^y=x\iff y=\log_b x']
+  - ['Rules', '\log(xy)=\log x+\log y,\quad \log\tfrac{x}{y}=\log x-\log y,\quad \log x^k=k\log x']
+  - ['Change of base', '\log_b x=\frac{\ln x}{\ln b}']
+  - ['Continuous growth', 'N(t)=N_0e^{kt},\qquad T_{\text{double}}=\frac{\ln 2}{k}']
+found.trig:
+  - ['Unit circle', '\sin\tfrac{\pi}{6}=\tfrac12,\ \sin\tfrac{\pi}{4}=\tfrac{\sqrt2}{2},\ \sin\tfrac{\pi}{3}=\tfrac{\sqrt3}{2}\quad(\cos\text{ in reverse order})']
+  - ['Pythagorean', '\sin^2\theta+\cos^2\theta=1,\qquad \tan\theta=\frac{\sin\theta}{\cos\theta}']
+  - ['Addition', '\sin(a\pm b)=\sin a\cos b\pm\cos a\sin b,\quad \cos(a\pm b)=\cos a\cos b\mp\sin a\sin b']
+  - ['Double angle', '\sin 2a=2\sin a\cos a,\qquad \cos 2a=\cos^2a-\sin^2a']
+  - ['Degrees ↔ radians', '\theta_{\text{rad}}=\theta_{\deg}\cdot\frac{\pi}{180}']
+found.sums:
+  - ['Arithmetic', '\sum_{k=1}^n k=\frac{n(n+1)}{2}']
+  - ['Squares / cubes', '\sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}{6},\qquad \sum_{k=1}^n k^3=\left(\frac{n(n+1)}{2}\right)^2']
+  - ['Geometric', '\sum_{j=0}^{n-1}ar^j=a\frac{1-r^n}{1-r},\qquad \sum_{j=0}^{\infty}ar^j=\frac{a}{1-r}\ (|r|<1)']
+found.induction:
+  - ['Induction', 'P(1)\ \wedge\ \big(P(n)\Rightarrow P(n+1)\big)\ \Longrightarrow\ \forall n\ge1:\ P(n)']
+found.complex:
+  - ['i', 'i^2=-1,\qquad \overline{a+bi}=a-bi,\qquad |a+bi|=\sqrt{a^2+b^2}']
+  - ['Division', '\frac{z}{w}=\frac{z\,\bar w}{|w|^2}']
+  - ['Euler', 'e^{i\theta}=\cos\theta+i\sin\theta,\qquad z=re^{i\theta}']
+  - ['De Moivre', '(re^{i\theta})^n=r^ne^{in\theta}']
+
+# ---------------------------------------------------------------- 1 · Calculus
+calc.limits:
+  - ['Standard limits', '\lim_{x\to0}\frac{\sin x}{x}=1,\qquad \lim_{x\to0}\frac{e^x-1}{x}=1,\qquad \lim_{n\to\infty}\left(1+\tfrac1n\right)^n=e']
+  - ["L'Hôpital", '\lim\frac{f}{g}=\lim\frac{f\prime}{g\prime}\quad\text{for } \tfrac00 \text{ or } \tfrac{\infty}{\infty}']
+  - ['Continuity', 'f\text{ continuous at }a\iff \lim_{x\to a}f(x)=f(a)']
+calc.derivative_rules:
+  - ['Definition', "f'(x)=\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}"]
+  - ['Power', '\frac{d}{dx}x^n=nx^{n-1}']
+  - ['Product', "(fg)'=f'g+fg'"]
+  - ['Quotient', "\\left(\\frac{f}{g}\\right)'=\\frac{f'g-fg'}{g^2}"]
+calc.chain_rule:
+  - ['Chain rule', "\\frac{d}{dx}f(g(x))=f'(g(x))\\,g'(x)\\qquad \\frac{dy}{dx}=\\frac{dy}{du}\\frac{du}{dx}"]
+  - ['Implicit', "\\frac{d}{dx}y^n=ny^{n-1}\\,y'"]
+calc.transcendental_deriv:
+  - ['Exp / log', "(e^x)'=e^x,\\quad (a^x)'=a^x\\ln a,\\quad (\\ln x)'=\\frac1x"]
+  - ['Trig', "(\\sin x)'=\\cos x,\\quad (\\cos x)'=-\\sin x,\\quad (\\tan x)'=\\sec^2x"]
+  - ['Sigmoid', "\\sigma(z)=\\frac{1}{1+e^{-z}},\\qquad \\sigma'(z)=\\sigma(z)(1-\\sigma(z))"]
+  - ['tanh', "(\\tanh x)'=1-\\tanh^2x"]
+calc.applications:
+  - ['Tangent line', "y=f(a)+f'(a)(x-a)"]
+  - ['Critical points', "f'(x)=0;\\quad f''>0\\ \\text{min},\\ f''<0\\ \\text{max}"]
+calc.integrals_basic:
+  - ['Power', '\int x^n\,dx=\frac{x^{n+1}}{n+1}+C\ (n\ne-1),\qquad \int\frac{dx}{x}=\ln|x|+C']
+  - ['Exp / trig', '\int e^{ax}dx=\tfrac1a e^{ax},\quad \int\sin x\,dx=-\cos x,\quad \int\cos x\,dx=\sin x']
+  - ['FTC', "\\int_a^b f(x)\\,dx=F(b)-F(a),\\qquad F'=f"]
+calc.integration_techniques:
+  - ['Substitution', "\\int f(g(x))g'(x)\\,dx=\\int f(u)\\,du,\\quad u=g(x)"]
+  - ['By parts', '\int u\,dv=uv-\int v\,du']
+  - ['Gamma', '\int_0^\infty x^n e^{-\lambda x}dx=\frac{n!}{\lambda^{n+1}}']
+calc.series_taylor:
+  - ['Taylor', "f(x)=\\sum_{n=0}^\\infty\\frac{f^{(n)}(a)}{n!}(x-a)^n"]
+  - ['Exp / log', 'e^x=\sum\frac{x^n}{n!},\qquad \ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots']
+  - ['Trig', '\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,\qquad \cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots']
+  - ['Geometric / binomial', '\frac{1}{1-x}=\sum x^n,\qquad (1+x)^\alpha\approx1+\alpha x+\tfrac{\alpha(\alpha-1)}{2}x^2']
+calc.partial_derivatives:
+  - ['Partial', '\frac{\partial f}{\partial x}=\lim_{h\to0}\frac{f(x+h,y)-f(x,y)}{h}\ \ (y\text{ fixed})']
+  - ['Clairaut', 'f_{xy}=f_{yx}']
+calc.gradient:
+  - ['Gradient', '\nabla f=\left(\frac{\partial f}{\partial x_1},\dots,\frac{\partial f}{\partial x_n}\right)']
+  - ['Directional derivative', 'D_{u}f=\nabla f\cdot u\quad(\|u\|=1),\qquad \max_u D_uf=\|\nabla f\|']
+  - ['Gradient step', 'x\leftarrow x-\eta\nabla f(x)']
+calc.multivar_chain:
+  - ['Chain rule', '\frac{dz}{dt}=\frac{\partial z}{\partial x}\frac{dx}{dt}+\frac{\partial z}{\partial y}\frac{dy}{dt}']
+  - ['Jacobian', 'J_{ij}=\frac{\partial f_i}{\partial x_j},\qquad J_{f\circ g}=J_f(g(x))\,J_g(x)']
+  - ['Backprop', '\frac{\partial L}{\partial x}=J^{\top}\frac{\partial L}{\partial y}']
+calc.hessian:
+  - ['Hessian', 'H_{ij}=\frac{\partial^2 f}{\partial x_i\partial x_j}']
+  - ['2nd-order Taylor', 'f(x+h)\approx f(x)+\nabla f^{\top}h+\tfrac12h^{\top}Hh']
+  - ['2-D test', 'D=f_{xx}f_{yy}-f_{xy}^2:\ D>0,f_{xx}>0\ \text{min};\ D>0,f_{xx}<0\ \text{max};\ D<0\ \text{saddle}']
+calc.multiple_integrals:
+  - ['Fubini', '\iint_R f\,dA=\int_a^b\!\!\int_c^d f(x,y)\,dy\,dx']
+  - ['Polar', 'dA=r\,dr\,d\theta']
+  - ['Gaussian', '\int_{-\infty}^{\infty}e^{-x^2}dx=\sqrt\pi']
+
+# ---------------------------------------------------------------- 2 · Linear algebra
+la.vectors:
+  - ['Dot product', 'u\cdot v=\sum u_iv_i=\|u\|\|v\|\cos\theta']
+  - ['Norm', '\|v\|=\sqrt{v\cdot v}']
+  - ['Projection', '\mathrm{proj}_u v=\frac{u\cdot v}{u\cdot u}\,u']
+  - ['Cosine similarity', '\cos\theta=\frac{u\cdot v}{\|u\|\|v\|}']
+la.matmul:
+  - ['Entry', '(AB)_{ij}=\sum_k A_{ik}B_{kj}']
+  - ['Shapes', '(m\times n)(n\times p)=m\times p']
+  - ['Transpose', '(AB)^{\top}=B^{\top}A^{\top}']
+la.linear_systems:
+  - ['Row operations', 'R_i\leftarrow R_i-\ell_{ij}R_j,\qquad \ell_{ij}=\frac{a_{ij}}{a_{jj}}']
+  - ['LU', 'A=LU,\quad Ax=b:\ Lc=b,\ Ux=c']
+la.inverse_det:
+  - ['2×2 inverse', '\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}']
+  - ['Determinant rules', '\det(AB)=\det A\det B,\quad \det A^{\top}=\det A,\quad \det(cA)=c^n\det A']
+  - ['3×3', '\det A=a(ei-fh)-b(di-fg)+c(dh-eg)']
+la.subspaces:
+  - ['Rank-nullity', '\mathrm{rank}A+\dim N(A)=n\quad(A\text{ is } m\times n)']
+  - ['Solvable', 'Ax=b\text{ solvable}\iff b\in C(A)\iff y^{\top}b=0\ \forall y\in N(A^{\top})']
+la.orthogonality:
+  - ['Projection matrix', 'P=A(A^{\top}A)^{-1}A^{\top},\qquad P=\frac{aa^{\top}}{a^{\top}a}\ \text{(onto a line)}']
+  - ['Normal equations', 'A^{\top}A\hat x=A^{\top}b']
+  - ['Gram–Schmidt', 'q_k=\frac{v_k-\sum_{j<k}(q_j^{\top}v_k)q_j}{\|\cdots\|},\qquad A=QR']
+la.eigen:
+  - ['Definition', 'Av=\lambda v,\qquad \det(A-\lambda I)=0']
+  - ['Trace / det', '\sum\lambda_i=\mathrm{tr}A,\qquad \prod\lambda_i=\det A']
+  - ['2×2', '\lambda^2-(\mathrm{tr}A)\lambda+\det A=0']
+la.diagonalization:
+  - ['Diagonalize', 'A=PDP^{-1},\qquad A^k=PD^kP^{-1}']
+  - ['Spectral theorem', 'A=A^{\top}\Rightarrow A=Q\Lambda Q^{\top}=\sum\lambda_iq_iq_i^{\top}']
+la.svd:
+  - ['SVD', 'A=U\Sigma V^{\top},\qquad \sigma_i=\sqrt{\lambda_i(A^{\top}A)}']
+  - ['Eckart–Young', 'A_k=\sum_{i\le k}\sigma_iu_iv_i^{\top},\qquad \|A-A_k\|_2=\sigma_{k+1}']
+  - ['Pseudoinverse', 'A^{+}=V\Sigma^{+}U^{\top}']
+la.pca:
+  - ['Covariance', 'C=\frac{1}{n-1}X_c^{\top}X_c\quad(X_c\text{ centered})']
+  - ['Explained variance', '\frac{\lambda_1+\cdots+\lambda_k}{\sum_i\lambda_i}']
+  - ['Reconstruction', '\hat x=\bar x+\sum_{i\le k}(v_i^{\top}(x-\bar x))v_i']
+la.matrix_calculus:
+  - ['Linear / quadratic', '\nabla_x(a^{\top}x)=a,\qquad \nabla_x(x^{\top}Ax)=(A+A^{\top})x']
+  - ['Least squares', '\nabla_x\|Ax-b\|^2=2A^{\top}(Ax-b)']
+  - ['Softmax Jacobian', '\frac{\partial p_i}{\partial z_j}=p_i(\delta_{ij}-p_j)']
+la.complex_inner:
+  - ['Inner product', '\langle u,v\rangle=u^{\dagger}v=\sum\overline{u_i}v_i']
+  - ['Hermitian / unitary', 'H^{\dagger}=H\ (\text{real }\lambda),\qquad U^{\dagger}U=I\ (|\lambda|=1)']
+
+# ---------------------------------------------------------------- 3 · Probability
+prob.counting:
+  - ['Permutations', 'n!,\qquad P(n,k)=\frac{n!}{(n-k)!}']
+  - ['Combinations', '\binom{n}{k}=\frac{n!}{k!(n-k)!}']
+  - ['With repetition', 'n^k\ \text{ordered},\qquad \binom{n+k-1}{k}\ \text{unordered}']
+prob.axioms:
+  - ['Complement', 'P(A^c)=1-P(A)']
+  - ['Inclusion–exclusion', 'P(A\cup B)=P(A)+P(B)-P(A\cap B)']
+  - ['Naive', 'P(A)=\frac{|A|}{|S|}\ \text{(equally likely outcomes)}']
+prob.conditional_bayes:
+  - ['Conditional', 'P(A\mid B)=\frac{P(A\cap B)}{P(B)}']
+  - ['Total probability', 'P(B)=\sum_iP(B\mid A_i)P(A_i)']
+  - ['Bayes', 'P(A\mid B)=\frac{P(B\mid A)P(A)}{P(B)}']
+prob.discrete_rv:
+  - ['Binomial', 'P(X=k)=\binom{n}{k}p^k(1-p)^{n-k},\quad E=np,\ \mathrm{Var}=np(1-p)']
+  - ['Geometric (trials)', 'P(X=k)=(1-p)^{k-1}p,\quad E=\tfrac1p']
+  - ['Poisson', 'P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!},\quad E=\mathrm{Var}=\lambda']
+prob.expectation_variance:
+  - ['Expectation', 'E[X]=\sum x\,P(X=x),\qquad E[aX+bY]=aE[X]+bE[Y]']
+  - ['Variance', '\mathrm{Var}(X)=E[X^2]-E[X]^2,\qquad \mathrm{Var}(aX+b)=a^2\mathrm{Var}(X)']
+  - ['Indicators', 'E[I_A]=P(A)']
+prob.continuous_rv:
+  - ['PDF / CDF', 'P(a\le X\le b)=\int_a^bf(x)dx,\qquad F(x)=P(X\le x)']
+  - ['Uniform(a,b)', 'E=\frac{a+b}{2},\qquad \mathrm{Var}=\frac{(b-a)^2}{12}']
+  - ['Exponential(λ)', 'f=\lambda e^{-\lambda x},\quad P(X>t)=e^{-\lambda t},\quad E=\tfrac1\lambda,\ \mathrm{Var}=\tfrac1{\lambda^2}']
+  - ['Normal', 'f=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}},\qquad Z=\frac{X-\mu}{\sigma}']
+prob.joint_covariance:
+  - ['Covariance', '\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y]']
+  - ['Correlation', '\rho=\frac{\mathrm{Cov}(X,Y)}{\sigma_X\sigma_Y}']
+  - ['Sum variance', '\mathrm{Var}(X+Y)=\mathrm{Var}X+\mathrm{Var}Y+2\mathrm{Cov}(X,Y)']
+prob.lln_clt:
+  - ['Sample mean', 'E[\bar X]=\mu,\qquad \mathrm{SD}(\bar X)=\frac{\sigma}{\sqrt n}']
+  - ['CLT', '\frac{\bar X-\mu}{\sigma/\sqrt n}\ \xrightarrow{d}\ \mathcal N(0,1)']
+  - ['Normal table', '\Phi(1)\approx0.841,\ \Phi(1.645)=0.95,\ \Phi(1.96)=0.975,\ \Phi(2)\approx0.977']
+prob.mle:
+  - ['MLE', '\hat\theta=\arg\max_\theta\sum_i\log p(x_i\mid\theta)\quad(\text{set }\tfrac{d\ell}{d\theta}=0)']
+  - ['Common MLEs', '\hat p=\bar x\ \text{(Bern)},\quad \hat\lambda=\bar x\ \text{(Pois)},\quad \hat\lambda=1/\bar x\ \text{(Expo)}']
+prob.bayesian_inference:
+  - ['Posterior', 'p(\theta\mid x)\propto p(x\mid\theta)\,p(\theta)']
+  - ['Beta–Binomial', '\mathrm{Beta}(a,b)+k\text{ succ.},\,n-k\text{ fail}\to\mathrm{Beta}(a+k,\,b+n-k)']
+  - ['Beta mean / mode', 'E=\frac{a}{a+b},\qquad \mathrm{MAP}=\frac{a-1}{a+b-2}']
+  - ['Gamma–Poisson', '\mathrm{Gamma}(\alpha,\beta)\to\mathrm{Gamma}(\alpha+\textstyle\sum x_i,\ \beta+n)']
+prob.hypothesis_ci:
+  - ['CI for mean', '\bar x\pm z^*\frac{\sigma}{\sqrt n}\quad(z^*=1.96\text{ for }95\%)']
+  - ['z-test', 'z=\frac{\bar x-\mu_0}{\sigma/\sqrt n}']
+  - ['Sample size', 'n=\left(\frac{z^*\sigma}{E}\right)^2']
+prob.multivariate_gaussian:
+  - ['Density', 'p(x)=\frac{1}{(2\pi)^{d/2}|\Sigma|^{1/2}}e^{-\frac12(x-\mu)^{\top}\Sigma^{-1}(x-\mu)}']
+  - ['Linear map', 'Ax+b\sim\mathcal N(A\mu+b,\ A\Sigma A^{\top})']
+  - ['Conditional (2-D)', 'E[X_1\mid X_2]=\mu_1+\frac{\Sigma_{12}}{\Sigma_{22}}(x_2-\mu_2)']
+prob.markov_chains:
+  - ['n steps', 'P(X_n=j\mid X_0=i)=(P^n)_{ij}']
+  - ['Stationary', '\pi P=\pi,\qquad \sum_i\pi_i=1']
+
+# ---------------------------------------------------------------- 4 · Optimization
+opt.convexity:
+  - ['Convex function', 'f(\theta x+(1-\theta)y)\le\theta f(x)+(1-\theta)f(y)']
+  - ['Tests', "f''\\ge0\\ \\text{(1-D)},\\qquad H\\succeq0\\ \\text{(all eigenvalues}\\ge0)"]
+opt.gradient_descent:
+  - ['GD step', 'x_{k+1}=x_k-\eta\nabla f(x_k)']
+  - ['Quadratic', 'f=\tfrac12x^{\top}Ax-b^{\top}x:\quad \nabla f=Ax-b,\quad x^*=A^{-1}b']
+opt.conditioning:
+  - ['Stability', '0<\eta<\frac{2}{\lambda_{\max}}']
+  - ['Optimal step', '\eta^*=\frac{2}{\lambda_{\min}+\lambda_{\max}},\qquad \rho=\frac{\kappa-1}{\kappa+1},\ \kappa=\frac{\lambda_{\max}}{\lambda_{\min}}']
+opt.least_squares:
+  - ['Normal equations', '\hat x=(A^{\top}A)^{-1}A^{\top}b']
+  - ['Line fit', 'm=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2},\qquad b=\bar y-m\bar x']
+opt.lagrange:
+  - ['Lagrange', '\nabla f=\lambda\nabla g,\qquad g(x)=c']
+  - ['Lagrangian', '\mathcal L(x,\lambda)=f(x)-\lambda(g(x)-c)']
+opt.newton:
+  - ['Root finding', "x_{k+1}=x_k-\\frac{f(x_k)}{f'(x_k)}"]
+  - ['Optimization', 'x_{k+1}=x_k-H^{-1}\nabla f(x_k)']
+opt.sgd_momentum:
+  - ['SGD', 'g_k=\frac{1}{B}\sum_{i\in\text{batch}}\nabla f_i(x_k)']
+  - ['Momentum', 'v_{k+1}=\beta v_k+g_k,\qquad x_{k+1}=x_k-\eta v_{k+1}']
+opt.adam:
+  - ['Moments', 'm_t=\beta_1m_{t-1}+(1-\beta_1)g_t,\qquad v_t=\beta_2v_{t-1}+(1-\beta_2)g_t^2']
+  - ['Bias correction', '\hat m_t=\frac{m_t}{1-\beta_1^t},\qquad \hat v_t=\frac{v_t}{1-\beta_2^t}']
+  - ['Update', 'x_t=x_{t-1}-\eta\frac{\hat m_t}{\sqrt{\hat v_t}+\epsilon}\qquad(\text{AdamW: }-\eta\lambda x_{t-1})']
+opt.regularization:
+  - ['Ridge', '\hat w=(X^{\top}X+\lambda I)^{-1}X^{\top}y']
+  - ['Lasso (soft-threshold)', 'S_\lambda(z)=\mathrm{sign}(z)\max(|z|-\lambda,0)']
+
+# ---------------------------------------------------------------- 5 · Information theory
+info.entropy:
+  - ['Entropy', 'H(X)=-\sum_xp(x)\log_2p(x)\ \text{bits},\qquad 0\le H\le\log_2|\mathcal X|']
+  - ['Binary entropy', 'H_b(p)=-p\log_2p-(1-p)\log_2(1-p)']
+info.joint_conditional:
+  - ['Chain rule', 'H(X,Y)=H(X)+H(Y\mid X)']
+  - ['Conditional', 'H(Y\mid X)=\sum_xp(x)H(Y\mid X=x)']
+info.kl_divergence:
+  - ['KL', 'D(P\|Q)=\sum_xp(x)\log\frac{p(x)}{q(x)}\ \ge0']
+info.cross_entropy:
+  - ['Cross-entropy', 'H(P,Q)=-\sum_xp(x)\log q(x)=H(P)+D(P\|Q)']
+  - ['Log loss', 'L=-\big[y\log\hat p+(1-y)\log(1-\hat p)\big]']
+info.mutual_information:
+  - ['Mutual information', 'I(X;Y)=H(X)+H(Y)-H(X,Y)=H(X)-H(X\mid Y)']
+  - ['As KL', 'I(X;Y)=D\big(p(x,y)\,\|\,p(x)p(y)\big)']
+info.source_coding:
+  - ['Kraft', '\sum_i2^{-\ell_i}\le1']
+  - ['Shannon bound', 'H(X)\le L_{\text{Huffman}}<H(X)+1,\qquad L=\sum p_i\ell_i']
+info.channel_capacity:
+  - ['Capacity', 'C=\max_{p(x)}I(X;Y)']
+  - ['BSC', 'C=1-H_b(p)']
+info.perplexity:
+  - ['Perplexity', '\mathrm{PPL}=2^{H}=\exp\Big(-\frac1N\sum\ln p(w_i\mid w_{<i})\Big)']
+  - ['Bits per char', '\mathrm{bpc}=\frac{\text{nats}}{\ln 2}\ \text{per character}']
+info.data_eda:
+  - ['Sample variance', 's^2=\frac{1}{n-1}\sum(x_i-\bar x)^2']
+  - ['IQR outliers', 'x<Q_1-1.5\,\mathrm{IQR}\ \text{or}\ x>Q_3+1.5\,\mathrm{IQR}']
+  - ['Correlation', 'r=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum(x_i-\bar x)^2\sum(y_i-\bar y)^2}}']
+info.ab_testing:
+  - ['Two-proportion z', 'z=\frac{\hat p_1-\hat p_2}{\sqrt{\hat p(1-\hat p)(\frac1{n_1}+\frac1{n_2})}},\quad \hat p=\frac{x_1+x_2}{n_1+n_2}']
+  - ["Simpson's paradox", '\text{a trend in every subgroup can reverse when groups are pooled}']
+
+# ---------------------------------------------------------------- 6 · Machine learning
+ml.linear_regression:
+  - ['Model', '\hat y=Xw,\qquad L=\|Xw-y\|^2']
+  - ['Solution', 'w=(X^{\top}X)^{-1}X^{\top}y']
+ml.logistic_regression:
+  - ['Model', 'P(y=1\mid x)=\sigma(w^{\top}x+b)']
+  - ['Gradient (BCE)', '\frac{\partial L}{\partial z}=\sigma(z)-y,\qquad \nabla_wL=(\sigma(z)-y)\,x']
+  - ['Log-odds', '\log\frac{p}{1-p}=w^{\top}x+b']
+ml.softmax:
+  - ['Softmax', 'p_i=\frac{e^{z_i}}{\sum_je^{z_j}}']
+  - ['CE gradient', '\nabla_zL=p-\mathrm{onehot}(y)']
+ml.bias_variance:
+  - ['Decomposition', 'E[(y-\hat f)^2]=\mathrm{Bias}^2+\mathrm{Var}+\sigma^2']
+  - ['Bias / variance', '\mathrm{Bias}=E[\hat\theta]-\theta,\qquad \mathrm{MSE}=\mathrm{Bias}^2+\mathrm{Var}']
+ml.regularization_cv:
+  - ['Ridge objective', '\|Xw-y\|^2+\lambda\|w\|^2']
+  - ['k-fold CV', '\mathrm{CV}=\frac1k\sum_{j=1}^k\mathrm{err}_j']
+ml.metrics:
+  - ['Precision / recall', 'P=\frac{TP}{TP+FP},\qquad R=\frac{TP}{TP+FN}']
+  - ['F1', 'F_1=\frac{2PR}{P+R}']
+  - ['Rates', '\mathrm{TPR}=\frac{TP}{TP+FN},\qquad \mathrm{FPR}=\frac{FP}{FP+TN}']
+ml.naive_bayes:
+  - ['Naive Bayes', 'P(y\mid x)\propto P(y)\prod_jP(x_j\mid y)']
+  - ['Laplace smoothing', 'P(x_j=v\mid y)=\frac{\mathrm{count}+1}{N_y+K}']
+ml.knn_trees:
+  - ['Information gain', 'IG=H(Y)-\sum_v\frac{|S_v|}{|S|}H(Y\mid S_v)']
+  - ['Gini', 'G=1-\sum_kp_k^2']
+ml.svm_kernels:
+  - ['Margin', '\text{margin}=\frac{2}{\|w\|},\qquad y_i(w^{\top}x_i+b)\ge1']
+  - ['Kernels', 'k(x,z)=(x^{\top}z+c)^d,\qquad k(x,z)=e^{-\gamma\|x-z\|^2}']
+ml.clustering:
+  - ['k-means', 'c_i=\arg\min_k\|x_i-\mu_k\|^2,\qquad \mu_k=\frac{1}{|C_k|}\sum_{i\in C_k}x_i']
+  - ['EM responsibilities', 'r_{ik}=\frac{\pi_k\mathcal N(x_i\mid\mu_k,\Sigma_k)}{\sum_j\pi_j\mathcal N(x_i\mid\mu_j,\Sigma_j)}']
+ml.pca_applied:
+  - ['Components kept', 'k=\min\Big\{k:\ \frac{\sum_{i\le k}\lambda_i}{\sum\lambda_i}\ge0.95\Big\}']
+
+# ---------------------------------------------------------------- 7 · Deep learning & LLMs
+dl.mlp:
+  - ['Layer', 'h=\phi(Wx+b),\qquad W\in\mathbb R^{d_{out}\times d_{in}}']
+  - ['Parameters', '\#\text{params}=d_{in}d_{out}+d_{out}\ \text{per layer}']
+dl.backprop:
+  - ['Local rule', '\frac{\partial L}{\partial x}=\sum_{\text{children }c}\frac{\partial L}{\partial c}\frac{\partial c}{\partial x}']
+  - ['Linear layer', 'y=Wx:\quad \frac{\partial L}{\partial W}=\delta\,x^{\top},\quad \frac{\partial L}{\partial x}=W^{\top}\delta']
+  - ['ReLU', "\\mathrm{ReLU}'(z)=\\mathbb 1[z>0]"]
+dl.init_activations:
+  - ['Xavier / He', '\mathrm{Var}(W)=\frac{2}{n_{in}+n_{out}}\ \text{(Xavier)},\qquad \frac{2}{n_{in}}\ \text{(He, ReLU)}']
+  - ['LayerNorm', '\mathrm{LN}(x)=\gamma\frac{x-\mu}{\sqrt{\sigma^2+\epsilon}}+\beta']
+  - ['GELU', '\mathrm{GELU}(x)=x\,\Phi(x)']
+dl.training:
+  - ['Steps per epoch', '\lceil N/B\rceil']
+  - ['Cosine schedule', '\eta_t=\eta_{\min}+\tfrac12(\eta_{\max}-\eta_{\min})\big(1+\cos\tfrac{\pi t}{T}\big)']
+dl.cnn:
+  - ['Output size', 'n_{out}=\left\lfloor\frac{n+2p-k}{s}\right\rfloor+1']
+  - ['Parameters', '(k\cdot k\cdot C_{in}+1)\cdot C_{out}']
+dl.embeddings:
+  - ['Lookup', 'e=E[\text{token}]\in\mathbb R^d,\qquad E\in\mathbb R^{V\times d}']
+  - ['Cosine similarity', '\cos(u,v)=\frac{u\cdot v}{\|u\|\|v\|}']
+dl.ngram_lm:
+  - ['Chain rule', 'p(w_1\dots w_n)=\prod_ip(w_i\mid w_{<i})']
+  - ['Bigram MLE', 'p(b\mid a)=\frac{c(a,b)}{c(a)},\qquad \text{add-one: }\frac{c(a,b)+1}{c(a)+V}']
+dl.attention:
+  - ['Attention', '\mathrm{Attn}(Q,K,V)=\mathrm{softmax}\!\left(\frac{QK^{\top}}{\sqrt{d_k}}\right)V']
+  - ['Causal mask', 'S_{ij}=-\infty\ \text{for } j>i']
+  - ['Multi-head', 'd_k=d_{model}/h,\qquad 4d^2\ \text{params (Q,K,V,O)}']
+dl.transformer:
+  - ['Pre-LN block', 'x\leftarrow x+\mathrm{Attn}(\mathrm{LN}(x)),\qquad x\leftarrow x+\mathrm{MLP}(\mathrm{LN}(x))']
+  - ['Params per block', '\approx12d^2\quad(4d^2\text{ attn}+8d^2\text{ MLP with }4d\text{ hidden})']
+dl.tokenization:
+  - ['BPE', '\text{repeat: merge the most frequent adjacent pair into a new token}']
+  - ['Vocab', 'V=256\ \text{bytes}+\#\text{merges}']
+dl.gpt:
+  - ['Parameters', 'N\approx12Ld^2+Vd\ \ (+\ n_{ctx}d\ \text{positions})']
+  - ['Training FLOPs', 'C\approx6ND']
+  - ['Loss', 'L=-\frac1T\sum_t\log p_\theta(x_t\mid x_{<t})']
+dl.decoding:
+  - ['Temperature', 'p_i=\frac{e^{z_i/T}}{\sum_je^{z_j/T}}']
+  - ['Top-k / top-p', '\text{keep the }k\text{ largest, or the smallest set with }\textstyle\sum p\ge p_{top};\ \text{renormalize}']
+dl.efficient_inference:
+  - ['KV cache', '\text{bytes}=2\cdot L\cdot n_{kv}\cdot d_{head}\cdot T\cdot B\cdot\text{bytes/elt}']
+  - ['Decode speed (bandwidth-bound)', '\text{tokens/s}\approx\frac{\text{memory bandwidth}}{\text{model bytes}}']
+dl.scaling_laws:
+  - ['Chinchilla', 'D^*\approx20N,\qquad C=6ND\Rightarrow N^*\approx\sqrt{C/120}']
+  - ['Kaplan', 'L(N)=\left(\frac{N_c}{N}\right)^{\alpha_N},\qquad \alpha_N\approx0.076']
+dl.finetuning_lora:
+  - ['LoRA', "W'=W+\\frac{\\alpha}{r}BA,\\qquad B\\in\\mathbb R^{d_{out}\\times r},\\ A\\in\\mathbb R^{r\\times d_{in}}"]
+  - ['Trainable params', 'r(d_{in}+d_{out})\ \text{vs}\ d_{in}d_{out}']
+dl.alignment:
+  - ['Bradley–Terry', 'P(y_w\succ y_l)=\sigma(r_w-r_l)']
+  - ['RLHF objective', '\max_\pi E[r(x,y)]-\beta\,D_{KL}(\pi\,\|\,\pi_{ref})']
+  - ['DPO loss', 'L=-\log\sigma\!\Big(\beta\big[\log\tfrac{\pi(y_w)}{\pi_{ref}(y_w)}-\log\tfrac{\pi(y_l)}{\pi_{ref}(y_l)}\big]\Big)']
+
+# ---------------------------------------------------------------- 8 · Quantum computing
+qc.qubits:
+  - ['Qubit', '|\psi\rangle=\alpha|0\rangle+\beta|1\rangle,\qquad |\alpha|^2+|\beta|^2=1']
+  - ['Inner product', '\langle\phi|\psi\rangle=\sum\overline{\phi_i}\psi_i']
+  - ['± basis', '|\pm\rangle=\frac{|0\rangle\pm|1\rangle}{\sqrt2}']
+qc.single_gates:
+  - ['Paulis', 'X=\begin{pmatrix}0&1\\1&0\end{pmatrix},\ Y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\ Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}']
+  - ['H, S, T', 'H=\tfrac{1}{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\ S=\begin{pmatrix}1&0\\0&i\end{pmatrix},\ T=\begin{pmatrix}1&0\\0&e^{i\pi/4}\end{pmatrix}']
+  - ['Rotations', 'R_z(\phi)=\begin{pmatrix}e^{-i\phi/2}&0\\0&e^{i\phi/2}\end{pmatrix},\quad R_y(\theta)=\begin{pmatrix}\cos\frac\theta2&-\sin\frac\theta2\\\sin\frac\theta2&\cos\frac\theta2\end{pmatrix}']
+  - ['Bloch sphere', '|\psi\rangle=\cos\tfrac\theta2|0\rangle+e^{i\phi}\sin\tfrac\theta2|1\rangle;\quad HXH=Z,\ HZH=X']
+qc.measurement:
+  - ['Born rule', 'P(b)=|\langle b|\psi\rangle|^2']
+  - ['Collapse', '|\psi\rangle\to\frac{P_b|\psi\rangle}{\|P_b|\psi\rangle\|}']
+  - ['Expectation', '\langle A\rangle=\langle\psi|A|\psi\rangle']
+qc.tensor:
+  - ['Tensor product', '(a|0\rangle+b|1\rangle)\otimes(c|0\rangle+d|1\rangle)=ac|00\rangle+ad|01\rangle+bc|10\rangle+bd|11\rangle']
+  - ['Kronecker', '(A\otimes B)(u\otimes v)=Au\otimes Bv']
+  - ['Qiskit ordering', '|q_{n-1}\dots q_1q_0\rangle,\quad \text{index}=\sum_kq_k2^k\ \text{(little-endian)}']
+qc.multi_gates:
+  - ['CNOT', '\mathrm{CNOT}|c,t\rangle=|c,\ t\oplus c\rangle']
+  - ['Controlled-U', 'C\!U=|0\rangle\langle0|\otimes I+|1\rangle\langle1|\otimes U']
+  - ['CZ', 'CZ|ab\rangle=(-1)^{ab}|ab\rangle']
+qc.entanglement:
+  - ['Bell states', '|\Phi^\pm\rangle=\frac{|00\rangle\pm|11\rangle}{\sqrt2},\qquad |\Psi^\pm\rangle=\frac{|01\rangle\pm|10\rangle}{\sqrt2}']
+  - ['Product test', 'a_{00}a_{11}-a_{01}a_{10}=0\iff\text{product state}']
+  - ['CHSH', '|S|\le2\ \text{(classical)},\qquad S_{\max}=2\sqrt2\ \text{(quantum)}']
+qc.teleportation:
+  - ['Corrections', '(m_1,m_2)\to Z^{m_1}X^{m_2}\ \text{on Bob}']
+  - ['Superdense coding', '00\to I,\ 01\to X,\ 10\to Z,\ 11\to ZX\ \text{on Alice, then Bell measurement}']
+qc.oracles:
+  - ['Phase kickback', 'U_f|x\rangle|-\rangle=(-1)^{f(x)}|x\rangle|-\rangle']
+  - ['Hadamard transform', 'H^{\otimes n}|x\rangle=\frac{1}{\sqrt{2^n}}\sum_y(-1)^{x\cdot y}|y\rangle']
+qc.grover:
+  - ['Angle', '\sin\theta=\sqrt{M/N}']
+  - ['Success', 'P_k=\sin^2\big((2k+1)\theta\big),\qquad k^*=\Big\lfloor\frac\pi4\sqrt{N/M}\Big\rfloor']
+  - ['Diffuser', 'D=2|s\rangle\langle s|-I,\qquad |s\rangle=H^{\otimes n}|0\rangle']
+qc.qft:
+  - ['QFT', '|j\rangle\mapsto\frac{1}{\sqrt N}\sum_{k=0}^{N-1}e^{2\pi ijk/N}|k\rangle']
+  - ['Product form', '|j\rangle\mapsto\bigotimes_{l=1}^{n}\frac{|0\rangle+e^{2\pi i\,0.j_{n-l+1}\dots j_n}|1\rangle}{\sqrt2}']
+  - ['Gate count', '\frac{n(n+1)}{2}\ \text{gates}+\lfloor n/2\rfloor\ \text{swaps}']
+qc.phase_estimation:
+  - ['Eigenphase', 'U|u\rangle=e^{2\pi i\varphi}|u\rangle']
+  - ['Readout', '\varphi=0.\varphi_1\varphi_2\dots\varphi_n=\frac{m}{2^n}\ \text{(exact if representable)}']
+qc.shor:
+  - ['Order', 'r=\min\{r>0:\ a^r\equiv1\pmod N\}']
+  - ['Factors', 'r\text{ even},\ a^{r/2}\not\equiv-1\Rightarrow\ \gcd(a^{r/2}\pm1,\ N)']
+  - ['Continued fractions', '\frac{m}{2^n}\approx\frac{s}{r}\ \text{(convergents)}']
+qc.density_noise:
+  - ['Density matrix', '\rho=\sum_ip_i|\psi_i\rangle\langle\psi_i|,\qquad \mathrm{Tr}\rho=1']
+  - ['Purity', '\mathrm{Tr}\rho^2\le1\ (=1\text{ iff pure})']
+  - ['Channel (Kraus)', '\rho\to\sum_kE_k\rho E_k^{\dagger},\qquad \text{bit flip: }(1-p)\rho+pX\rho X']
+  - ['Partial trace', '\mathrm{Tr}_B\big(|a\rangle\langle a_2|\otimes|b\rangle\langle b_2|\big)=|a\rangle\langle a_2|\,\langle b_2|b\rangle']
+qc.error_correction:
+  - ['3-qubit bit-flip code', '|0_L\rangle=|000\rangle,\ |1_L\rangle=|111\rangle;\quad \text{syndromes }Z_1Z_2,\ Z_2Z_3']
+  - ['Logical error', 'p_L=3p^2-2p^3']
+qc.variational:
+  - ['Energy', 'E(\theta)=\langle\psi(\theta)|H|\psi(\theta)\rangle\ge E_0']
+  - ['Parameter shift', '\frac{\partial E}{\partial\theta}=\frac{E(\theta+\frac\pi2)-E(\theta-\frac\pi2)}{2}']
+  - ['After R_y(θ) on |0⟩', '\langle Z\rangle=\cos\theta,\qquad \langle X\rangle=\sin\theta']

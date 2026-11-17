@@ -1,0 +1,58 @@
+id: info
+name: "5 · Information theory & data"
+order: 5
+description: "Shannon entropy, KL divergence, cross-entropy and perplexity (the loss functions of LLMs), coding and channels, plus practical data analysis."
+sources:
+  - title: "MIT 6.050J Information and Entropy (Spring 2008, OCW)"
+    url: "https://ocw.mit.edu/courses/6-050j-information-and-entropy-spring-2008/"
+    inst: MIT
+  - title: "David MacKay — Information Theory, Inference, and Learning Algorithms (free PDF)"
+    url: "https://www.inference.org.uk/itila/book.html"
+    inst: University of Cambridge
+  - title: "C. E. Shannon (1948) — A Mathematical Theory of Communication"
+    url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+    inst: Bell Labs (reprint hosted by Harvard Mathematics)
+  - title: "Harvard CS109A Introduction to Data Science (2019)"
+    url: "https://harvard-iacs.github.io/2019-CS109A/"
+    inst: Harvard IACS
+skills:
+  - id: info.entropy
+    name: "Shannon entropy"
+    summary: "H(X) = -Σ p log₂ p measures average surprise in bits: compute it, bound it by log₂|X|, and use the grouping rule."
+    prereqs: [prob.discrete_rv, found.logs]
+  - id: info.joint_conditional
+    name: "Joint & conditional entropy"
+    summary: "Entropy of pairs H(X,Y) and of one variable given another H(Y|X), linked by the chain rule H(X,Y) = H(X) + H(Y|X)."
+    prereqs: [info.entropy, prob.conditional_bayes]
+  - id: info.kl_divergence
+    name: "KL divergence"
+    summary: "D(P‖Q) = Σ p log(p/q) is the non-negative, asymmetric extra cost of believing Q when the truth is P."
+    prereqs: [info.entropy]
+  - id: info.cross_entropy
+    name: "Cross-entropy & log loss"
+    summary: "H(P,Q) = H(P) + D(P‖Q) is exactly the log loss that classifiers and language models minimise."
+    prereqs: [info.kl_divergence]
+  - id: info.mutual_information
+    name: "Mutual information"
+    summary: "I(X;Y) = H(X) + H(Y) - H(X,Y) = D(p(x,y)‖p(x)p(y)) quantifies how much one variable tells you about another."
+    prereqs: [info.joint_conditional, info.kl_divergence]
+  - id: info.source_coding
+    name: "Source coding: Huffman, Kraft, compression"
+    summary: "Prefix codes obey the Kraft inequality; Huffman coding is optimal and gets within one bit of the entropy bound."
+    prereqs: [info.entropy]
+  - id: info.channel_capacity
+    name: "Channel capacity"
+    summary: "Capacity C = max I(X;Y) is the highest reliable rate over a noisy channel, e.g. 1 - H_b(p) for the binary symmetric channel."
+    prereqs: [info.mutual_information]
+  - id: info.perplexity
+    name: "Perplexity & bits-per-character"
+    summary: "Perplexity = 2^(cross-entropy in bits) is the effective branching factor of a language model; bpc normalises loss per character."
+    prereqs: [info.cross_entropy]
+  - id: info.data_eda
+    name: "Descriptive statistics & exploratory data analysis"
+    summary: "Summarise data with mean, variance, correlation and robust quartile-based outlier rules before modelling it."
+    prereqs: [prob.joint_covariance]
+  - id: info.ab_testing
+    name: "A/B tests, Simpson's paradox & sampling bias"
+    summary: "Compare two proportions with a z-test, size experiments for power, and spot confounding such as Simpson's paradox."
+    prereqs: [prob.hypothesis_ci, prob.conditional_bayes]

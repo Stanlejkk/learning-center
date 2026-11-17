@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}{{ sk.name }}{% endblock %}
+{% block content %}
+<p class="small"><a href="/skills#{{ track.id }}">{{ track.name }}</a></p>
+<div class="spread">
+  <div><h1>{{ sk.name }}{% if s.certified %} <span class="pill good">★ certified</span>{% endif %}</h1>
+    <p class="sub">{{ sk.summary }}</p></div>
+  <form method="post" action="/practice/{{ sk.id }}"><button class="primary">Practice this skill (5 problems)</button></form>
+</div>
+
+<div class="grid g4">
+  <div class="card stat"><div class="v">{{ s.p|pct }}%</div><div class="l">mastery estimate</div>
+    <div class="bar" style="margin-top:8px"><span style="width:{{ s.p|pct }}%"></span></div></div>
+  <div class="card stat"><div class="v">{{ s.n_correct }}/{{ s.n_attempts }}</div><div class="l">correct answers</div></div>
+  <div class="card stat"><div class="v">{{ s.review_due or '—' }}</div><div class="l">next review</div></div>
+  <div class="card stat"><div class="v">{{ 'yes' if not blocked else 'not yet' }}</div><div class="l">prerequisites ready</div></div>
+</div>
+
+<div class="grid g2" style="margin-top:16px">
+  <div class="card">
+    <h3>Prerequisites</h3>
+    <ul class="clean">
+      {% for p in sk.prereqs %}<li class="spread"><a href="/skill/{{ p }}">{{ skills()[p].name }}</a>
+        <span class="pill {{ 'good' if st[p].p >= 0.8 else 'bad' if st[p].assessed and st[p].p < 0.6 else '' }}">{{ st[p].p|pct }}%</span></li>
+      {% else %}<li class="muted">None. This is a starting point.</li>{% endfor %}
+    </ul>
+    {% if children %}<h3 style="margin-top:16px">Unlocks</h3>
+    <ul class="clean">{% for c in children %}<li><a href="/skill/{{ c }}">{{ skills()[c].name }}</a></li>{% endfor %}</ul>{% endif %}
+  </div>
+  <div class="card">
+    <h3>Read / watch</h3>
+    <ul class="clean">
+      {% for r in readings %}<li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }}</a>{% if r.local_url %} <a class="pill acc" href="{{ r.local_url }}" target="_blank">offline PDF</a>{% endif %}
+        <span class="muted small"> · {{ r.inst }}{% if r.kind %} · {{ r.kind }}{% endif %}{% if r.minutes %} · ~{{ r.minutes }} min{% endif %}</span></li>
+      {% else %}<li class="muted">See the course sources on the <a href="/skills#{{ track.id }}">skill map</a>.</li>{% endfor %}
+    </ul>
+    {% if papers %}<h3 style="margin-top:16px">Landmark papers</h3>
+    <ul class="clean">{% for p in papers %}<li><a href="/library#{{ p.id }}">{{ p.title }}</a> <span class="muted small">({{ p.year }})</span></li>{% endfor %}</ul>{% endif %}
+    {% if labs %}<h3 style="margin-top:16px">Coding labs</h3>
+    <ul class="clean">{% for l in labs %}<li class="spread"><a href="/labs#{{ l.lab.id }}">{{ l.lab.title }}</a>
+      <span class="pill">{{ 'locked' if l.locked_by else l.status }}</span></li>{% endfor %}</ul>{% endif %}
+  </div>
+</div>
+
+{% if sample %}
+<h2>Sample problem (level {{ sample.level }})</h2>
+<div class="card"><div class="prompt">{{ sample.prompt|md|safe }}</div>
+  <details style="margin-top:10px"><summary class="small muted">Show solution</summary><div class="solution">{{ sample.solution|md|safe }}</div></details></div>
+{% endif %}
+
+<h2>History</h2>
+<div class="card">
+  {% if hist %}
+  <table><tr><th>When</th><th>Session</th><th>Level</th><th>Answer</th><th>Result</th></tr>
+  {% for h in hist %}<tr><td class="muted">{{ (h.answered_at or '')[:16].replace('T',' ') }}</td><td>{{ h.kind }}</td><td>L{{ h.level }}</td>
+    <td><code>{{ h.user_answer or '—' }}</code></td>
+    <td><span class="verdict {{ 'good' if h.correct else 'bad' }}">{{ '✓' if h.correct else '✗' }}</span>
+      {% if h.misconception and h.misconception != 'unknown' %}<span class="pill bad">{{ h.misconception.replace('-', ' ') }}</span>{% endif %}</td></tr>{% endfor %}
+  </table>
+  {% else %}<p class="muted">No attempts yet.</p>{% endif %}
+</div>
+{% endblock %}

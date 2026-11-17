@@ -1,0 +1,16 @@
+{# Formula sheet body. Expects `groups` from app.main.formula_sheet. #}
+<div class="fsheet">
+{% for g in groups %}
+  <section class="fgroup">
+    <h4>{{ g.track.name }}</h4>
+    {% for r in g.rows %}
+    <div class="fskill {{ 'inset' if r.in_set }}" data-name="{{ (r.skill.name ~ ' ' ~ r.formulas|map('first')|join(' '))|lower }}">
+      <div class="fname"><a href="/skill/{{ r.skill.id }}">{{ r.skill.name }}</a></div>
+      {% for name, tex in r.formulas %}
+      <div class="frow"><span class="flabel">{{ name }}</span><span class="ftex">$${{ tex }}$$</span></div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </section>
+{% endfor %}
+</div>

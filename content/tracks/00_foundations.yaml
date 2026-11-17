@@ -1,0 +1,61 @@
+id: found
+name: "0 · Foundations refresh"
+order: 0
+description: >
+  Algebra, functions, exponents/logs, trigonometry, sums, complex numbers and proof by induction —
+  the toolkit every later track silently assumes.
+sources:
+  - title: "MIT 18.01SC Single Variable Calculus — Session 0 / prerequisites review"
+    url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/"
+    inst: MIT
+  - title: "OpenStax Precalculus 2e (free textbook)"
+    url: "https://openstax.org/details/books/precalculus-2e"
+    inst: OpenStax (Rice)
+  - title: "MIT 6.042J Mathematics for Computer Science (induction, sums)"
+    url: "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-fall-2010/"
+    inst: MIT
+skills:
+  - id: found.fractions
+    name: "Fractions & arithmetic"
+    summary: "Add, multiply and simplify fractions; order of operations."
+    prereqs: []
+  - id: found.exponents
+    name: "Exponent rules"
+    summary: "a^m a^n = a^(m+n), (a^m)^n, negative and fractional exponents."
+    prereqs: [found.fractions]
+  - id: found.linear_eq
+    name: "Linear equations & systems"
+    summary: "Solve ax+b=c and 2x2 linear systems."
+    prereqs: [found.fractions]
+  - id: found.polynomials
+    name: "Polynomials & factoring"
+    summary: "Expand, factor, and divide polynomials."
+    prereqs: [found.exponents]
+  - id: found.quadratics
+    name: "Quadratic equations"
+    summary: "Quadratic formula, discriminant, completing the square."
+    prereqs: [found.polynomials, found.linear_eq]
+  - id: found.functions
+    name: "Functions: composition & inverses"
+    summary: "f(g(x)), inverse functions, domain."
+    prereqs: [found.linear_eq]
+  - id: found.logs
+    name: "Logarithms & exponentials"
+    summary: "log rules, solving exponential equations, change of base."
+    prereqs: [found.exponents, found.functions]
+  - id: found.trig
+    name: "Trigonometry"
+    summary: "Unit circle values, identities, radians."
+    prereqs: [found.functions]
+  - id: found.sums
+    name: "Sums & series notation"
+    summary: "Sigma notation, arithmetic and geometric sums."
+    prereqs: [found.exponents, found.linear_eq]
+  - id: found.induction
+    name: "Proof by induction"
+    summary: "Prove closed forms by induction; identify base case and inductive step."
+    prereqs: [found.sums]
+  - id: found.complex
+    name: "Complex numbers"
+    summary: "Arithmetic, modulus, conjugate, polar form, Euler's formula."
+    prereqs: [found.quadratics, found.trig]

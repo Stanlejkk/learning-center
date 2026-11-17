@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ sess.title }} — problem sheet</title>
+<link rel="stylesheet" href="/static/vendor/katex/katex.min.css">
+<script defer src="/static/vendor/katex/katex.min.js"></script>
+<script defer src="/static/vendor/katex/contrib/auto-render.min.js"></script>
+<style>
+  body { font: 12pt/1.5 Georgia, "Times New Roman", serif; color: #000; background: #fff; max-width: 780px; margin: 24px auto; padding: 0 24px; }
+  h1 { font-size: 18pt; margin: 0; }
+  .meta { color: #444; font-size: 10pt; margin-bottom: 18px; display: flex; justify-content: space-between; }
+  .p { break-inside: avoid; margin-bottom: 14px; }
+  .p .h { font-size: 9pt; color: #555; }
+  .space { height: {{ '170px' }}; border-bottom: 1px dotted #bbb; margin-bottom: 8px; }
+  .ans { font-size: 10pt; color: #333; }
+  .noprint { margin-bottom: 16px; font-family: system-ui, sans-serif; }
+  .sheet-page { break-before: page; margin-top: 32px; }
+  .fgroup h4 { margin: 10px 0 4px; font-size: 11pt; border-bottom: 1px solid #999; }
+  .fskill { break-inside: avoid; margin: 4px 0 6px; }
+  .fname { font-weight: bold; font-size: 9.5pt; }
+  .fname a { color: #000; text-decoration: none; }
+  .frow { display: flex; gap: 8px; align-items: center; font-size: 9.5pt; }
+  .flabel { flex: 0 0 130px; color: #444; }
+  .ftex .katex-display { margin: 2px 0; text-align: left; }
+  .ftex .katex-display > .katex { text-align: left; }
+  @media print { .noprint { display: none; } body { margin: 0 auto; } }
+</style>
+</head>
+<body>
+<div class="noprint"><button onclick="window.print()">Print / Save as PDF</button>
+  <a href="/session/{{ sess.id }}">← back to answer entry</a>  ·
+  {% if sheet %}<a href="?formulas=0">without formula sheet</a>{% else %}<a href="?formulas=1">with formula sheet</a>{% endif %}</div>
+<h1>{{ sess.title }}</h1>
+<div class="meta"><span>Learning Center · session #{{ sess.id }}</span><span>Started {{ (sess.started_at or '')[:16].replace('T',' ') }}</span></div>
+{% for it in items %}
+<div class="p">
+  <div class="h">{{ loop.index }}. {{ it.skill_name }} · level {{ it.level }}</div>
+  <div>{{ it.problem.prompt|md|safe }}</div>
+  <div class="space" style="height: {{ 120 + 70*it.level }}px"></div>
+  <div class="ans">Final answer: ______________________________</div>
+</div>
+{% endfor %}
+{% if sheet %}
+<div class="sheet-page">
+  <h1>Formula sheet</h1>
+  <div class="meta"><span>Allowed reference: the topics in this set and their prerequisites</span><span>session #{{ sess.id }}</span></div>
+  {% with groups=sheet %}{% include "_formulas.html" %}{% endwith %}
+</div>
+{% endif %}
+<script>
+document.addEventListener("DOMContentLoaded", () => renderMathInElement(document.body, {
+  delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}], throwOnError: false }));
+</script>
+</body>
+</html>

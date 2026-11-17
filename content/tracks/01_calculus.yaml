@@ -1,0 +1,76 @@
+id: calc
+name: "1 · Calculus (single & multivariable)"
+order: 1
+description: "Limits, derivatives, integrals, series, then gradients, Jacobians and Hessians — the language of training neural nets."
+sources:
+  - title: "MIT 18.01SC Single Variable Calculus (Fall 2010)"
+    url: "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/"
+    inst: MIT
+  - title: "MIT 18.02SC Multivariable Calculus (Fall 2010)"
+    url: "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/"
+    inst: MIT
+  - title: "MIT 18.02 Multivariable Calculus (Fall 2007, Auroux lectures)"
+    url: "https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/"
+    inst: MIT
+  - title: "MIT 18.S096 Matrix Calculus for Machine Learning and Beyond (IAP 2023)"
+    url: "https://ocw.mit.edu/courses/18-s096-matrix-calculus-for-machine-learning-and-beyond-january-iap-2023/"
+    inst: MIT
+  - title: "mitmath/matrixcalc — course repo for Matrix Calculus for ML and Beyond"
+    url: "https://github.com/mitmath/matrixcalc"
+    inst: MIT (GitHub)
+  - title: "3Blue1Brown — Essence of Calculus"
+    url: "https://www.3blue1brown.com/lessons/essence-of-calculus"
+    inst: 3Blue1Brown
+skills:
+  - id: calc.limits
+    name: "Limits & continuity"
+    summary: "Evaluate limits by factoring, conjugates and Taylor expansion, and use them to decide continuity."
+    prereqs: [found.functions, found.fractions]
+  - id: calc.derivative_rules
+    name: "Derivative rules"
+    summary: "Derivative from the limit definition, then the power, product and quotient rules; critical points."
+    prereqs: [calc.limits, found.exponents]
+  - id: calc.chain_rule
+    name: "Chain rule"
+    summary: "Differentiate compositions, implicit curves and related rates by multiplying derivatives along the chain."
+    prereqs: [calc.derivative_rules, found.functions]
+  - id: calc.transcendental_deriv
+    name: "Derivatives of exp, log, trig"
+    summary: "Derivatives of e^x, ln x, sin and cos combined with the chain rule, up to the sigmoid and logistic loss."
+    prereqs: [calc.chain_rule, found.logs, found.trig]
+  - id: calc.applications
+    name: "Optimization & tangent lines"
+    summary: "Tangent lines, minimising and maximising functions, and deriving the least-squares slope by calculus."
+    prereqs: [calc.transcendental_deriv, found.quadratics]
+  - id: calc.integrals_basic
+    name: "Antiderivatives & definite integrals"
+    summary: "Antiderivatives, the Fundamental Theorem of Calculus, and areas between curves."
+    prereqs: [calc.derivative_rules]
+  - id: calc.integration_techniques
+    name: "Substitution & integration by parts"
+    summary: "u-substitution and integration by parts, including moments of the exponential distribution."
+    prereqs: [calc.integrals_basic, calc.transcendental_deriv]
+  - id: calc.series_taylor
+    name: "Series & Taylor expansions"
+    summary: "Maclaurin/Taylor polynomials of standard functions and their use for approximations and limits."
+    prereqs: [calc.transcendental_deriv, found.sums]
+  - id: calc.partial_derivatives
+    name: "Partial derivatives"
+    summary: "Differentiate functions of several variables one variable at a time, including mixed partials and PDE checks."
+    prereqs: [calc.chain_rule]
+  - id: calc.gradient
+    name: "Gradients & directional derivatives"
+    summary: "The gradient vector, directional derivatives, and gradient-descent steps and step-size limits."
+    prereqs: [calc.partial_derivatives, la.vectors]
+  - id: calc.multivar_chain
+    name: "Multivariable chain rule & Jacobians"
+    summary: "Chain rule along several paths, Jacobian matrices, and backpropagation through a tiny network."
+    prereqs: [calc.gradient, la.matmul]
+  - id: calc.hessian
+    name: "Hessians & 2nd-order Taylor"
+    summary: "Hessian matrices, classifying critical points, and second-order Taylor models of multivariable functions."
+    prereqs: [calc.gradient, calc.series_taylor]
+  - id: calc.multiple_integrals
+    name: "Multiple integrals"
+    summary: "Double integrals over rectangles and triangles, changing the order of integration, polar coordinates and the Gaussian integral."
+    prereqs: [calc.integration_techniques, calc.partial_derivatives]

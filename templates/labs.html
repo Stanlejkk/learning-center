@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Coding labs{% endblock %}
+{% block content %}
+<h1>Coding labs</h1>
+<p class="sub">Jupyter notebooks on your own GPU. Each lab opens once you've done the paper homework for its concept (≥50% mastery).
+  The last cell grades your code and reports the result here.</p>
+<div class="paper-note" style="margin-bottom:16px">JupyterLab runs at <code>127.0.0.1:8888</code> and is started by <code>start.bat</code>. If a link doesn't open, check that it's running.</div>
+
+{% for t in tracks %}{% set trows = rows|selectattr('lab.track', 'equalto', t.id)|list %}
+{% if trows %}
+<h2>{{ t.name }}</h2>
+<div class="grid g2">
+  {% for r in trows %}{% set l = r.lab %}
+  <div class="card" id="{{ l.id }}">
+    <div class="spread"><h3>{{ l.title }}</h3>
+      {% if r.locked_by %}<span class="pill">🔒 locked</span>
+      {% elif r.status == 'passed' %}<span class="pill good">✓ passed</span>
+      {% elif r.status == 'in progress' %}<span class="pill warn">{{ r.passed }}/{{ r.total }} checks</span>
+      {% else %}<span class="pill acc">open</span>{% endif %}</div>
+    <p class="small">{{ l.summary }}</p>
+    <p class="small muted">~{{ l.minutes }} min{% if l.gpu %} · uses GPU{% endif %} · credits:
+      {% for s in l.skills %}<a href="/skill/{{ s }}">{{ skills()[s].name }}</a>{{ ", " if not loop.last }}{% endfor %}</p>
+    {% if r.locked_by %}
+      <p class="small">Do the paper homework first:
+        {% for u in r.locked_by %}<a href="/skill/{{ u }}">{{ skills()[u].name }}</a>{{ ", " if not loop.last }}{% endfor %}</p>
+    {% elif r.exists %}
+      <a class="btn primary" href="{{ jupyter_url(l.id ~ '.ipynb') }}" target="_blank" rel="noopener">Open in JupyterLab</a>
+    {% else %}<p class="small muted">Notebook not found.</p>{% endif %}
+    {% if l.sources %}<details style="margin-top:8px"><summary class="small muted">Sources</summary><ul class="small">
+      {% for s in l.sources %}<li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a></li>{% endfor %}</ul></details>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+{% if not rows %}<div class="card muted">No labs are registered yet.</div>{% endif %}
+{% endblock %}

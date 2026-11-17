@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Formula sheet{% endblock %}
+{% block content %}
+<div class="spread noprint">
+  <div>
+    <h1>Formula sheet</h1>
+    <p class="sub">{{ total }} formulas, the kind of reference sheet an exam would allow. Each homework set also gets its own sheet covering the set's topics and their prerequisites.</p>
+  </div>
+  <button onclick="window.print()">Print / Save as PDF</button>
+</div>
+<div class="row noprint" style="margin-bottom:16px">
+  <input type="text" id="fsearch" placeholder="Filter, e.g. chain rule, bayes, softmax" style="flex:1;min-width:220px" autofocus>
+  <select onchange="location.href = this.value ? '/formulas?track=' + this.value : '/formulas'">
+    <option value="">All tracks</option>
+    {% for t in tracks %}<option value="{{ t.id }}" {{ 'selected' if track == t.id }}>{{ t.name }}</option>{% endfor %}
+  </select>
+</div>
+<div class="card">{% include "_formulas.html" %}</div>
+{% endblock %}
+{% block scripts %}
+<script>
+const box = document.getElementById("fsearch");
+box.addEventListener("input", () => {
+  const q = box.value.trim().toLowerCase();
+  document.querySelectorAll(".fskill").forEach(el => { el.style.display = !q || el.dataset.name.includes(q) ? "" : "none"; });
+  document.querySelectorAll(".fgroup").forEach(g => {
+    g.style.display = [...g.querySelectorAll(".fskill")].some(el => el.style.display !== "none") ? "" : "none"; });
+});
+</script>
+{% endblock %}

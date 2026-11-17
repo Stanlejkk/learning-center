@@ -1,0 +1,96 @@
+id: dl
+name: "7 · Deep learning & LLMs"
+order: 7
+description: "From a single neuron to training your own GPT: backprop, optimisation, embeddings, attention, transformers, tokenization, scaling laws, fine-tuning and alignment."
+sources:
+  # --- courses & code-along repos
+  - {title: "micrograd — a tiny scalar autograd engine (Karpathy)", url: "https://github.com/karpathy/micrograd", inst: "GitHub / Andrej Karpathy"}
+  - {title: "Neural Networks: Zero to Hero (Karpathy lecture series)", url: "https://github.com/karpathy/nn-zero-to-hero", inst: "GitHub / Andrej Karpathy"}
+  - {title: "nanoGPT — minimal GPT training code (Karpathy)", url: "https://github.com/karpathy/nanoGPT", inst: "GitHub / Andrej Karpathy"}
+  - {title: "build-nanogpt — reproducing GPT-2 (124M) from scratch (Karpathy)", url: "https://github.com/karpathy/build-nanogpt", inst: "GitHub / Andrej Karpathy"}
+  - {title: "minbpe — minimal byte-level BPE tokenizer (Karpathy)", url: "https://github.com/karpathy/minbpe", inst: "GitHub / Andrej Karpathy"}
+  - {title: "MIT 6.S191: Introduction to Deep Learning", url: "https://introtodeeplearning.com/", inst: "MIT"}
+  - {title: "CS50's Introduction to Artificial Intelligence with Python", url: "https://cs50.harvard.edu/ai/", inst: "Harvard"}
+  - {title: "CS224N: Natural Language Processing with Deep Learning", url: "https://web.stanford.edu/class/cs224n/", inst: "Stanford"}
+  - {title: "CS336: Language Modeling from Scratch", url: "https://cs336.stanford.edu/", inst: "Stanford"}
+  - {title: "CS336 assignments (stanford-cs336 on GitHub)", url: "https://github.com/stanford-cs336", inst: "Stanford"}
+  - {title: "COS 484: Natural Language Processing", url: "https://princeton-nlp.github.io/cos484/", inst: "Princeton"}
+  # --- landmark papers
+  - {title: "Bengio et al. 2003 — A Neural Probabilistic Language Model", url: "https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf", inst: "JMLR"}
+  - {title: "Kingma & Ba 2014 — Adam: A Method for Stochastic Optimization", url: "https://arxiv.org/abs/1412.6980", inst: "arXiv 1412.6980"}
+  - {title: "He et al. 2015 — Delving Deep into Rectifiers (He init)", url: "https://arxiv.org/abs/1502.01852", inst: "arXiv 1502.01852"}
+  - {title: "Ba, Kiros & Hinton 2016 — Layer Normalization", url: "https://arxiv.org/abs/1607.06450", inst: "arXiv 1607.06450"}
+  - {title: "Vaswani et al. 2017 — Attention Is All You Need", url: "https://arxiv.org/abs/1706.03762", inst: "arXiv 1706.03762"}
+  - {title: "Radford et al. 2019 — Language Models are Unsupervised Multitask Learners (GPT-2)", url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf", inst: "OpenAI"}
+  - {title: "Kaplan et al. 2020 — Scaling Laws for Neural Language Models", url: "https://arxiv.org/abs/2001.08361", inst: "arXiv 2001.08361"}
+  - {title: "Brown et al. 2020 — Language Models are Few-Shot Learners (GPT-3)", url: "https://arxiv.org/abs/2005.14165", inst: "arXiv 2005.14165"}
+  - {title: "Hu et al. 2021 — LoRA: Low-Rank Adaptation of Large Language Models", url: "https://arxiv.org/abs/2106.09685", inst: "arXiv 2106.09685"}
+  - {title: "Ouyang et al. 2022 — Training language models to follow instructions with human feedback (InstructGPT)", url: "https://arxiv.org/abs/2203.02155", inst: "arXiv 2203.02155"}
+  - {title: "Hoffmann et al. 2022 — Training Compute-Optimal Large Language Models (Chinchilla)", url: "https://arxiv.org/abs/2203.15556", inst: "arXiv 2203.15556"}
+  - {title: "Dao et al. 2022 — FlashAttention", url: "https://arxiv.org/abs/2205.14135", inst: "arXiv 2205.14135"}
+  - {title: "Rafailov et al. 2023 — Direct Preference Optimization (DPO)", url: "https://arxiv.org/abs/2305.18290", inst: "arXiv 2305.18290"}
+skills:
+  - id: dl.mlp
+    name: "Neurons, layers & MLPs"
+    prereqs: [ml.logistic_regression]
+    summary: "A neuron is an affine map followed by a nonlinearity; stacking layers of them gives a multilayer perceptron whose shapes and parameter counts you can read off the weight matrices."
+  - id: dl.backprop
+    name: "Backpropagation & computational graphs"
+    prereqs: [dl.mlp, calc.multivar_chain]
+    summary: "Backpropagation is the chain rule applied in reverse topological order over a computational graph, accumulating each node's gradient from its children's local derivatives."
+  - id: dl.init_activations
+    name: "Activations, initialization & normalization"
+    prereqs: [dl.backprop, prob.expectation_variance]
+    summary: "Activation derivatives, Xavier/He variance-preserving initialisation and LayerNorm all exist to keep activations and gradients at a healthy scale through depth."
+  - id: dl.training
+    name: "Training loops, batching, LR schedules"
+    prereqs: [dl.backprop, opt.adam]
+    summary: "A training loop repeats forward, loss, backward and optimiser step over mini-batches, with learning-rate warmup/decay and Adam's bias-corrected moments controlling the step size."
+  - id: dl.cnn
+    name: "Convolutions & CNN basics"
+    prereqs: [dl.backprop]
+    summary: "A convolution slides a small shared kernel over the input; output size follows floor((n + 2p - k)/s) + 1 and the parameter count is independent of the image size."
+  - id: dl.embeddings
+    name: "Embeddings & representation"
+    prereqs: [dl.mlp, la.vectors]
+    summary: "An embedding table maps discrete tokens to learned dense vectors whose dot products and cosine similarities encode relatedness."
+  - id: dl.ngram_lm
+    name: "N-gram & neural language models"
+    prereqs: [info.perplexity, prob.mle]
+    summary: "A language model factorises p(text) by the chain rule; n-gram models estimate each conditional by counting (MLE, optionally smoothed) and are evaluated by NLL and perplexity."
+  - id: dl.attention
+    name: "Attention (scaled dot-product, multi-head)"
+    prereqs: [dl.embeddings, ml.softmax, la.matmul]
+    summary: "Attention computes softmax(QK^T/sqrt(d_k))V: each query takes a similarity-weighted average of values, with causal masking for autoregressive models and several heads in parallel."
+  - id: dl.transformer
+    name: "The transformer block"
+    prereqs: [dl.attention, dl.init_activations, dl.training]
+    summary: "A (pre-LN) transformer block is x + Attn(LN(x)) followed by x + MLP(LN(x)), costing about 12·d² parameters per layer."
+  - id: dl.tokenization
+    name: "Tokenization & BPE"
+    prereqs: [dl.ngram_lm]
+    summary: "Byte-pair encoding starts from bytes and repeatedly merges the most frequent adjacent pair, trading vocabulary size against sequence length."
+  - id: dl.gpt
+    name: "GPT: causal LM, parameter & FLOP counting"
+    prereqs: [dl.transformer, dl.tokenization]
+    summary: "A GPT is a stack of causal transformer blocks between a token/position embedding and a tied unembedding; you can count its parameters exactly and its training cost as about 6·N·D FLOPs."
+  - id: dl.decoding
+    name: "Sampling & decoding (temperature, top-k/p)"
+    prereqs: [dl.gpt]
+    summary: "Decoding turns next-token logits into text: temperature rescales logits, while top-k and nucleus (top-p) sampling truncate and renormalise the distribution."
+  - id: dl.efficient_inference
+    name: "KV cache, FlashAttention & memory math"
+    prereqs: [dl.gpt]
+    summary: "Autoregressive inference caches past keys and values (memory 2·layers·heads·d_head·seq·bytes), and FlashAttention tiles attention to avoid materialising the n×n score matrix."
+  - id: dl.scaling_laws
+    name: "Scaling laws (Kaplan, Chinchilla)"
+    prereqs: [dl.gpt]
+    summary: "Loss falls as a power law in parameters, data and compute; with C ≈ 6ND, Chinchilla finds compute-optimal training uses roughly 20 tokens per parameter."
+  - id: dl.finetuning_lora
+    name: "Fine-tuning & LoRA"
+    prereqs: [dl.gpt, la.svd]
+    summary: "LoRA freezes a pretrained weight W and learns a low-rank update BA with r·(d_in + d_out) parameters instead of d_in·d_out."
+  - id: dl.alignment
+    name: "RLHF, reward models & DPO"
+    prereqs: [dl.finetuning_lora, info.kl_divergence]
+    summary: "RLHF fits a Bradley–Terry reward model on human preferences and optimises the policy against it under a KL penalty; DPO folds both steps into one logistic loss on log-probability ratios."

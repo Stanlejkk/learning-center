@@ -1,0 +1,60 @@
+labs:
+  - id: qc_01_statevector
+    title: "Build a statevector simulator"
+    track: qc
+    skills: [qc.tensor, qc.multi_gates]
+    unlock: [qc.tensor]
+    gpu: false
+    minutes: 90
+    summary: "Write apply_1q / apply_2q with numpy reshaping + tensordot, simulate circuits, sample measurements, and match qiskit.quantum_info.Statevector bit-for-bit — including Qiskit's little-endian qubit order."
+    sources:
+      - {title: "Ronald de Wolf — Quantum Computing: Lecture Notes, Ch. 1–2 (qubits, tensor products, circuits)", url: "https://arxiv.org/abs/1907.09415"}
+      - {title: "IBM Quantum Learning — Basics of Quantum Information (multiple systems)", url: "https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information"}
+      - {title: "Qiskit SDK source (GitHub: Qiskit/qiskit)", url: "https://github.com/Qiskit/qiskit"}
+  - id: qc_02_entanglement_teleportation
+    title: "Bell states, CHSH and teleportation"
+    track: qc
+    skills: [qc.entanglement, qc.teleportation]
+    unlock: [qc.entanglement]
+    gpu: false
+    minutes: 90
+    summary: "Prepare all four Bell states, compute and sample the CHSH value 2√2 on AerSimulator, and teleport a qubit both with mid-circuit measurement + classical feed-forward and with deferred measurement."
+    sources:
+      - {title: "John Preskill — Ph219 lecture notes, Ch. 4 (Quantum Entanglement)", url: "https://www.preskill.caltech.edu/ph219/"}
+      - {title: "MITx 8.370.2x — teleportation and superdense coding", url: "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+8.370.2x+1T2018/about"}
+      - {title: "IBM Quantum Learning — Basics of Quantum Information (entanglement in action)", url: "https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information"}
+  - id: qc_03_grover
+    title: "Grover's search from oracle to diffuser"
+    track: qc
+    skills: [qc.grover]
+    unlock: [qc.grover]
+    gpu: false
+    minutes: 75
+    summary: "Build phase oracles and the diffuser for n = 3–4 qubits, plot success probability vs. iterations against sin²((2k+1)θ), and find the marked item on AerSimulator."
+    sources:
+      - {title: "L. K. Grover — A fast quantum mechanical algorithm for database search (quant-ph/9605043)", url: "https://arxiv.org/abs/quant-ph/9605043"}
+      - {title: "IBM Quantum Learning — Fundamentals of Quantum Algorithms (Grover's algorithm)", url: "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms"}
+      - {title: "Ronald de Wolf — Quantum Computing: Lecture Notes, Ch. 7", url: "https://arxiv.org/abs/1907.09415"}
+  - id: qc_04_qft_qpe
+    title: "QFT and phase estimation"
+    track: qc
+    skills: [qc.qft, qc.phase_estimation]
+    unlock: [qc.qft]
+    gpu: false
+    minutes: 90
+    summary: "Build the QFT from Hadamards, controlled phases and swaps, verify it against the DFT matrix and Qiskit's QFTGate, then run phase estimation for the T gate and an inexact phase."
+    sources:
+      - {title: "Peter Shor — 8.370/18.435 lecture notes (QFT, phase estimation)", url: "https://math.mit.edu/~shor/435-LN/"}
+      - {title: "IBM Quantum Learning — Fundamentals of Quantum Algorithms (phase estimation and factoring)", url: "https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms"}
+      - {title: "P. W. Shor — Polynomial-Time Algorithms for Prime Factorization ... (quant-ph/9508027)", url: "https://arxiv.org/abs/quant-ph/9508027"}
+  - id: qc_05_vqe
+    title: "VQE with parameter-shift gradients"
+    track: qc
+    skills: [qc.variational]
+    unlock: [qc.variational]
+    gpu: false
+    minutes: 75
+    summary: "Minimise ⟨H⟩ for H = Z⊗Z + 0.5·X⊗I with a 4-parameter ansatz, exact parameter-shift gradients and gradient descent, and compare with numpy's eigvalsh."
+    sources:
+      - {title: "IBM Quantum Learning — Variational Algorithm Design", url: "https://quantum.cloud.ibm.com/learning/en/courses/variational-algorithm-design"}
+      - {title: "Qiskit SDK source (GitHub: Qiskit/qiskit)", url: "https://github.com/Qiskit/qiskit"}

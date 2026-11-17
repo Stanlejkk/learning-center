@@ -1,0 +1,54 @@
+id: opt
+name: "4 · Optimization"
+order: 4
+description: "Convexity, gradient descent and its variants (SGD, momentum, Adam), Newton's method, Lagrange multipliers, least squares and regularization (MIT 18.065 territory)."
+sources:
+  - title: "MIT 18.065 Matrix Methods in Data Analysis, Signal Processing, and Machine Learning (Strang)"
+    url: "https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/"
+    inst: MIT
+  - title: "Stanford EE364a Convex Optimization I"
+    url: "https://web.stanford.edu/class/ee364a/"
+    inst: Stanford
+  - title: "Boyd & Vandenberghe, Convex Optimization (free book)"
+    url: "https://web.stanford.edu/~boyd/cvxbook/"
+    inst: Stanford / UCLA
+  - title: "Kingma & Ba, Adam: A Method for Stochastic Optimization (arXiv:1412.6980)"
+    url: "https://arxiv.org/abs/1412.6980"
+    inst: ICLR 2015
+skills:
+  - id: opt.convexity
+    name: "Convex sets & functions"
+    summary: "Recognize convex functions via the second derivative / positive semidefinite Hessian and why local minima are global."
+    prereqs: [calc.applications, calc.hessian]
+  - id: opt.gradient_descent
+    name: "Gradient descent"
+    summary: "Iterate x <- x - eta * grad f(x) and carry out a few steps by hand on simple functions."
+    prereqs: [calc.gradient]
+  - id: opt.conditioning
+    name: "Step size, conditioning & convergence rates"
+    summary: "On quadratics GD is stable for eta < 2/lambda_max, optimal at 2/(lambda_min+lambda_max), with rate (kappa-1)/(kappa+1)."
+    prereqs: [opt.gradient_descent, la.eigen]
+  - id: opt.least_squares
+    name: "Least squares & normal equations"
+    summary: "Minimize ||Ax - b||^2 by solving A^T A x = A^T b; fit lines to data."
+    prereqs: [la.orthogonality, la.matrix_calculus]
+  - id: opt.lagrange
+    name: "Lagrange multipliers & constraints"
+    summary: "Solve grad f = lambda grad g with g(x) = c to optimize under an equality constraint."
+    prereqs: [calc.gradient]
+  - id: opt.newton
+    name: "Newton's method"
+    summary: "Use the Hessian: x <- x - H^{-1} grad f, exact in one step on quadratics, quadratic convergence near a root."
+    prereqs: [opt.gradient_descent, calc.hessian]
+  - id: opt.sgd_momentum
+    name: "SGD & momentum"
+    summary: "Mini-batch stochastic gradients and heavy-ball momentum v <- beta v + grad, x <- x - eta v."
+    prereqs: [opt.gradient_descent, prob.expectation_variance]
+  - id: opt.adam
+    name: "Adaptive methods: RMSProp, Adam, AdamW"
+    summary: "Per-coordinate step sizes from running averages of g and g^2, bias correction, and decoupled weight decay."
+    prereqs: [opt.sgd_momentum]
+  - id: opt.regularization
+    name: "Ridge, lasso & weight decay"
+    summary: "Ridge closed form (X^T X + lambda I)^{-1} X^T y, lasso soft-thresholding, and weight decay as shrinkage."
+    prereqs: [opt.least_squares]

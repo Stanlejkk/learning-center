@@ -1,0 +1,404 @@
+# Landmark papers with pen-and-paper reading guides.
+# Every url was fetched and verified on 2026-11-17. `local` = offline copy (see library/RESOURCES.md).
+# Reading-guide questions go from "what problem?" to "derive equation X" — answer them on paper.
+
+- id: shannon1948
+  title: "A Mathematical Theory of Communication"
+  authors: "Claude E. Shannon"
+  year: 1948
+  url: "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf"
+  skills: [info.entropy, info.joint_conditional, info.source_coding, info.channel_capacity, info.mutual_information]
+  why: >-
+    The founding document of information theory. Shannon separates the engineering problem of
+    communication from meaning, models a source as a stochastic process, and shows that a single
+    number — entropy — governs how far data can be compressed, while another — channel capacity —
+    governs how fast it can be sent reliably over noise. Cross-entropy losses, perplexity, KL
+    divergence, and the "bits per token" view of language models all descend from this paper; §3
+    even builds n-gram approximations to English, the ancestor of every language model.
+  reading_guide:
+    - "What problem does Shannon set out to solve, and why does he explicitly ignore the meaning of messages?"
+    - "In §3, what are the zero-, first- and second-order approximations to English? How do they relate to n-gram language models?"
+    - "List the three properties Shannon requires of an uncertainty measure H(p_1,...,p_n) (§6). Why does the grouping property force a logarithm?"
+    - "Compute H for a biased coin with p = 0.1 and sketch H(p) on [0,1]. Where is the maximum and why?"
+    - "Prove H(x,y) ≤ H(x) + H(y) with equality iff x and y are independent, and show H(y|x) = H(x,y) − H(x)."
+    - "State the fundamental theorem for a noiseless channel (Theorem 9). What does it say about the best achievable symbols-per-second?"
+    - "Define the capacity of a noisy channel as max over inputs of H(x) − H_y(x). Derive the capacity of the binary symmetric channel, C = 1 − H(p)."
+  key_equations:
+    - "H = -K \\sum_{i=1}^{n} p_i \\log p_i"
+    - "H(x,y) \\le H(x) + H(y)"
+    - "H_x(y) = H(x,y) - H(x)"
+    - "C = \\max_{P(x)} \\big( H(x) - H_y(x) \\big)"
+    - "C_{\\mathrm{BSC}} = 1 - H_2(p)"
+
+- id: bengio2003
+  title: "A Neural Probabilistic Language Model"
+  authors: "Yoshua Bengio, Réjean Ducharme, Pascal Vincent, Christian Jauvin"
+  year: 2003
+  url: "https://www.jmlr.org/papers/v3/bengio03a.html"
+  local: "library/pdfs/bengio2003.pdf"
+  skills: [dl.ngram_lm, dl.embeddings, dl.mlp, info.perplexity]
+  why: >-
+    The first neural language model that learns a distributed representation (an embedding) for
+    every word jointly with the probability function over word sequences. It attacks the curse of
+    dimensionality of n-gram counts by letting similar words share statistical strength through
+    nearby embeddings. The architecture — embedding lookup, concatenation, hidden tanh layer,
+    softmax over the vocabulary, trained by maximum likelihood — is exactly Karpathy's makemore
+    MLP and the conceptual ancestor of every transformer LM.
+  reading_guide:
+    - "What is the 'curse of dimensionality' for n-gram models, and how many free parameters does a 10-gram model over a 100k vocabulary have?"
+    - "Describe the mapping C: what are its shape and its parameters? Why should similar words end up with similar C(i)?"
+    - "Draw the network: input context words → C → concatenation x → tanh hidden layer → softmax. Write y = b + Wx + U tanh(d + Hx)."
+    - "Count the parameters as a function of |V|, m (embedding dim), n (context) and h (hidden units). Which term dominates?"
+    - "Write the training objective (penalized log-likelihood) and derive ∂ log P(w_t|context)/∂y_j for the softmax output."
+    - "How is perplexity defined in the paper, and how big is the improvement over smoothed trigram models?"
+  key_equations:
+    - "\\hat P(w_t = i \\mid w_{t-1},\\dots,w_{t-n+1}) = \\frac{e^{y_{i}}}{\\sum_j e^{y_j}}"
+    - "y = b + Wx + U\\tanh(d + Hx)"
+    - "x = \\big(C(w_{t-1}), C(w_{t-2}), \\dots, C(w_{t-n+1})\\big)"
+    - "L = \\frac{1}{T}\\sum_t \\log f(w_t, w_{t-1},\\dots,w_{t-n+1};\\theta) + R(\\theta)"
+
+- id: vae
+  title: "Auto-Encoding Variational Bayes"
+  authors: "Diederik P. Kingma, Max Welling"
+  year: 2013
+  url: "https://arxiv.org/abs/1312.6114"
+  local: "library/pdfs/vae.pdf"
+  skills: [info.kl_divergence, prob.bayesian_inference, prob.multivariate_gaussian, dl.backprop]
+  why: >-
+    Introduces the variational autoencoder and the reparameterization trick, which makes gradients
+    of expectations under a learned Gaussian computable by ordinary backpropagation. It is the
+    cleanest place to see the evidence lower bound (ELBO) — reconstruction minus KL — and a
+    closed-form KL between Gaussians used in practice. The same ELBO/KL reasoning reappears in
+    diffusion models and in KL-regularized RLHF objectives.
+  reading_guide:
+    - "What is intractable about the posterior p_θ(z|x) and the marginal likelihood p_θ(x) in a latent-variable model?"
+    - "Starting from log p_θ(x) = D_KL(q_φ(z|x) || p_θ(z|x)) + L(θ,φ;x), derive the ELBO and explain why it is a lower bound."
+    - "Rewrite the ELBO as −D_KL(q_φ(z|x) || p(z)) + E_q[log p_θ(x|z)]. Which term is reconstruction and which is regularization?"
+    - "Why does the naive score-function gradient estimator have high variance? State the reparameterization z = μ + σ ⊙ ε."
+    - "Derive the closed-form −D_KL(N(μ,σ²) || N(0,1)) = ½ Σ (1 + log σ² − μ² − σ²) (Appendix B)."
+    - "Sketch the encoder/decoder MLPs for MNIST and identify what the network outputs for μ and log σ²."
+  key_equations:
+    - "\\log p_\\theta(x) \\ge \\mathcal{L}(\\theta,\\phi;x) = -D_{KL}(q_\\phi(z|x)\\,\\|\\,p_\\theta(z)) + \\mathbb{E}_{q_\\phi(z|x)}[\\log p_\\theta(x|z)]"
+    - "z = \\mu + \\sigma \\odot \\epsilon,\\quad \\epsilon \\sim \\mathcal{N}(0, I)"
+    - "-D_{KL} = \\tfrac{1}{2}\\sum_{j=1}^{J}\\big(1 + \\log \\sigma_j^2 - \\mu_j^2 - \\sigma_j^2\\big)"
+
+- id: adam
+  title: "Adam: A Method for Stochastic Optimization"
+  authors: "Diederik P. Kingma, Jimmy Ba"
+  year: 2014
+  url: "https://arxiv.org/abs/1412.6980"
+  local: "library/pdfs/adam.pdf"
+  skills: [opt.adam, opt.sgd_momentum, dl.training]
+  why: >-
+    Adam combines momentum (a running mean of gradients) with RMSProp-style per-parameter scaling
+    (a running mean of squared gradients) and adds bias correction for the zero initialization of
+    both averages. It is the default optimizer (in its AdamW form) for essentially every LLM, so
+    understanding its update, its hyperparameters β₁, β₂, ε and its effective step size is a
+    prerequisite for reading any training recipe.
+  reading_guide:
+    - "What problems with plain SGD does Adam target (noisy gradients, sparse gradients, badly scaled parameters)?"
+    - "Write out Algorithm 1 line by line. What do m_t and v_t estimate?"
+    - "Derive the bias correction: show E[v_t] ≈ E[g_t²](1 − β₂^t) when v_0 = 0 (§3), hence v̂_t = v_t/(1 − β₂^t)."
+    - "Show the effective step |Δθ| is approximately bounded by α (§2.1). Why is this property useful for choosing a learning rate?"
+    - "Which earlier methods are special cases or relatives (AdaGrad, RMSProp)? What happens to Adam when β₁ = 0 and β₂ → 1?"
+    - "Explain why adding L2 regularization to the loss is NOT the same as weight decay under Adam (connect to AdamW, arXiv 1711.05101)."
+  key_equations:
+    - "m_t = \\beta_1 m_{t-1} + (1-\\beta_1) g_t"
+    - "v_t = \\beta_2 v_{t-1} + (1-\\beta_2) g_t^2"
+    - "\\hat m_t = \\frac{m_t}{1-\\beta_1^t},\\quad \\hat v_t = \\frac{v_t}{1-\\beta_2^t}"
+    - "\\theta_t = \\theta_{t-1} - \\alpha \\frac{\\hat m_t}{\\sqrt{\\hat v_t} + \\epsilon}"
+
+- id: layernorm
+  title: "Layer Normalization"
+  authors: "Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton"
+  year: 2016
+  url: "https://arxiv.org/abs/1607.06450"
+  local: "library/pdfs/layernorm.pdf"
+  skills: [dl.init_activations, dl.transformer]
+  why: >-
+    LayerNorm normalizes each example across its hidden units instead of across the batch, so it
+    behaves identically at train and test time and works for any batch size and for sequence
+    models. It is a component of every transformer block (pre-LN in GPT-2 onwards), so you need to
+    know exactly what it computes, what invariances it gives, and where its learned gain and bias go.
+  reading_guide:
+    - "What are the drawbacks of batch normalization that motivate this paper (batch-size dependence, RNNs, train/test discrepancy)?"
+    - "Write the LayerNorm statistics μ and σ for one layer with H hidden units, and contrast with BatchNorm's statistics."
+    - "Where do the learned gain g and bias b enter? Why are they needed after normalization?"
+    - "Fill in Table 1: which re-scalings/re-centerings (of weights, of the dataset, of a single example) is LayerNorm invariant to?"
+    - "Derive the gradient of the normalized output with respect to the input a_i (treat μ and σ as functions of all a_j)."
+    - "In a modern transformer, where is LayerNorm placed (pre- vs post-residual)? Why does pre-LN help training stability?"
+  key_equations:
+    - "\\mu = \\frac{1}{H}\\sum_{i=1}^{H} a_i"
+    - "\\sigma = \\sqrt{\\frac{1}{H}\\sum_{i=1}^{H} (a_i - \\mu)^2}"
+    - "h = f\\Big(\\frac{g}{\\sigma} \\odot (a - \\mu) + b\\Big)"
+
+- id: transformer
+  title: "Attention Is All You Need"
+  authors: "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin"
+  year: 2017
+  url: "https://arxiv.org/abs/1706.03762"
+  local: "library/pdfs/transformer.pdf"
+  skills: [dl.attention, dl.transformer, dl.embeddings]
+  why: >-
+    Replaces recurrence entirely with (multi-head) scaled dot-product attention, giving a model
+    whose every layer connects all positions in O(1) sequential steps and parallelizes perfectly on
+    GPUs. Every modern LLM is a (decoder-only) descendant of this architecture, so its equations —
+    attention, multi-head projection, sinusoidal positions, residual + LayerNorm, the FFN, and the
+    warmup learning-rate schedule — are the core vocabulary of the field.
+  reading_guide:
+    - "What limitations of RNN/CNN sequence models motivate the paper (sequential computation, path length between positions)?"
+    - "Define Q, K, V and write scaled dot-product attention. What are the shapes for a length-n sequence with d_k = 64?"
+    - "Why divide by √d_k? Show that if q, k have i.i.d. zero-mean unit-variance entries, Var(q·k) = d_k."
+    - "Write multi-head attention with W_i^Q, W_i^K, W_i^V, W^O and count its parameters for d_model = 512, h = 8."
+    - "How does causal masking in the decoder work? Write the mask that prevents position i from attending to j > i."
+    - "Compute the per-layer complexity and maximum path length in Table 1 for self-attention vs recurrence."
+    - "Derive the sinusoidal positional encoding and show PE_{pos+k} is a linear function of PE_{pos}."
+    - "Plot the learning-rate schedule lrate = d_model^{-0.5}·min(step^{-0.5}, step·warmup^{-1.5}). Where does it peak?"
+  key_equations:
+    - "\\mathrm{Attention}(Q,K,V) = \\mathrm{softmax}\\Big(\\frac{QK^\\top}{\\sqrt{d_k}}\\Big)V"
+    - "\\mathrm{MultiHead}(Q,K,V) = \\mathrm{Concat}(\\mathrm{head}_1,\\dots,\\mathrm{head}_h)W^O,\\ \\mathrm{head}_i = \\mathrm{Attention}(QW_i^Q, KW_i^K, VW_i^V)"
+    - "\\mathrm{FFN}(x) = \\max(0, xW_1 + b_1)W_2 + b_2"
+    - "PE_{(pos,2i)} = \\sin(pos/10000^{2i/d_{model}}),\\quad PE_{(pos,2i+1)} = \\cos(pos/10000^{2i/d_{model}})"
+    - "lrate = d_{model}^{-0.5}\\cdot\\min(step^{-0.5},\\ step\\cdot warmup\\_steps^{-1.5})"
+
+- id: gpt2
+  title: "Language Models are Unsupervised Multitask Learners"
+  authors: "Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever"
+  year: 2019
+  url: "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"
+  skills: [dl.gpt, dl.tokenization, dl.decoding, info.perplexity]
+  why: >-
+    GPT-2 shows that a decoder-only transformer trained purely on next-token prediction over a large,
+    diverse web corpus (WebText) performs many tasks zero-shot. It also introduces the byte-level
+    BPE tokenizer still used (via tiktoken) by GPT models, and the pre-LayerNorm architecture
+    reproduced in nanoGPT. It is the model Karpathy rebuilds in "Let's reproduce GPT-2 (124M)".
+  reading_guide:
+    - "What is the claim in the title — in what sense is language modeling an 'unsupervised multitask' objective?"
+    - "Write the language-modeling factorization p(x) = Π p(s_n | s_1..s_{n−1}) and say how a task becomes p(output | input, task)."
+    - "How was WebText built, and why did the authors avoid Common Crawl directly?"
+    - "Explain byte-level BPE (§2.2): why bytes instead of Unicode code points, and what rule prevents merges across character categories?"
+    - "List the architectural changes from GPT-1 (§2.3): LayerNorm placement, residual-weight scaling by 1/√N, vocabulary and context size."
+    - "Using Table 2 hyperparameters, count the parameters of the smallest (117M/124M) model by hand: embeddings, attention, MLP, LayerNorms."
+  key_equations:
+    - "p(x) = \\prod_{i=1}^{n} p(s_i \\mid s_1, \\dots, s_{i-1})"
+    - "N_{\\text{params}} \\approx 12\\, n_{layer}\\, d_{model}^2 + (n_{vocab} + n_{ctx})\\, d_{model}"
+
+- id: gpt3
+  title: "Language Models are Few-Shot Learners"
+  authors: "Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, et al."
+  year: 2020
+  url: "https://arxiv.org/abs/2005.14165"
+  local: "library/pdfs/gpt3.pdf"
+  skills: [dl.gpt, dl.scaling_laws, dl.decoding]
+  why: >-
+    GPT-3 scales the GPT-2 recipe to 175B parameters and documents in-context (few-shot) learning:
+    the model performs new tasks from a handful of examples in the prompt, with no gradient updates.
+    Its Table 2.1 of model sizes and its compute accounting are the standard worked examples for
+    parameter and FLOP counting, and its results kicked off the scaling era.
+  reading_guide:
+    - "Define zero-shot, one-shot and few-shot as used here (Figure 2.1). How do they differ from fine-tuning?"
+    - "From Table 2.1, verify the parameter count of GPT-3 175B from n_layers = 96, d_model = 12288 using N ≈ 12·n_layer·d_model²."
+    - "Estimate training compute with C ≈ 6ND for N = 175B parameters and D = 300B tokens. Compare with the paper's reported petaflop/s-days."
+    - "How does few-shot performance scale with model size (Figure 1.2)? Is the gap between zero- and few-shot growing or shrinking?"
+    - "What data mixture was used (Table 2.2), and why are some datasets sampled more than once per epoch?"
+    - "What contamination analysis was done, and what are the main limitations the authors list (§5)?"
+  key_equations:
+    - "N \\approx 12\\, n_{layer}\\, d_{model}^2"
+    - "C_{\\text{train}} \\approx 6 N D"
+
+- id: kaplan_scaling
+  title: "Scaling Laws for Neural Language Models"
+  authors: "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei"
+  year: 2020
+  url: "https://arxiv.org/abs/2001.08361"
+  local: "library/pdfs/kaplan_scaling.pdf"
+  skills: [dl.scaling_laws, dl.gpt]
+  why: >-
+    Shows empirically that transformer LM test loss follows smooth power laws in parameters N,
+    dataset size D and compute C over many orders of magnitude, nearly independent of shape.
+    It introduced the C ≈ 6ND compute approximation and a framework for predicting the loss of
+    a model before training it — the basis of how labs budget compute (later revised by Chinchilla).
+  reading_guide:
+    - "What quantities are varied, and what is held fixed? Why exclude embedding parameters from N?"
+    - "Derive the per-token forward FLOPs ≈ 2N and hence training C ≈ 6N per token (Table 1, §2.1)."
+    - "Write the three single-variable power laws L(N), L(D), L(C_min). What are the fitted exponents α_N, α_D, α_C?"
+    - "Plot L(N) = (N_c/N)^{α_N} on log-log axes by hand. What does a slope of −0.076 imply for a 10× larger model?"
+    - "State the combined L(N, D) law (Eq. 1.5). How much data does it say you need to avoid overfitting as N grows?"
+    - "What does the paper conclude about optimal allocation of compute between N and steps? How does Chinchilla disagree, and why (learning-rate schedule)?"
+  key_equations:
+    - "L(N) = (N_c / N)^{\\alpha_N},\\ \\alpha_N \\approx 0.076"
+    - "L(D) = (D_c / D)^{\\alpha_D},\\ \\alpha_D \\approx 0.095"
+    - "L(N,D) = \\Big[\\big(\\tfrac{N_c}{N}\\big)^{\\alpha_N/\\alpha_D} + \\tfrac{D_c}{D}\\Big]^{\\alpha_D}"
+    - "C \\approx 6 N B S = 6 N D"
+
+- id: chinchilla
+  title: "Training Compute-Optimal Large Language Models"
+  authors: "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al."
+  year: 2022
+  url: "https://arxiv.org/abs/2203.15556"
+  local: "library/pdfs/chinchilla.pdf"
+  skills: [dl.scaling_laws]
+  why: >-
+    Revisits compute-optimal scaling with learning-rate schedules matched to each run's length and
+    finds parameters and tokens should grow in equal proportion — roughly 20 tokens per parameter.
+    The 70B Chinchilla trained on 1.4T tokens beats the 280B Gopher at the same compute. This
+    "Chinchilla rule" is the standard first-order rule for sizing a training run.
+  reading_guide:
+    - "What question is being asked: given a FLOP budget C, how should N and D be chosen to minimize loss?"
+    - "Why did Kaplan et al. underestimate the optimal number of tokens (cosine schedule length mismatch)?"
+    - "Describe the three approaches (fixed model sizes, IsoFLOP profiles, parametric fit). Why is agreement among them persuasive?"
+    - "Write the parametric loss L(N,D) = E + A/N^α + B/D^β. Interpret each term (irreducible entropy, model-limited, data-limited)."
+    - "Minimize L subject to C = 6ND with a Lagrange multiplier and derive N_opt ∝ C^{β/(α+β)}, D_opt ∝ C^{α/(α+β)}."
+    - "With a = b ≈ 0.5, check that Chinchilla (70B params, 1.4T tokens) uses ~20 tokens/parameter and the same compute as Gopher."
+  key_equations:
+    - "\\hat L(N, D) = E + \\frac{A}{N^{\\alpha}} + \\frac{B}{D^{\\beta}}"
+    - "N_{opt}(C) = G\\big(\\tfrac{C}{6}\\big)^{a},\\ D_{opt}(C) = G^{-1}\\big(\\tfrac{C}{6}\\big)^{b},\\ a = \\tfrac{\\beta}{\\alpha+\\beta},\\ b = \\tfrac{\\alpha}{\\alpha+\\beta}"
+    - "C \\approx 6ND"
+
+- id: instructgpt
+  title: "Training language models to follow instructions with human feedback"
+  authors: "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, et al."
+  year: 2022
+  url: "https://arxiv.org/abs/2203.02155"
+  local: "library/pdfs/instructgpt.pdf"
+  skills: [dl.alignment, dl.finetuning_lora, info.kl_divergence]
+  why: >-
+    The canonical RLHF pipeline: supervised fine-tuning on demonstrations, a reward model trained on
+    human pairwise comparisons, then PPO against that reward with a KL penalty to the SFT model.
+    A 1.3B InstructGPT was preferred by labelers over the 175B GPT-3. This three-step recipe is the
+    template that DPO and later preference-optimization methods simplify.
+  reading_guide:
+    - "What does 'alignment' mean operationally in this paper (helpful, honest, harmless), and why is next-token prediction misaligned with it?"
+    - "Draw the three-step pipeline of Figure 2: SFT → reward model → PPO. What data does each step consume?"
+    - "Write the reward-model loss over K-way rankings (Eq. 1). Why is it a Bradley–Terry/logistic loss on reward differences?"
+    - "Write the RL objective (Eq. 2) and identify the KL penalty β log(π_RL/π_SFT) and the pretraining-mix term γ (PPO-ptx)."
+    - "Why is the KL penalty needed? Relate it to reward hacking and to KL divergence from the SFT policy."
+    - "Summarize the headline human-evaluation result and the 'alignment tax' on public NLP benchmarks."
+  key_equations:
+    - "\\mathcal{L}(\\theta) = -\\frac{1}{\\binom{K}{2}} \\mathbb{E}_{(x,y_w,y_l)}\\big[\\log \\sigma\\big(r_\\theta(x,y_w) - r_\\theta(x,y_l)\\big)\\big]"
+    - "\\text{objective}(\\phi) = \\mathbb{E}_{(x,y)\\sim\\pi_\\phi^{RL}}\\big[r_\\theta(x,y) - \\beta\\log\\big(\\pi_\\phi^{RL}(y|x)/\\pi^{SFT}(y|x)\\big)\\big] + \\gamma\\,\\mathbb{E}_{x\\sim D_{pretrain}}\\big[\\log \\pi_\\phi^{RL}(x)\\big]"
+
+- id: lora
+  title: "LoRA: Low-Rank Adaptation of Large Language Models"
+  authors: "Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen"
+  year: 2021
+  url: "https://arxiv.org/abs/2106.09685"
+  local: "library/pdfs/lora.pdf"
+  skills: [dl.finetuning_lora, la.svd]
+  why: >-
+    LoRA freezes the pretrained weights and learns a low-rank update ΔW = BA for selected matrices,
+    cutting trainable parameters by up to 10,000× with no added inference latency (the update can be
+    merged into W). It is the default parameter-efficient fine-tuning method and a direct application
+    of low-rank matrix approximation (SVD / Eckart–Young intuition).
+  reading_guide:
+    - "What problem does full fine-tuning pose for deploying many task-specific copies of a 175B model?"
+    - "What is the hypothesis about the 'intrinsic rank' of weight updates during adaptation?"
+    - "Write the forward pass h = W_0 x + (α/r) B A x. What are the shapes of A and B and how are they initialized? Why is ΔW = 0 at the start?"
+    - "Count trainable parameters for LoRA with rank r on W_q and W_v in every layer of a d_model = 12288, 96-layer model."
+    - "Why is there no extra inference latency? Show how to merge BA into W_0."
+    - "In §7, how do the authors use the SVD and subspace similarity to analyze ΔW? What do they conclude about very small r?"
+  key_equations:
+    - "h = W_0 x + \\Delta W x = W_0 x + \\frac{\\alpha}{r} B A x"
+    - "B \\in \\mathbb{R}^{d \\times r},\\ A \\in \\mathbb{R}^{r \\times k},\\ r \\ll \\min(d,k)"
+    - "\\#\\text{params} = r\\,(d + k)\\ \\text{per adapted matrix}"
+
+- id: flashattention
+  title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+  authors: "Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, Christopher Ré"
+  year: 2022
+  url: "https://arxiv.org/abs/2205.14135"
+  local: "library/pdfs/flashattention.pdf"
+  skills: [dl.efficient_inference, dl.attention]
+  why: >-
+    Shows that attention is bottlenecked by GPU memory traffic, not FLOPs, and computes exact
+    attention in tiles that stay in on-chip SRAM, never materializing the n×n score matrix in HBM.
+    The key mathematical trick — an online, numerically stable softmax that can be merged block by
+    block — is short and derivable by hand. FlashAttention is now standard in every training and
+    inference stack.
+  reading_guide:
+    - "Why is standard attention memory-bound? Estimate HBM reads/writes for the S = QKᵀ and P = softmax(S) matrices at n = 4096, d = 64."
+    - "Describe the GPU memory hierarchy (HBM vs SRAM) with rough bandwidths and sizes from Figure 1."
+    - "Write the safe softmax with the max-subtraction m(x). Why is subtracting the max needed in fp16?"
+    - "Derive the online-softmax merge: given (m₁, ℓ₁) and (m₂, ℓ₂) for two blocks, show m = max(m₁, m₂) and ℓ = e^{m₁−m}ℓ₁ + e^{m₂−m}ℓ₂."
+    - "Walk through Algorithm 1: which loops are outer/inner and how is the output O_i rescaled as new blocks arrive?"
+    - "State the IO complexity Θ(n² d² M⁻¹) vs Θ(nd + n²) for standard attention. Why is recomputation in the backward pass a win?"
+  key_equations:
+    - "m(x) = \\max_i x_i,\\quad f(x) = [e^{x_1 - m(x)}, \\dots, e^{x_B - m(x)}],\\quad \\ell(x) = \\sum_i f(x)_i"
+    - "m(x) = \\max(m(x^{(1)}), m(x^{(2)})),\\quad \\ell(x) = e^{m(x^{(1)}) - m(x)}\\ell(x^{(1)}) + e^{m(x^{(2)}) - m(x)}\\ell(x^{(2)})"
+    - "\\text{HBM accesses} = \\Theta\\big(N^2 d^2 M^{-1}\\big)"
+
+- id: dpo
+  title: "Direct Preference Optimization: Your Language Model is Secretly a Reward Model"
+  authors: "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn"
+  year: 2023
+  url: "https://arxiv.org/abs/2305.18290"
+  local: "library/pdfs/dpo.pdf"
+  skills: [dl.alignment, info.kl_divergence, ml.logistic_regression]
+  why: >-
+    DPO shows that the KL-constrained reward-maximization problem of RLHF has a closed-form optimal
+    policy, which lets the reward be re-expressed through the policy itself. Substituting into the
+    Bradley–Terry preference model yields a simple logistic loss on preference pairs — no reward
+    model, no RL loop. The derivation is a few lines of algebra and is ideal pen-and-paper practice
+    connecting KL divergence, softmax/Gibbs distributions and logistic regression.
+  reading_guide:
+    - "What practical difficulties of PPO-based RLHF motivate DPO?"
+    - "Write the Bradley–Terry model p(y_w ≻ y_l | x) = σ(r(x,y_w) − r(x,y_l)) and the reward-model MLE loss."
+    - "Write the KL-constrained objective max_π E[r(x,y)] − β D_KL(π || π_ref) and derive the optimal policy π*(y|x) ∝ π_ref(y|x) exp(r(x,y)/β)."
+    - "Invert it: show r(x,y) = β log(π*(y|x)/π_ref(y|x)) + β log Z(x). Why does Z(x) cancel in the preference model?"
+    - "Substitute to obtain the DPO loss (Eq. 7). Derive its gradient and interpret the weighting σ(r̂(y_l) − r̂(y_w))."
+    - "What is the role of β, and what happens as β → 0 or β → ∞?"
+  key_equations:
+    - "p^*(y_1 \\succ y_2 \\mid x) = \\sigma\\big(r^*(x,y_1) - r^*(x,y_2)\\big)"
+    - "\\pi_r(y|x) = \\frac{1}{Z(x)}\\pi_{ref}(y|x)\\exp\\big(\\tfrac{1}{\\beta} r(x,y)\\big)"
+    - "r(x,y) = \\beta \\log\\frac{\\pi_r(y|x)}{\\pi_{ref}(y|x)} + \\beta\\log Z(x)"
+    - "\\mathcal{L}_{DPO} = -\\mathbb{E}_{(x,y_w,y_l)}\\Big[\\log\\sigma\\Big(\\beta\\log\\frac{\\pi_\\theta(y_w|x)}{\\pi_{ref}(y_w|x)} - \\beta\\log\\frac{\\pi_\\theta(y_l|x)}{\\pi_{ref}(y_l|x)}\\Big)\\Big]"
+
+- id: shor
+  title: "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer"
+  authors: "Peter W. Shor"
+  year: 1995
+  url: "https://arxiv.org/abs/quant-ph/9508027"
+  local: "library/pdfs/shor.pdf"
+  skills: [qc.shor, qc.qft, qc.phase_estimation]
+  why: >-
+    The result that made quantum computing a field: factoring and discrete logarithms — the hard
+    problems behind RSA and Diffie–Hellman — can be solved in polynomial time on a quantum computer.
+    The algorithm reduces factoring to period finding, solves period finding with a quantum Fourier
+    transform, and recovers the period classically with continued fractions. (arXiv version of the
+    1994 FOCS paper, later in SIAM J. Computing 1997.)
+  reading_guide:
+    - "Why is factoring believed hard classically, and what would a polynomial-time algorithm break?"
+    - "Show how to factor N given the order r of a random x mod N: if r is even and x^{r/2} ≢ −1, gcd(x^{r/2} ± 1, N) gives a factor."
+    - "Write the QFT on q = 2^L amplitudes: |a⟩ ↦ q^{-1/2} Σ_c exp(2πi ac/q)|c⟩. Sketch its O(L²) circuit."
+    - "Follow the state through the algorithm: superposition over a, compute x^a mod N, apply QFT. Where does interference concentrate the amplitude?"
+    - "Derive that measuring c gives |c r/q − d| ≤ 1/2 for some d with good probability, and show how continued fractions recover r."
+    - "Estimate the probability of success per run and the number of repetitions needed. What is the overall gate complexity in log N?"
+  key_equations:
+    - "|a\\rangle \\mapsto \\frac{1}{q^{1/2}}\\sum_{c=0}^{q-1} \\exp(2\\pi i\\, ac/q)\\,|c\\rangle"
+    - "\\gcd(x^{r/2} - 1, N),\\ \\gcd(x^{r/2} + 1, N)"
+    - "\\Big|\\frac{c}{q} - \\frac{d}{r}\\Big| \\le \\frac{1}{2q}"
+
+- id: grover
+  title: "A fast quantum mechanical algorithm for database search"
+  authors: "Lov K. Grover"
+  year: 1996
+  url: "https://arxiv.org/abs/quant-ph/9605043"
+  local: "library/pdfs/grover.pdf"
+  skills: [qc.grover, qc.oracles]
+  why: >-
+    Grover's algorithm finds a marked item among N unsorted items with O(√N) oracle queries, a
+    quadratic speedup that is provably optimal for unstructured search. It is the simplest
+    algorithm whose analysis is a clean 2D geometric rotation, and amplitude amplification — its
+    generalization — is a subroutine across quantum algorithms.
+  reading_guide:
+    - "State the unstructured search problem and the classical query lower bound (N/2 expected queries)."
+    - "Define the two operations: the oracle phase flip and the 'inversion about the average' D. Write D as a matrix."
+    - "Show D = −I + 2|s⟩⟨s| where |s⟩ is the uniform superposition, and that D is unitary."
+    - "Track the amplitudes: show each iteration increases the marked amplitude by about 2/√N when it is small."
+    - "Rederive the geometric picture: each iteration rotates by 2θ with sin θ = 1/√N. Derive the optimal number of iterations ≈ (π/4)√N."
+    - "What happens if you iterate too many times? Compute the success probability after k iterations, sin²((2k+1)θ)."
+  key_equations:
+    - "D_{ij} = \\frac{2}{N}\\ (i \\ne j),\\quad D_{ii} = -1 + \\frac{2}{N}"
+    - "D = -I + 2|s\\rangle\\langle s|,\\ |s\\rangle = \\frac{1}{\\sqrt N}\\sum_x |x\\rangle"
+    - "P_{success}(k) = \\sin^2\\big((2k+1)\\theta\\big),\\ \\sin\\theta = 1/\\sqrt{N}"
+    - "k_{opt} \\approx \\frac{\\pi}{4}\\sqrt{N}"
